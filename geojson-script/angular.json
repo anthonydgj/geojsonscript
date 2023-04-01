@@ -125,6 +125,13 @@
               "utils.js"
             ]
           }
+        },
+        "deploy": {
+          "builder": "angular-cli-ghpages:deploy",
+          "options": {
+            "baseHref": "/",
+            "cname": "geojsonscript.com"
+          }
         }
       }
     }
