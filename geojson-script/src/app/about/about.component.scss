@@ -6,7 +6,7 @@
     align-items: center;
     height: 100%;
     width: 100%;
-    min-width: 42em;
+    min-width: 20em;
 
     .mat-grid-list {
         margin: 2em;
@@ -22,7 +22,7 @@
     .subtitle {
         font-size: 1.1em;
         text-align: center;
-        margin: 0 2em;
+        margin: 0 3em;
         max-width: 27em;
     }
 
@@ -45,9 +45,16 @@
     }
 
     .screenshot {
-        max-width: 100%;
-        max-height: 22em;
-        box-shadow: 2px 2px 7px rgb(0 0 0 / 11%);
+
+        ::ng-deep .mat-grid-tile-content {
+            padding: 0 1em;
+        }
+
+        img {
+            max-width: 100%;
+            max-height: 22em;
+            box-shadow: 2px 2px 7px rgb(0 0 0 / 11%);
+        }
     }
 
     .text {
@@ -108,5 +115,12 @@
         line-height: 2em;
     }
 
+}
 
+.about-container.condensed {
+    font-size: 0.9em;
+
+    .feature-block {
+        font-size: 0.9em;
+    }
 }

@@ -1,5 +1,7 @@
 
-<div class="about-container grid-container">
+<div class="about-container grid-container"
+    [class.condensed]="isCondensedScreen"
+    (window:resize)="onResize($event)">
 
     <mat-grid-list cols="3" rowHeight="50px">
 
@@ -58,14 +60,15 @@
         <!-- Screenshot -->
         <mat-grid-tile
             [colspan]="3"
-            [rowspan]="9">
-            <img class="screenshot" src="/assets/screenshot1.png" />
+            [rowspan]="10 - rowAdjustment"
+            class="screenshot">
+            <img src="/assets/screenshot1.png" />
         </mat-grid-tile>
 
         <!-- Main features -->
         <mat-grid-tile
             [colspan]="3"
-            [rowspan]="8">
+            [rowspan]="8 + rowAdjustment">
             <div class="text">
                 <p class="section-title" i18n>Features</p>
                 <ul>
@@ -84,7 +87,7 @@
         <!-- Example Snippets -->
         <mat-grid-tile
             [colspan]="3"
-            [rowspan]="4">
+            [rowspan]="4 + rowAdjustment">
             <div class="text">
                 <p class="section-title" i18n>
                     Example Use Cases
@@ -132,7 +135,7 @@
         <!-- References -->
         <mat-grid-tile
             [colspan]="3"
-            [rowspan]="5">
+            [rowspan]="5 + rowAdjustment">
             <div class="text">
                 <p class="section-title" i18n>References</p>
                 <ol>

@@ -52,10 +52,33 @@ const defaultDataLayer: DataLayer = {
 })
 export class AboutComponent {
 
+  rowAdjustment = 1;
+  isCondensedScreen = false;
+
+  private readonly condensedScreenWidthPixels = 600;
+
   constructor(
     private preloadService: PreloadService,
     private router: Router
   ) { }
+
+  ngOnInit() {
+    this.refreshLayout(window.innerWidth);
+  }
+    
+  onResize(event:any ) {
+    this.refreshLayout(event.target.innerWidth);
+  }
+
+  private refreshLayout(innerWidth: number) {
+    if (innerWidth <= this.condensedScreenWidthPixels) {
+      this.rowAdjustment = 4;
+      this.isCondensedScreen = true;
+    } else {
+      this.rowAdjustment = 1;
+      this.isCondensedScreen = false;
+    }
+  }
 
   snippets: CodeSnippet[] = [
     {
