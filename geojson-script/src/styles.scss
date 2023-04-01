@@ -1,0 +1,79 @@
+/* global styles */
+
+html, body {
+    height: 100%;
+    background-color: #fafafa;
+}
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+
+/* Common styles */
+.hidden {
+    visibility: hidden;
+}
+.action-buttons {
+    display: flex;
+    justify-content: flex-end;
+    width: 100%;
+}
+.link,
+a {
+    color: #3967b1;
+    text-decoration: none;
+    cursor: pointer;
+}
+.link:hover,
+a:hover {
+    color: #87aae2;
+}
+code {
+    font-size: 1.1em;
+    margin: 0 0.2em;
+}
+.viewer-container {
+    min-width: 40em;
+    min-height: 30em;
+    position: relative;
+
+    .editor-container {
+        position: absolute;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        left: 0;
+    }
+}
+
+/* Angular split pane overrides */
+.as-split-gutter {
+    z-index: 1;
+}
+
+/* Leaflet override styles */
+.leaflet-container {
+    background: #9799a2;
+}
+.leaflet-popup-content {
+    margin: 1em 0em 3em 0em;
+    height: 30em;
+    min-width: 40em;
+}
+
+/* Leaflet custom styles */
+.popup-title {
+    font-weight: 500;
+    margin-bottom: 6px;
+}
+.popup-content {
+    max-height: 300px;
+    overflow: auto;
+}
+
+/* Color picker custom styles */
+.color-picker {
+    .button-area {
+        padding: 0 1em 1em 1em;
+        button {
+            padding: 0.5em 1em;
+        }
+    }
+}

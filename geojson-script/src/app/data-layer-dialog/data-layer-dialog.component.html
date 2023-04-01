@@ -1,0 +1,91 @@
+<h1 mat-dialog-title i18n>Add Layer</h1>
+<div mat-dialog-content>
+    <div class="dialog-content">
+
+        <div class="form-row">
+            <mat-form-field appearance="fill">
+                <mat-label>Data Source</mat-label>
+                <mat-select [(ngModel)]="selectedDataLayerSource">
+                    <mat-option *ngFor="let dataLayerSource of dataLayerSources"
+                        [value]="dataLayerSource"
+                        i18n>
+                        {
+                            dataLayerSource,
+                            select,
+                            FILE { File }
+                        }
+                    </mat-option>
+                </mat-select>
+            </mat-form-field>
+
+            <mat-form-field class="example-full-width">
+                <mat-label i18n>Layer name</mat-label>
+                <input matInput (change)="onLayerNameChange(layerName)" [(ngModel)]="layerName">
+            </mat-form-field>            
+        </div>
+
+        <div>
+            <div *ngIf="isLoading; else errorCheck">
+                <mat-spinner></mat-spinner>
+            </div>
+            <ng-template #errorCheck>
+                <div *ngIf="error else selector">
+                    <mat-error>
+                        <span i18n>
+                            {
+                                error,
+                                select,
+                                SELECT_ONE { Must select one file. }
+                                DIRECTORY { Must select a file. }
+                                PARSE { Cannot parse file. }
+                            }
+                        </span>
+                    </mat-error>
+                </div>
+                <ng-template #selector>
+                    <div *ngIf="selectedDataLayer else dataLayerSelector"
+                        class="selection">
+                        <button mat-icon-button (click)="onRemove()">
+                            <mat-icon>remove_circle</mat-icon>
+                        </button>
+                        <span [title]="selectedDataLayer.path">
+                            {{ selectedDataLayer.name }}
+                        </span>
+                    </div>
+                    <ng-template #dataLayerSelector>
+                        <ngx-file-drop
+                            dropZoneLabel="Drop files here"
+                            dropZoneClassName="drop-zone"
+                            (onFileDrop)="dropped($event)">
+                            <ng-template ngx-file-drop-content-tmp let-openFileSelector="openFileSelector">
+                                <div class="drag-and-drop-block">
+                                    <span>Drag and drop data layer file or </span>
+                                    <button mat-raised-button
+                                        type="button"
+                                        class="browse-button"
+                                        (click)="openFileSelector()">
+                                        Browse Files
+                                    </button>
+                                </div>
+                            </ng-template>
+                        </ngx-file-drop>
+                    </ng-template>
+                </ng-template>
+            </ng-template>
+        </div>
+    </div>
+</div>
+<div mat-dialog-actions>
+    <div class="action-buttons">
+        <button mat-button
+            mat-dialog-close>
+            Cancel
+        </button>
+        <button mat-button
+            [mat-dialog-close]="selectedDataLayer"
+            color="primary"
+            [disabled]="!selectedDataLayer">
+            Add
+        </button>
+    </div>
+</div>

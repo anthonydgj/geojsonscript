@@ -1,0 +1,162 @@
+
+<div class="about-container grid-container">
+
+    <mat-grid-list cols="3" rowHeight="50px">
+
+        <!-- Title -->
+        <mat-grid-tile
+            [colspan]="3"
+            [rowspan]="2">
+            <div class="title">
+                <app-title [highContrast]="true">
+                </app-title>
+            </div>
+        </mat-grid-tile>
+
+        <!-- Short description -->
+        <mat-grid-tile
+            [colspan]="3"
+            [rowspan]="2">
+            <div class="subtitle" i18n>
+                An open-source tool to explore, analyze and manipulate GeoJSON data
+                using JavaScript.
+            </div>
+        </mat-grid-tile>
+
+        <!-- Use cases -->
+        <mat-grid-tile
+            [colspan]="1"
+            [rowspan]="4">
+            <div class="feature-block">
+                <mat-icon [inline]="true">local_library</mat-icon>
+                <span class="feature-title" i18n>
+                    Use common web mapping technologies
+                </span>
+            </div>
+        </mat-grid-tile>
+        <mat-grid-tile
+            [colspan]="1"
+            [rowspan]="4">
+            <div class="feature-block">
+                <mat-icon [inline]="true">travel_explore</mat-icon>
+                <span class="feature-title" i18n>
+                    Explore and transform geospatial data
+                </span>
+            </div>
+        </mat-grid-tile>
+        <mat-grid-tile
+            [colspan]="1"
+            [rowspan]="4">
+            <div class="feature-block">
+                <mat-icon [inline]="true">science</mat-icon>
+                <span class="feature-title" i18n>
+                    Prototype and experiment with geospatial scripting
+                </span>
+            </div>
+        </mat-grid-tile>
+
+        <!-- Screenshot -->
+        <mat-grid-tile
+            [colspan]="3"
+            [rowspan]="9">
+            <img class="screenshot" src="/assets/screenshot1.png" />
+        </mat-grid-tile>
+
+        <!-- Main features -->
+        <mat-grid-tile
+            [colspan]="3"
+            [rowspan]="8">
+            <div class="text">
+                <p class="section-title" i18n>Features</p>
+                <ul>
+                    <li i18n>Add colour-coded GeoJSON data layers</li>
+                    <li i18n>Use data layers within the script without affecting the original data</li>
+                    <li i18n>Return GeoJSON data from the script to render it in the map</li>
+                    <li i18n>Download any GeoJSON data layer to a local file</li>
+                    <li i18n>Download the script to a local file</li>
+                    <li i18n>Click on any feature in the map to view its GeoJSON data</li>
+                    <li i18n>Double-click on the map to quickly create a single point layer</li>
+                    <li i18n>Resize panes to suit a given workflow</li>
+                </ul>
+            </div>
+        </mat-grid-tile>
+
+        <!-- Example Snippets -->
+        <mat-grid-tile
+            [colspan]="3"
+            [rowspan]="4">
+            <div class="text">
+                <p class="section-title" i18n>
+                    Example Use Cases
+                </p>
+                <p i18n>
+                    The following examples demonstrate how JavaScript can be used
+                    to explore and modify geospatial data. The code snippets operate
+                    on data obtained from
+                    <span class="link"
+                        (click)="eonetReference?.scrollIntoView({behavior: 'smooth'}) ">
+                        EONET.
+                    </span>
+                </p>
+            </div>
+        </mat-grid-tile>
+        <ng-container *ngFor="let snippet of snippets">
+            <mat-grid-tile
+                [colspan]="1"
+                [rowspan]="snippet.rowspan">
+                <div class="code-snippet-description">
+                    <span class="description-text"> {{ snippet.description }} </span>
+                    <span class="run-link link"
+                        (click)="runSnippet(snippet)">
+                        <mat-icon [inline]="true">play_arrow</mat-icon>
+                        <span i18n>Try It</span>
+                    </span>
+                </div>
+            </mat-grid-tile>
+            <mat-grid-tile
+                [colspan]="2"
+                [rowspan]="snippet.rowspan">
+                <div class="code-snippet">
+                    <app-code-viewer [options]="snippet.codeViewerOptions">
+                    </app-code-viewer>
+                </div>
+            </mat-grid-tile>
+        </ng-container>
+
+        <!-- Grid space -->
+        <mat-grid-tile
+            [colspan]="3"
+            [rowspan]="1">
+        </mat-grid-tile>
+
+        <!-- References -->
+        <mat-grid-tile
+            [colspan]="3"
+            [rowspan]="5">
+            <div class="text">
+                <p class="section-title" i18n>References</p>
+                <ol>
+                    <li #eonetReference i18n>
+                        <a href="https://eonet.gsfc.nasa.gov/" target="_blank">
+                            Earth Science Data Systems Program and NASA Earth Observatory.
+                        </a>
+                        2020. Earth Observatory Natural Events Tracker (3.0). [Software]. [Accessed 30 November 2020].
+                    </li>
+                    <li i18n>
+                        A full list of software dependencies and licenses is available in the project
+                        <a href="/assets/license.txt" target="_blank">
+                            licenses file
+                        </a>
+                    </li>
+                </ol>
+            </div>
+        </mat-grid-tile>
+
+        <!-- Footer margin -->
+        <mat-grid-tile
+            [colspan]="3"
+            [rowspan]="3">
+        </mat-grid-tile>
+    </mat-grid-list>
+
+</div>

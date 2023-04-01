@@ -1,0 +1,68 @@
+<div class="data-manager-container">
+    <div class="layers-list">
+        <div *ngIf="layerManagerService.layers.length === 0 else layerList"
+            class="info-message">
+            <p i18n>
+                Add data layers using the controls on the right.
+            </p>
+        </div>
+        <ng-template #layerList>
+            <mat-selection-list role="list" #layersSelection
+                class="layer-selection-list">
+                <mat-list-option
+                    *ngFor="let layer of layerManagerService.layers"
+                    class="list-option"
+                    [selected]="true"
+                    [class.readonly]="layer.type === LayerType.SCRATCH"
+                    (click)="onLayerClick(layer)"
+                    [value]="layer">
+                    <div class="list-item-content">
+                        <div class="marker"
+                            [style.backgroundColor]="layer.style?.fillColor">
+                        </div>
+                        <button mat-icon-button title="View Layer"
+                            class="info-button"
+                            (click)="onViewLayer($event, layer)">
+                            <mat-icon>info</mat-icon>
+                        </button>
+                        <span [attr.title]="layer.name"
+                            class="layer-name">
+                            {{ layer.name }}
+                        </span>
+                        <span [attr.title]="layer.path"
+                            class="layer-path">
+                            {{ layer.path }}
+                        </span>
+                        <div class="action-buttons">
+                            <button mat-icon-button title="Download Layer"
+                                (click)="onDownloadLayer($event, layer)">
+                                <mat-icon>download</mat-icon>
+                            </button>
+                            <button mat-icon-button title="Remove Layer"
+                                (click)="onRemoveLayer($event, layer)">
+                                <mat-icon>delete</mat-icon>
+                            </button>
+                        </div>
+                    </div>
+                </mat-list-option>
+            </mat-selection-list>
+        </ng-template>
+    </div>
+    <div class="layer-manager">
+
+        <button mat-icon-button title="Add Layer"
+            (click)="onOpenDialog()">
+            <mat-icon>add</mat-icon>
+        </button>
+    
+        <div class="drop-zone-container"
+            title="Drag and drop a GeoJSON file"
+            i18n-title="Drag and drop zone hover text">
+            <ngx-file-drop
+                (onFileDrop)="dropped($event)"
+                dropZoneClassName="drop-zone"
+                contentClassName="drop-zone-content">
+            </ngx-file-drop>
+        </div>
+    </div>
+</div>

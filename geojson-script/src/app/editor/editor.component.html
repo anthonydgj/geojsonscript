@@ -1,0 +1,47 @@
+<div class="editor-container">
+    <div class="editor-toolbar">
+        <div>
+            <button mat-icon-button
+                title="Run Script"
+                i18n-title
+                (click)="onRun()"
+                [disabled]="isRunning">
+                <mat-icon>play_arrow</mat-icon>
+            </button>
+            <button mat-icon-button
+                title="Clear Script"
+                i18n-title
+                (click)="onClear()"
+                [disabled]="isRunning">
+                <mat-icon>playlist_remove</mat-icon>
+            </button>
+        </div>
+        <div>
+            <button mat-icon-button
+                title="Load Example Script"
+                i18n-title
+                (click)="onLoadExampleScript()">
+                <mat-icon>help_outline</mat-icon>
+            </button>
+            <button mat-icon-button
+                title="View 'this' Object"
+                i18n-title
+                (click)="onShowThisObject()">
+                <mat-icon>data_object</mat-icon>
+            </button>
+            <button mat-icon-button
+                title="Download Script"
+                i18n-title
+                (click)="onDownload()">
+                <mat-icon>download</mat-icon>
+            </button>
+        </div>
+    </div>
+    <div class="editor">
+        <app-code-viewer
+            #codeViewer
+            [options]="editorOptions"
+            (ready)="onEditorReady($event)">
+        </app-code-viewer>
+    </div>
+</div>

@@ -1,0 +1,109 @@
+import { ChangeDetectorRef, Component } from '@angular/core';
+import { NgxFileDropEntry } from 'ngx-file-drop';
+import { DataLayer, LayerType } from '../data-layer';
+
+import { LayerManagerService } from '../layer-manager.service';
+
+export enum DataLayerSource {
+  FILE = 'FILE'
+}
+
+export enum DataLayerFormat {
+  GEOJSON = 'GEOJSON'
+}
+
+enum FileSelectionError {
+  SELECT_ONE = 'SELECT_ONE',
+  DIRECTORY = 'DIRECTORY',
+  PARSE = 'PARSE',
+}
+
+@Component({
+  selector: 'app-data-layer-dialog',
+  templateUrl: './data-layer-dialog.component.html',
+  styleUrls: ['./data-layer-dialog.component.scss']
+})
+export class DataLayerDialogComponent {
+
+  DataLayerSource = DataLayerSource;
+  DataLayerFormat = DataLayerFormat;
+
+  dataLayerSources = Object.keys(DataLayerSource).map(value => (DataLayerSource as any)[value])
+  selectedDataLayerSource: DataLayerSource = this.dataLayerSources[0];
+
+  dataLayerFormats = Object.keys(DataLayerFormat).map(value => (DataLayerFormat as any)[value])
+  selectedDataLayerFormat: DataLayerFormat = this.dataLayerFormats[0];
+
+  files: NgxFileDropEntry[] = [];
+
+  selectedDataLayer?: DataLayer;
+  isLoading = false;
+  error?: FileSelectionError;
+  layerName: string;
+
+  constructor(
+    private layerManagerService: LayerManagerService,
+    private changeDetectorRef: ChangeDetectorRef
+  ) {
+    this.layerName = this.layerManagerService.getSuggestedLayerName();
+  }
+
+  dropped(files: NgxFileDropEntry[]) {
+    this.files = files;
+    this.isLoading = true;
+    this.error = undefined;
+    this.changeDetectorRef.detectChanges();
+
+    if (files.length >= 1) {
+      // Use first file
+      const droppedFile = files[0];
+      if (droppedFile.fileEntry.isFile) {
+        const fileEntry = droppedFile.fileEntry as FileSystemFileEntry;
+        fileEntry.file((file: File) => {
+
+          const filepath = droppedFile.relativePath;
+
+          file.text().then(text => {
+            const json = JSON.parse(text);
+
+            const dataLayer: DataLayer = {
+              name: this.layerName,
+              path: filepath,
+              content: json,
+              zIndex: 1,
+              type: LayerType.INPUT
+            };
+
+            this.selectedDataLayer = dataLayer;
+
+          }).catch(err => {
+            console.error(err);
+            this.selectedDataLayer = undefined;
+            this.error = FileSelectionError.PARSE;
+          }).finally(() => {
+            this.isLoading = false;
+            this.changeDetectorRef.detectChanges();
+          });
+        });
+      } else {
+        this.error = FileSelectionError.DIRECTORY;
+        this.isLoading = false;
+      }
+    } else {
+      this.error = FileSelectionError.SELECT_ONE;
+      this.isLoading = false;
+    }
+    this.changeDetectorRef.detectChanges();
+  }
+
+  onRemove() {
+    this.selectedDataLayer = undefined;
+    this.changeDetectorRef.detectChanges();
+  }
+
+  onLayerNameChange(layerName: string) {
+    if (this.selectedDataLayer) {
+      this.selectedDataLayer.name = layerName;
+    }
+  }
+}

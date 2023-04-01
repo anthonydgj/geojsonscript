@@ -1,0 +1,25 @@
+<mat-toolbar class="toolbar">
+
+    <a class="title"
+        [routerLink]="'/'">
+        <app-title></app-title>
+    </a>
+
+    <span class="spacer"></span>
+
+    <span class="toolbar-links">
+        <a *ngFor="let link of links"
+            [routerLink]="link.path"
+            class="navigation-link">
+            {{ link.name }}
+        </a>
+        <a href="https://github.com/anthonydgj/geojsonscript"
+            target="_blank"
+            title="View project on GitHub"
+            i18n-title
+            class="navigation-icon-link">
+            <img src="/assets/github-mark-white.png"/>
+        </a>
+    </span>
+
+</mat-toolbar>

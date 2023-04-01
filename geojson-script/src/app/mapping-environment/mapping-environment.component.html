@@ -1,0 +1,20 @@
+<div class="split-pane">
+    <as-split direction="horizontal" (dragEnd)="onDragEnd($event, SplitPanel.MAP)">
+        <as-split-area [size]="mapSize">
+            <app-map #map [mapOptions]="preloadOptions?.mapOptions"></app-map>
+        </as-split-area>
+        <as-split-area [size]="100 - mapSize">
+            <as-split direction="vertical" (dragEnd)="onDragEnd($event, SplitPanel.DATA_MANAGER)">
+                <as-split-area [size]="dataManagerSize">
+                    <app-data-manager [preloadLayers]="preloadOptions?.layers"></app-data-manager>
+                </as-split-area>
+                <as-split-area [size]="editorSize">
+                    <app-editor [preloadValue]="preloadOptions?.script"></app-editor>
+                </as-split-area>
+                <as-split-area [size]="100 - dataManagerSize - editorSize">
+                    <app-console></app-console>
+                </as-split-area>
+            </as-split>
+        </as-split-area>
+    </as-split>
+</div>

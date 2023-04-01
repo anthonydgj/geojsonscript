@@ -1,0 +1,125 @@
+@import 'src/assets/vars.scss';
+
+.data-manager-container {
+    display: flex;
+    justify-content: stretch;
+    align-items: stretch;
+    height: 100%;
+
+    .layers-list {
+
+        overflow: auto;
+        flex-grow: 1;
+
+        .layer-selection-list {
+            padding: 0;
+
+            /* Angular Material override styles */
+            ::ng-deep .mdc-list-item--with-trailing-checkbox .mdc-list-item__end {
+                margin: 0 0.5em;
+            }
+        }
+
+        .list-option {
+            padding: 0;
+            min-width: 19em;
+            display: flex;
+            justify-content: stretch;
+            align-items: stretch;
+        }
+
+        .info-message {
+            color: #aaaaaa;
+            height: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 0 1em;
+
+            p {
+                max-width: 25em;
+            }
+        }
+
+        .readonly {
+            font-style: italic;
+        }
+
+        .list-item-content {
+            display: flex;
+            align-items: center;
+            width: 100%;
+
+            .marker {
+                max-width: 5px;
+                min-width: 5px;
+                align-self: stretch;
+            }
+
+            button {
+                font-size: 8px;
+            }
+
+            .action-buttons {
+                color: #3d3d3d;
+                flex-grow: 1;
+                text-align: right;
+                width: auto;
+            }
+
+            .info-button {
+                margin: 0 0.5em;
+            }
+
+            .layer-name {
+                margin-left: 1em;
+                margin-right: 1em;
+            }
+
+            .layer-path {
+                color: #b1b1b1;
+                text-overflow: ellipsis;
+                white-space: normal;
+                overflow: hidden;
+                flex-grow: 1;
+                font-size: 0.9em;
+            }
+        }
+
+        .list-item-content.readonly {
+            font-style: italic;
+        }
+    }
+
+    .layer-manager {
+        padding: 2px;
+        background-color: $toolbar-color;
+
+        .drop-zone-container {
+
+            ::ng-deep .drop-zone {
+                border: #9d9db3;
+                border-style: dotted;
+                border-radius: 8px;
+                height: 42px;
+                color: #c1c1c1;
+                background-color: #80808012;
+                font-size: 22px;
+            }
+
+            ::ng-deep .drop-zone::before {
+                font-family: "Material Icons";
+                content: '\e9fc';
+                margin-left: 12px;
+                margin-top: 11px;
+                text-align: center;
+                background-size: cover;
+                position: absolute;
+            }
+
+            ::ng-deep .drop-zone-content {
+                height: auto;
+            }
+        }
+    }
+}
