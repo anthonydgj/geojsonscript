@@ -1,13 +1,12 @@
 import { Component } from '@angular/core';
 import * as L from 'leaflet';
+import { Router } from '@angular/router';
 
 import { DataLayer, LayerType } from '../data-layer';
 import { CodeViewerOptions } from '../code-viewer/code-viewer.component';
-import { Router } from '@angular/router';
 import { Constants } from '../constants';
 import { PreloadService } from '../preload.service';
 import { ExampleData } from '../example-data';
-import { LayerManagerService } from '../layer-manager.service';
 
 interface CodeSnippet {
   description: string;
@@ -55,7 +54,6 @@ export class AboutComponent {
 
   constructor(
     private preloadService: PreloadService,
-    private layerManagerService: LayerManagerService,
     private router: Router
   ) { }
 
