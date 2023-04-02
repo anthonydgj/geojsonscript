@@ -4,7 +4,7 @@ GeoJSON Script provides a scripting environment to view and manipulate GeoJSON d
 This project was originally developed during the _Web-based GIS_ course at the University
 of Leeds in 2020, and has subsequently been rewritten using [Angular](https://angular.io/).
 Further details about the project can be found on the
-[GeoJSON Script](https://geojsonscript.com/about) website.
+[GeoJSON Script](https://geojsonscript.io/about) website.
 
 ## Development
 

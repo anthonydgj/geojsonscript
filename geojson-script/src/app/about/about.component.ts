@@ -171,7 +171,7 @@ eventFeatures.sort((a, b) => (
   new Date(b.properties.date).getTime()
 ));
 
-// Color code the start and end events
+// Color-code the start and end events
 eventFeatures[0].properties.style = {
   fillColor: '#53d453' // Green
 }; 
