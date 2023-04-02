@@ -43,7 +43,10 @@ export class CodeViewerComponent {
 
     this._editor = monaco.editor.create(
       this._editorContainer?.nativeElement,
-      this.options.monacoEditorOptions
+      {
+        tabSize: 2,
+        ...this.options.monacoEditorOptions
+      }
     );
 
     this._editor.setValue(this.options.initialValue);
