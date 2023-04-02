@@ -51,8 +51,8 @@ export class MapComponent {
 
     this.map = L.map('map', {
       doubleClickZoom: false,
-      zoom: 2,
-      center: [30, 0],
+      zoom: 1,
+      center: [0, 0],
       ...this.mapOptions
     });
 
