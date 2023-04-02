@@ -91,7 +91,7 @@ return layer1.features.filter(feature =>
         monacoEditorOptions: defaultMonacoEditorOptions
       },
       dataLayers: [defaultDataLayer],
-      rowspan: 2,
+      rowspan: 3,
       colspan: fullRowColspan
     },
     {
