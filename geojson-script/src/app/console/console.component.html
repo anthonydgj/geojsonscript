@@ -1,7 +1,7 @@
 <div class="console-container">
     <div *ngIf="!consoleEvents || consoleEvents.length === 0 else logs"
         class="info-message" i18n>
-        Type ctrl+l to clear console output.
+        Type ctrl+l (or command+l on Mac) to clear console output.
     </div>
     <ng-template #logs>
         <div class="console-logs" #consoleLogs>

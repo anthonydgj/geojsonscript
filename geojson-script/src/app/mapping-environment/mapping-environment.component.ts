@@ -24,9 +24,9 @@ const appStatePrefix = 'splitPanel';
 export class MappingEnvironmentComponent implements OnInit, OnDestroy {
 
   @HostListener('document:keydown', ['$event']) onKeydownHandler(event: KeyboardEvent) {
-    if (event.ctrlKey && event.key === 'Enter') {
+    if (event.metaKey && event.key === 'Enter') {
       this.userEventService.sendCommand(UserEvent.RUN_SCRIPT);
-    } else if (event.ctrlKey && event.key === 'l') {
+    } else if (event.metaKey && event.key === 'l') {
       this.userEventService.sendCommand(UserEvent.CLEAR_CONSOLE_OUTPUT);
     }
   }

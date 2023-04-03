@@ -26,11 +26,11 @@ export class EditorComponent implements OnInit, AfterViewInit, OnDestroy {
   private editorSaveSubscription = new Subscription();
   private editorChange$ = new BehaviorSubject<void>(undefined);
 
-  private initialValue = `// Use ctrl+enter shortcut to run the script code\n`;
+  private initialValue = `// Use ctrl+enter or (command-enter on Mac) to run the script code\n`;
   private exampleValue =  `/*
  *   Tips:
  *   =====
- *   Use ctrl+enter shortcut to run the script.
+ *   Use ctrl+enter or (command-enter on Mac) to run the script.
  *   Double-click on the map to quickly add a temporary point layer.
  *   Return a GeoJSON object to add a temporary feature layer.
  *   Reference map layers by name within the script.
@@ -104,7 +104,8 @@ return {
     monacoEditorOptions: {
       language: 'javascript',
       automaticLayout: true
-    }
+    },
+    captureUserEvents: true
   };
 
   scratchDataLayer?: DataLayer;

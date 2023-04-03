@@ -2,6 +2,7 @@ import { ChangeDetectorRef, Component, ElementRef, EventEmitter, Input, Output, 
 import { first } from 'rxjs';
 
 import { MonacoEditorService } from '../monaco-editor.service';
+import { UserEvent, UserEventService } from '../user-event.service';
 
 declare var monaco: any;
 
@@ -9,6 +10,7 @@ export interface CodeViewerOptions {
   initialValue?: string;
   collapsed?: boolean;
   monacoEditorOptions?: any;
+  captureUserEvents?: boolean;
 }
 
 @Component({
@@ -29,6 +31,7 @@ export class CodeViewerComponent {
 
   constructor(
     private monacoEditorService: MonacoEditorService,
+    private userEventService: UserEventService,
     private changeDetectorRef: ChangeDetectorRef
   ) { }
 
@@ -53,6 +56,15 @@ export class CodeViewerComponent {
 
     if (this.options.collapsed) {
       this._editor.getAction('editor.foldLevel2').run();
+    }
+
+    if (this.options.captureUserEvents) {
+      this._editor.addCommand(monaco.KeyMod.CtrlCmd | monaco.KeyCode.Enter, () => {
+        this.userEventService.sendCommand(UserEvent.RUN_SCRIPT);
+      });
+      this._editor.addCommand(monaco.KeyMod.CtrlCmd | monaco.KeyCode.KeyL, () => {
+        this.userEventService.sendCommand(UserEvent.CLEAR_CONSOLE_OUTPUT);
+      });
     }
 
     this.isReady = true;
