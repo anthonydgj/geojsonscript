@@ -4,12 +4,16 @@ export namespace DataUtils {
 
     const SIMPLE_OBJECT_CONSTRUCTOR_NAMES = ['Object', 'Array'];
 
+    export const getConstructorName = (value: any): string | undefined => {
+        return value.constructor && value.constructor.name;
+    }
+
     export const simpleObjectReplacerFn = () => {
         return (_: string, value: any) => {
             if (typeof value === "object" && value !== null) {
-                const constructorName = value.constructor && value.constructor.name;
+                const constructorName = getConstructorName(value);
                 if (!!constructorName && SIMPLE_OBJECT_CONSTRUCTOR_NAMES.indexOf(constructorName) === -1) {
-                return `[object ${constructorName}]`;
+                    return `[object ${constructorName}]`;
                 }
             }
           return value;

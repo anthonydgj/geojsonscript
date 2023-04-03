@@ -15,7 +15,15 @@ export class ThisObjectDialogComponent {
 
   constructor(jsExecutorService: JsExecutorService) {
     const thisObject = jsExecutorService.getThis();
-    const formattedData = DataUtils.getSimpleObjectString(thisObject);
+    const thisObjectConstructors: { [name: string]: string } = {};
+    for (const prop of Object.keys(thisObject)) {
+      if (thisObject.hasOwnProperty(prop)) {
+        const constructorName = DataUtils.getConstructorName(thisObject[prop]);
+        thisObjectConstructors[prop] = constructorName || 'Object';
+      }
+    }
+
+    const formattedData = JSON.stringify(thisObjectConstructors, null, 2);
     this.options = {
       initialValue: formattedData,
       collapsed: true,
