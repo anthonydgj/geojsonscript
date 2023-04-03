@@ -1,9 +1,11 @@
+@import 'src/assets/vars.scss';
+
 .title {
     .title-1 {
         color: #a7a7ac;
     }
     .title-2 {
-        color: #efdb50;
+        color: lighten($main-color, 30%);
     }
 }
 
@@ -11,5 +13,5 @@
     color: #64646b;
 }
 .title.high-contrast .title-2 {
-    color: #d3ba08;
+    color: $main-color;
 }
