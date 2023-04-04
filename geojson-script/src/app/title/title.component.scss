@@ -1,8 +1,18 @@
 @import 'src/assets/vars.scss';
 
 .title {
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    img {
+        height: 1em;
+        margin-right: 0.2em;
+    }
+
     .title-1 {
-        color: #a7a7ac;
+        color: #bcbcc0;
     }
     .title-2 {
         color: lighten($main-color, 30%);
