@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+
 import { ConsoleListenerService } from './console-listener.service';
 
 @Component({
@@ -7,7 +8,6 @@ import { ConsoleListenerService } from './console-listener.service';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
-  title = 'geojson-script';
 
   constructor(
     private consoleListenerService: ConsoleListenerService

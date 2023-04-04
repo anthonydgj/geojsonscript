@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import * as L from 'leaflet';
 import { Router } from '@angular/router';
 
+import packageJson from 'package.json';
 import { DataLayer, LayerType } from '../data-layer';
 import { CodeViewerOptions } from '../code-viewer/code-viewer.component';
 import { Constants } from '../constants';
@@ -54,6 +55,7 @@ export class AboutComponent {
 
   rowAdjustment = 1;
   isCondensedScreen = false;
+  version = packageJson.version;
 
   private readonly condensedScreenWidthPixels = 600;
 
