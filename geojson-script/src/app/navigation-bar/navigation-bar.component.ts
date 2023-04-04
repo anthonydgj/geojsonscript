@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 
+import packageJson from 'package.json';
 import { Constants } from '../constants';
 
 @Component({
@@ -8,6 +9,8 @@ import { Constants } from '../constants';
   styleUrls: ['./navigation-bar.component.scss']
 })
 export class NavigationBarComponent {
+
+  version = $localize `${packageJson.name}\: ${packageJson.version}`;
 
   links = [
     {

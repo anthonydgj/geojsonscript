@@ -4,11 +4,10 @@
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
-    "build": "ng build && npm run generate-license-report && npm run write-version",
+    "build": "ng build && npm run generate-license-report",
     "watch": "ng build --watch --configuration development",
     "test": "ng test",
     "generate-license-report": "license-checker --out=src/assets/license.txt",
-    "write-version": "npm -s run env echo '$npm_package_version' > src/assets/version",
     "deploy": "ng deploy"
   },
   "private": true,
