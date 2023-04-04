@@ -1,13 +1,14 @@
 {
   "name": "geojson-script",
-  "version": "0.0.0",
+  "version": "0.1.0",
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
-    "build": "ng build",
+    "build": "ng build && npm run generate-license-report && npm run write-version",
     "watch": "ng build --watch --configuration development",
     "test": "ng test",
     "generate-license-report": "license-checker --out=src/assets/license.txt",
+    "write-version": "npm -s run env echo '$npm_package_version' > src/assets/version",
     "deploy": "ng deploy"
   },
   "private": true,
