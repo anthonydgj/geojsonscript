@@ -1,15 +1,15 @@
 {
   "name": "geojson-script",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "license": "MIT",
   "homepage": "https://geojsonscript.io",
   "bugs": {
-    "url" : "https://github.com/anthonydgj/geojsonscript/labels/bug"
+    "url": "https://github.com/anthonydgj/geojsonscript/labels/bug"
   },
   "author": {
-    "name" : "Anthony DGJ",
-    "email" : "anthonydgj4@gmail.com",
-    "url" : "https://github.com/anthonydgj"
+    "name": "Anthony DGJ",
+    "email": "anthonydgj4@gmail.com",
+    "url": "https://github.com/anthonydgj"
   },
   "scripts": {
     "ng": "ng",
