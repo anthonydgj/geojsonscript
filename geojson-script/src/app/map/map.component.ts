@@ -1,7 +1,7 @@
 import { Component, Input } from '@angular/core';
 import * as L from 'leaflet';
-import { DataLayer } from '../data-layer';
 
+import { DataLayer } from '../data-layer';
 import { JsExecutorService } from '../js-executor.service';
 import { LayerManagerService } from '../layer-manager.service';
 import { MapService } from '../map.service';
@@ -53,6 +53,7 @@ export class MapComponent {
       doubleClickZoom: false,
       zoom: 1,
       center: [0, 0],
+      wheelPxPerZoomLevel: 150,
       ...this.mapOptions
     });
 
