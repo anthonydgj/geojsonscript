@@ -2922,7 +2922,7 @@
 │  ├─ email: loganfsmyth@gmail.com
 │  ├─ path: /Users/jarran/projects/geojsonscript/geojson-script/node_modules/gensync
 │  └─ licenseFile: /Users/jarran/projects/geojsonscript/geojson-script/node_modules/gensync/LICENSE
-├─ geojson-script@0.1.1
+├─ geojson-script@0.1.2
 │  ├─ licenses: MIT
 │  ├─ publisher: Anthony DGJ
 │  ├─ email: anthonydgj4@gmail.com
