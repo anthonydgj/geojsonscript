@@ -67,7 +67,7 @@ export class LayerManagerService {
     this.jsExecutorService.getThis()[dataLayer.name] = deepcopy(dataLayer.content);
 
     const map = this.mapService.getMap();
-    if (map) {
+    if (map && !dataLayer.hide) {
       this.mapService.loadGeoJSON(map, dataLayer);
     }
 
