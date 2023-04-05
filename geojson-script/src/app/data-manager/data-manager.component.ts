@@ -2,10 +2,11 @@ import { ChangeDetectorRef, Component, Input, OnDestroy, OnInit, ViewChild } fro
 import { MatDialog } from '@angular/material/dialog';
 import { MatSelectionList } from '@angular/material/list';
 import { NgxFileDropEntry } from 'ngx-file-drop';
-import { Subscription } from 'rxjs';
+import { first, Subscription } from 'rxjs';
 
+import { db, LayerType } from '../db';
 import { DataDialogComponent } from '../data-dialog/data-dialog.component';
-import { DataLayer, LayerType } from '../data-layer';
+import { DataLayer } from '../data-layer';
 import { DataLayerDialogComponent } from '../data-layer-dialog/data-layer-dialog.component';
 import { DataUtils } from '../data-utils';
 import { LayerManagerService } from '../layer-manager.service';
@@ -34,14 +35,20 @@ export class DataManagerComponent implements OnInit, OnDestroy {
   ) { }
 
   ngOnInit(): void {
-    this.mapInitSubscription = this.mapService.mapInit$.pipe().subscribe(() => {
-      if (this.preloadLayers) {
-        this.layerManagerService.removeAll();
-        this.preloadLayers.forEach(layer => {
-          this.addLayer(layer);
-        });
-      }
-    });
+    this.mapInitSubscription = this.mapService.mapInit$
+      .pipe(first())
+      .subscribe(() => {
+        if (this.preloadLayers) {
+          this.layerManagerService.removeAll(false);
+          this.preloadLayers.forEach(layer => {
+            this.addLayer(layer, false);
+          });
+        } else {
+          db.dataLayers.each(dataLayer => {
+            this.addLayer(dataLayer, false);
+          })
+        }
+      });
   }
 
   ngOnDestroy(): void {
@@ -127,8 +134,8 @@ export class DataManagerComponent implements OnInit, OnDestroy {
     }
   }
 
-  private addLayer(dataLayer: DataLayer) {
-    this.layerManagerService.addLayer(dataLayer);
+  private addLayer(dataLayer: DataLayer, permanent = true) {
+    this.layerManagerService.addLayer(dataLayer, permanent);
     this.changeDetectorRef.detectChanges();
   }
 

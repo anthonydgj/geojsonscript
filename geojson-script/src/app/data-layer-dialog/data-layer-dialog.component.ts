@@ -1,6 +1,7 @@
 import { ChangeDetectorRef, Component } from '@angular/core';
 import { NgxFileDropEntry } from 'ngx-file-drop';
-import { DataLayer, LayerType } from '../data-layer';
+import { DataLayer } from '../data-layer';
+import { LayerType } from '../db';
 
 import { LayerManagerService } from '../layer-manager.service';
 

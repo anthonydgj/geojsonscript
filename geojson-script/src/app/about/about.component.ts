@@ -3,11 +3,12 @@ import * as L from 'leaflet';
 import { Router } from '@angular/router';
 
 import packageJson from 'package.json';
-import { DataLayer, LayerType } from '../data-layer';
+import { DataLayer } from '../data-layer';
 import { CodeViewerOptions } from '../code-viewer/code-viewer.component';
 import { Constants } from '../constants';
 import { PreloadService } from '../preload.service';
 import { ExampleData } from '../example-data';
+import { LayerType } from '../db';
 
 interface CodeSnippet {
   description: string;

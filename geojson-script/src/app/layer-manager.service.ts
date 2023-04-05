@@ -3,7 +3,8 @@ import randomColor from 'randomcolor';
 import tinycolor from 'tinycolor2';
 import deepcopy from 'deepcopy';
 
-import { DataLayer, LayerType } from './data-layer';
+import { DataLayerRecord, db, LayerType } from './db';
+import { DataLayer } from './data-layer';
 import { JsExecutorService } from './js-executor.service';
 import { MapService } from './map.service';
 
@@ -47,7 +48,7 @@ export class LayerManagerService {
       .toString();
   }
 
-  addLayer(dataLayer: DataLayer) {
+  async addLayer(dataLayer: DataLayer, permanent = true) {
     if (dataLayer.type !== LayerType.SCRATCH) {
       this.inputLayerCount++;
     }
@@ -71,9 +72,21 @@ export class LayerManagerService {
     }
 
     this.layers.push(dataLayer);
+
+    if (permanent) {
+      const dataLayerRecord: DataLayerRecord = {
+        name: dataLayer.name,
+        path: dataLayer.path,
+        content: dataLayer.content,
+        zIndex: dataLayer.zIndex,
+        style: dataLayer.style,
+        type: dataLayer.type
+      };
+      await db.dataLayers.put(dataLayerRecord, dataLayer.name);
+    }
   }
 
-  removeLayer(dataLayer: DataLayer) {
+  async removeLayer(dataLayer: DataLayer, permanent = true) {
     this.jsExecutorService.getThis()[dataLayer.name] = undefined;
 
     const map = this.mapService.getMap();
@@ -85,6 +98,10 @@ export class LayerManagerService {
     const removeIndex = this.layers.findIndex(layer => layer === dataLayer);
     if (removeIndex >= 0) {
       this.layers.splice(removeIndex, 1);
+    }
+
+    if (permanent) {
+      await db.dataLayers.delete(dataLayer.name);
     }
   }
 
@@ -133,9 +150,9 @@ export class LayerManagerService {
     return scratchLayer;
   }
 
-  removeAll(): void {
+  removeAll(permanent = true): void {
     this.layers.forEach(layer => {
-      this.removeLayer(layer);
+      this.removeLayer(layer, permanent);
     });
     this.layers.length = 0;
   }
