@@ -1,15 +1,6 @@
-export enum LayerType {
-  INPUT = 'INPUT',
-  SCRATCH = 'SCRATCH'
-}
+import { DataLayerRecord } from "./db";
 
-export interface DataLayer {
-  name: string;
-  path?: string;
-  content: any;
-  zIndex: number;
-  style?: any;
-  type: LayerType;
+export interface DataLayer extends DataLayerRecord {
   mapLayer?: L.GeoJSON;
 }
   

@@ -82,6 +82,6 @@ export class MappingEnvironmentComponent implements OnInit, OnDestroy {
   }
 
   ngOnDestroy(): void {
-    this.layerManagerService.removeAll();
+    this.layerManagerService.removeAll(false);
   }
 }

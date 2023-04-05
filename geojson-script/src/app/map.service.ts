@@ -1,7 +1,7 @@
 import { ComponentFactoryResolver, Injectable, Injector } from '@angular/core';
 
 import * as L from 'leaflet';
-import { BehaviorSubject, share } from 'rxjs';
+import { BehaviorSubject, share, shareReplay } from 'rxjs';
 import { DataLayer } from './data-layer';
 import { PopupContentComponent } from './popup-content/popup-content.component';
 
@@ -20,7 +20,7 @@ export class MapService {
 
   map?: L.Map;
   mapInit$ = this._mapInit$.asObservable().pipe(
-    share()
+    shareReplay(1)
   );
 
   constructor(
