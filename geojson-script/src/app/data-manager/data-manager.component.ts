@@ -44,7 +44,8 @@ export class DataManagerComponent implements OnInit, OnDestroy {
             this.addLayer(layer, false);
           });
         } else {
-          db.dataLayers.each(dataLayer => {
+          db.dataLayers.each((dataLayer: DataLayer) => {
+            dataLayer.hide = true;
             this.addLayer(dataLayer, false);
           })
         }
