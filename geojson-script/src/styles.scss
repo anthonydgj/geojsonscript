@@ -30,8 +30,8 @@ code {
     margin: 0 0.2em;
 }
 .viewer-container {
-    min-width: 40em;
-    min-height: 30em;
+    min-width: 35em;
+    min-height: 25em;
     position: relative;
 
     .editor-container {
@@ -43,7 +43,7 @@ code {
     }
 }
 
-/* Angular split pane overrides */
+/* Angular split pane override styles */
 .as-split-gutter {
     z-index: 1;
 }
@@ -54,8 +54,8 @@ code {
 }
 .leaflet-popup-content {
     margin: 1em 0em 3em 0em;
-    height: 30em;
-    min-width: 40em;
+    min-width: 35em;
+    min-height: 25em;
 }
 .leaflet-container a.leaflet-popup-close-button {
     font-size: 2em;
@@ -70,6 +70,20 @@ code {
 .popup-content {
     max-height: 300px;
     overflow: auto;
+}
+.leaflet-popup-content {
+    /* Ensure Monaco Editor scroll bars are clickable */
+    .monaco-editor {
+        .monaco-scrollable-element > .scrollbar.visible {
+            z-index: 101;
+            .slider {
+                z-index: 102;
+            }
+        }
+        .minimap.slider-mouseover .minimap-slider {
+            z-index: 103;
+        }
+    }
 }
 
 /* Color picker custom styles */
