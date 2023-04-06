@@ -22,7 +22,11 @@ export class PopupContentComponent implements OnInit {
       monacoEditorOptions: {
         language: 'json',
         automaticLayout: true,
-        readOnly: true
+        readOnly: true,
+        minimap: {
+          enabled: true,
+          autohide: false
+        }
       }
     }
   }
