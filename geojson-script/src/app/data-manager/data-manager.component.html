@@ -34,7 +34,9 @@
                             {{ layer.path }}
                         </span>
                         <div class="action-buttons">
-                            <button mat-icon-button title="Layer Menu" [matMenuTriggerFor]="layerMenu">
+                            <button mat-icon-button title="Layer Menu"
+                                [matMenuTriggerFor]="layerMenu"
+                                (click)="$event.preventDefault(); $event.stopPropagation()">
                                 <mat-icon>more_vert</mat-icon>
                             </button>
                             <mat-menu #layerMenu="matMenu">
