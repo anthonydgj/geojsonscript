@@ -20,12 +20,28 @@ export class DataDialogComponent {
   @ViewChild('codeViewer', { static: true }) codeViewer?: CodeViewerComponent;
 
   options: CodeViewerOptions;
+  summary?: string;
+
+  private readonly DEFAULT_PRECISION_DIGITS = 6;
 
   constructor(
     @Inject(MAT_DIALOG_DATA) public data: DataDialogData,
     private layerManagerService: LayerManagerService
   ) {
-    const formattedData = DataUtils.getSimpleObjectString(data.dataLayer.content);
+    const content = data.dataLayer.content;
+    if (content) {
+      if (
+        content.type === 'Point' &&
+        Array.isArray(content.coordinates) &&
+        content.coordinates.length >= 2
+      ) {
+        const lat = content.coordinates[1].toFixed(this.DEFAULT_PRECISION_DIGITS)
+        const long = content.coordinates[0].toFixed(this.DEFAULT_PRECISION_DIGITS)
+        this.summary = $localize `lat,lng: ${lat},${long}`
+      }
+    }
+
+    const formattedData = DataUtils.getSimpleObjectString(content);
     this.options = {
       initialValue: formattedData,
       monacoEditorOptions: {
