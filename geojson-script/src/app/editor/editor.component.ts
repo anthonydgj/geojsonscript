@@ -18,7 +18,7 @@ import { UserEvent, UserEventService } from '../user-event.service';
 export class EditorComponent implements OnDestroy {
   public _editor: any;
 
-  private DEFAULT_SCRIPT_ID = 1;
+  private DEFAULT_SCRIPT_NAME = 'script';
 
   private eventSubscription = new Subscription();
   private editorSaveSubscription = new Subscription();
@@ -159,7 +159,7 @@ return {
         // Save custom scripts
         if (savedScript !== undefined) {
           await db.scripts.put({
-            id: this.DEFAULT_SCRIPT_ID,
+            name: this.DEFAULT_SCRIPT_NAME,
             content: savedScript
           });
         }
