@@ -15,16 +15,23 @@ export interface DataLayerRecord {
     type: LayerType;
 }
 
+export interface Script {
+    id: number;
+    content: string;
+}
+
 export class AppDB extends Dexie {
 
     private static databaseName = 'geojsonScript';
 
     dataLayers!: Table<DataLayerRecord, string>;
+    scripts!: Table<Script, number>;
 
     constructor() {
         super(AppDB.databaseName);
         this.version(1).stores({
-            dataLayers: 'name'
+            dataLayers: 'name',
+            scripts: '++id'
         });
     }
 }
