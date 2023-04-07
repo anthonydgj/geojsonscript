@@ -1,7 +1,6 @@
 import { Component, Input } from '@angular/core';
 import * as L from 'leaflet';
 
-import { DataLayer } from '../data-layer';
 import { JsExecutorService } from '../js-executor.service';
 import { LayerManagerService } from '../layer-manager.service';
 import { MapService } from '../map.service';
@@ -17,8 +16,6 @@ export class MapComponent {
 
   map?: L.Map;
 
-  locationLayer?: DataLayer;
-
   constructor(
     private jsExecutorService: JsExecutorService,
     private mapService: MapService,
@@ -33,18 +30,15 @@ export class MapComponent {
     this.map?.invalidateSize();
   }
 
-  onMapDoubleClick(event: L.LeafletMouseEvent) {
+  async onMapDoubleClick(event: L.LeafletMouseEvent) {
     const location = event.latlng;
 
-    if (this.locationLayer) {
-      this.layerManagerService.removeLayer(this.locationLayer);
-    }
-
-    this.locationLayer = this.layerManagerService.getScratchPointLayer({
+    const locationLayer = this.layerManagerService.getScratchPointLayer({
       type: 'Point',
       coordinates: [location.lng, location.lat]
     });
-    this.layerManagerService.addLayer(this.locationLayer);
+    await this.layerManagerService.removeLayerByName(locationLayer.name);
+    this.layerManagerService.addLayer(locationLayer);
   }
 
   private initializeMap(): void {
