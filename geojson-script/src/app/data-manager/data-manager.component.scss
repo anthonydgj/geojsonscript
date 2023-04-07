@@ -41,10 +41,6 @@
             }
         }
 
-        .readonly {
-            font-style: italic;
-        }
-
         .list-item-content {
             display: flex;
             align-items: center;
@@ -86,8 +82,12 @@
             }
         }
 
-        .list-item-content.readonly {
+        .list-option.scratch {
             font-style: italic;
+
+            .layer-name {
+                color: #979797;
+            }
         }
     }
 

@@ -14,8 +14,8 @@ import { BehaviorSubject } from 'rxjs';
 })
 export class LayerManagerService {
 
-  static readonly DEFAULT_SCRATCH_POINT_NAME = 'tempPoint';
-  static readonly DEFAULT_SCRATCH_LAYER_NAME = 'tempLayer';
+  static readonly DEFAULT_SCRATCH_POINT_NAME = 'myPoint';
+  static readonly DEFAULT_SCRATCH_LAYER_NAME = 'myLayer';
 
   private readonly DEFAULT_STROKE_COLOR_DARKEN = 30;
   private readonly DEFAULT_FILL_OPACITY = 0.4;

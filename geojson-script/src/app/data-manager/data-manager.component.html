@@ -13,7 +13,7 @@
                     *ngFor="let layer of layers"
                     class="list-option"
                     [selected]="!layer.hide"
-                    [class.readonly]="layer.type === LayerType.SCRATCH"
+                    [class.scratch]="layer.type === LayerType.SCRATCH"
                     (click)="onLayerClick(layer)"
                     [value]="layer">
                     <div class="list-item-content">
