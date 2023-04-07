@@ -2408,6 +2408,14 @@
 │  ├─ publisher: Ilya Kantor
 │  ├─ path: /Users/jarran/projects/geojsonscript/geojson-script/node_modules/detect-node
 │  └─ licenseFile: /Users/jarran/projects/geojsonscript/geojson-script/node_modules/detect-node/LICENSE
+├─ dexie@3.2.3
+│  ├─ licenses: Apache-2.0
+│  ├─ repository: https://github.com/dfahlander/Dexie.js
+│  ├─ publisher: David Fahlander
+│  ├─ email: https://github.com/dfahlander
+│  ├─ path: /Users/jarran/projects/geojsonscript/geojson-script/node_modules/dexie
+│  ├─ licenseFile: /Users/jarran/projects/geojsonscript/geojson-script/node_modules/dexie/LICENSE
+│  └─ noticeFile: /Users/jarran/projects/geojsonscript/geojson-script/node_modules/dexie/NOTICE
 ├─ dezalgo@1.0.4
 │  ├─ licenses: ISC
 │  ├─ repository: https://github.com/npm/dezalgo
@@ -2922,7 +2930,7 @@
 │  ├─ email: loganfsmyth@gmail.com
 │  ├─ path: /Users/jarran/projects/geojsonscript/geojson-script/node_modules/gensync
 │  └─ licenseFile: /Users/jarran/projects/geojsonscript/geojson-script/node_modules/gensync/LICENSE
-├─ geojson-script@0.1.2
+├─ geojson-script@0.1.3
 │  ├─ licenses: MIT
 │  ├─ publisher: Anthony DGJ
 │  ├─ email: anthonydgj4@gmail.com
