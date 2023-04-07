@@ -34,14 +34,21 @@
                             {{ layer.path }}
                         </span>
                         <div class="action-buttons">
-                            <button mat-icon-button title="Download Layer"
-                                (click)="onDownloadLayer($event, layer)">
-                                <mat-icon>download</mat-icon>
+                            <button mat-icon-button title="Layer Menu" [matMenuTriggerFor]="layerMenu">
+                                <mat-icon>more_vert</mat-icon>
                             </button>
-                            <button mat-icon-button title="Remove Layer"
-                                (click)="onRemoveLayer($event, layer)">
-                                <mat-icon>delete</mat-icon>
-                            </button>
+                            <mat-menu #layerMenu="matMenu">
+                                <button mat-menu-item title="Download Layer"
+                                    (click)="onDownloadLayer(layer)">
+                                    <mat-icon>download</mat-icon>
+                                    <span>Download</span>
+                                </button>
+                                <button mat-menu-item title="Remove Layer"
+                                    (click)="onRemoveLayer(layer)">
+                                    <mat-icon>delete</mat-icon>
+                                    <span>Delete</span>
+                                </button>
+                            </mat-menu>
                         </div>
                     </div>
                 </mat-list-option>

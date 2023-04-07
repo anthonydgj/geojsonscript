@@ -88,16 +88,12 @@ export class DataManagerComponent implements OnInit, OnDestroy {
     });
   }
 
-  onDownloadLayer(event: MouseEvent, dataLayer: DataLayer) {
-    event.preventDefault();
-    event.stopPropagation();
+  onDownloadLayer(dataLayer: DataLayer) {
     const value = DataUtils.getSimpleObjectString(dataLayer.content);
     DataUtils.saveFile(`${dataLayer.name}.geojson`, value);
   }
 
-  onRemoveLayer(event: MouseEvent, dataLayer: DataLayer) {
-    event.preventDefault();
-    event.stopPropagation();
+  onRemoveLayer(dataLayer: DataLayer) {
     this.layerManagerService.removeLayer(dataLayer);
   }
 
