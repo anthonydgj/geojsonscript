@@ -45,7 +45,7 @@ export class DataLayerDialogComponent {
   selectedDataLayer?: DataLayer;
   isLoading = false;
   error?: FileSelectionError;
-  layerName: string;
+  layerName = '';
   original?: DataLayer;
 
   constructor(
@@ -53,16 +53,18 @@ export class DataLayerDialogComponent {
     private changeDetectorRef: ChangeDetectorRef,
     @Inject(MAT_DIALOG_DATA) public data: DataLayerDialogData
   ) {
-    this.layerName = this.layerManagerService.getSuggestedLayerName();
     this.original = this.data.original;
-    if (this.original) {
-      this.selectedDataLayer = {
-        name: this.original.name,
-        content: this.original.content,
-        zIndex: this.original.zIndex,
-        type: LayerType.INPUT
-      };
-    }
+    this.layerManagerService.getSuggestedLayerName().then(suggestedLayerName => {
+      this.layerName = suggestedLayerName;
+      if (this.original) {
+        this.selectedDataLayer = {
+          name: this.layerName,
+          content: this.original.content,
+          zIndex: this.original.zIndex,
+          type: LayerType.INPUT
+        };
+      }
+    });
 }
 
   dropped(files: NgxFileDropEntry[]) {

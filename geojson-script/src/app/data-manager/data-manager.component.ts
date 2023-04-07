@@ -115,7 +115,6 @@ export class DataManagerComponent implements OnInit, OnDestroy {
         this.addLayer(dataLayer);
       }
     });
-
   }
 
   dropped(files: NgxFileDropEntry[]) {
@@ -128,11 +127,11 @@ export class DataManagerComponent implements OnInit, OnDestroy {
 
           const filepath = droppedFile.relativePath;
 
-          file.text().then(text => {
+          file.text().then(async text => {
             const json = JSON.parse(text);
 
             const dataLayer: DataLayer = {
-              name: this.layerManagerService.getSuggestedLayerName(),
+              name: await this.layerManagerService.getSuggestedLayerName(),
               path: filepath,
               content: json,
               zIndex: 1,

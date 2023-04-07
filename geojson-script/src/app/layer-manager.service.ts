@@ -42,8 +42,20 @@ export class LayerManagerService {
     private mapService: MapService
   ) { }
 
-  getSuggestedLayerName() {
-    return `layer${this.inputLayerCount + 1}`;
+  async getSuggestedLayerName() {
+    const layersList = await db.dataLayers.toArray();
+    const namesSet = new Set(layersList.map(layer => layer.name));
+    let suggestedName: string | undefined = undefined;
+    let suggestedNumber = namesSet.size + 1;
+    const maxAttempts = 100;
+    for (let numAttempts=1; numAttempts<=maxAttempts; numAttempts++) {
+      suggestedName = `layer${suggestedNumber}`;
+      if (!namesSet.has(suggestedName)) {
+        return suggestedName
+      }
+      suggestedNumber = suggestedNumber + 1;
+    }
+    return '';
   }
 
   getStrokeColor(fillColor: string): string {
