@@ -1,26 +1,24 @@
-import { AfterViewInit, ChangeDetectorRef, Component, Input, OnDestroy, OnInit, ViewChild } from '@angular/core';
+import { ChangeDetectorRef, Component, Input, OnDestroy, ViewChild } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { BehaviorSubject, debounceTime, Subscription } from 'rxjs';
 
+import { db } from '../db';
 import { CodeViewerComponent, CodeViewerOptions } from '../code-viewer/code-viewer.component';
-import { DataLayer } from '../data-layer';
 import { DataUtils } from '../data-utils';
 import { ThisObjectDialogComponent } from '../this-object-dialog/this-object-dialog.component';
 import { JsExecutorService } from '../js-executor.service';
 import { LayerManagerService } from '../layer-manager.service';
 import { UserEvent, UserEventService } from '../user-event.service';
-import { AppStateService } from '../app-state.service';
-
-const appStatePrefix = 'editor';
-const appStateScript = 'script';
 
 @Component({
   selector: 'app-editor',
   templateUrl: './editor.component.html',
   styleUrls: ['./editor.component.scss']
 })
-export class EditorComponent implements OnInit, AfterViewInit, OnDestroy {
+export class EditorComponent implements OnDestroy {
   public _editor: any;
+
+  private DEFAULT_SCRIPT_ID = 1;
 
   private eventSubscription = new Subscription();
   private editorSaveSubscription = new Subscription();
@@ -118,45 +116,53 @@ return {
     private userEventService: UserEventService,
     private jsExecutorService: JsExecutorService,
     private layerManagerService: LayerManagerService,
-    private appStateService: AppStateService,
     private dialog: MatDialog,
     private changeDetectorRef: ChangeDetectorRef
   ) { }
 
-  ngOnInit(): void {
+  async initializeEditor() {
+
+    // Load existing script
     if (this.preloadValue) {
-      this.editorOptions.initialValue = this.preloadValue;
+      this.codeViewer?.setValue(this.preloadValue);
     } else {
-      const savedScript = this.appStateService.getState<string>(appStateScript, appStatePrefix);
-      if (!this.preloadValue && !!savedScript && savedScript !== this.exampleValue) {
-        this.editorOptions.initialValue = savedScript;
+      const savedScript = await db.scripts.toCollection().last();
+      if (!this.preloadValue && !!savedScript && savedScript.content !== this.exampleValue) {
+        this.codeViewer?.setValue(savedScript.content);
       }
     }
-  }
 
-  ngAfterViewInit(): void {
+    // Listen for run events
     this.eventSubscription = this.userEventService.getEvents().subscribe(event => {
       if (event === UserEvent.RUN_SCRIPT) {
         this.run();
       }
     });
 
+    // Save script changes
     this.editorSaveSubscription = this.editorChange$.asObservable().pipe(
       debounceTime(this.scriptSaveDebounceMillis)
-    ).subscribe(() => {
+    ).subscribe(async () => {
       const script = this.getScript();
       if (script !== this.preloadValue) {
-        let savedScript;
+        let savedScript: string | undefined;
         if (
           !script?.trim() ||
           script.trim() === this.initialValue.trim() ||
           script.trim() === this.exampleValue.trim()
         ) {
-          savedScript = '';
+          savedScript = undefined;
         } else {
           savedScript = script;
         }
-        this.appStateService.setState(appStateScript, savedScript, appStatePrefix);
+
+        // Save custom scripts
+        if (savedScript !== undefined) {
+          await db.scripts.put({
+            id: this.DEFAULT_SCRIPT_ID,
+            content: savedScript
+          });
+        }
       }
     })
   }
@@ -202,7 +208,10 @@ ${linesString}
     this.codeViewer?.setValue(this.exampleValue);
   }
 
-  onEditorReady(editor: any) {
+  async onEditorReady(editor: any) {
+
+    await this.initializeEditor();
+
     editor.getModel()
       .onDidChangeContent((_: any) => {
         this.editorChange$.next();
