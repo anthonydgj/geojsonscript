@@ -109,6 +109,7 @@ export class LayerManagerService {
 
     const removeIndex = this.layers
       .findIndex(layer => layer.name === dataLayer.name);
+
     let foundDataLayer: DataLayer | undefined;
     if (removeIndex >= 0) {
       foundDataLayer = this.layers[removeIndex];
@@ -125,6 +126,7 @@ export class LayerManagerService {
       }
     }
     this.broadcastUpdate();
+    return this.layers;
   }
 
   async removeLayerByName(name: string) {
@@ -132,6 +134,7 @@ export class LayerManagerService {
     if (record) {
       return this.removeLayer(record);
     }
+    return Promise.resolve();
   }
 
   refreshLayer(dataLayer: DataLayer): void {
@@ -180,10 +183,11 @@ export class LayerManagerService {
   }
 
   async removeAll(permanent = true) {
-    this.layers.forEach(async layer => {
-      await this.removeLayer(layer, permanent);
-    });
-    this.layers.length = 0;
+    let layers = this.layers;
+    while (layers.length > 0) {
+      const layer = layers[0];
+      layers = await this.removeLayer(layer, permanent);
+    }
   }
 
   private broadcastUpdate() {

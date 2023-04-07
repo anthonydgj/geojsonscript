@@ -93,8 +93,12 @@ export class DataManagerComponent implements OnInit, OnDestroy {
     DataUtils.saveFile(`${dataLayer.name}.geojson`, value);
   }
 
-  onRemoveLayer(dataLayer: DataLayer) {
-    this.layerManagerService.removeLayer(dataLayer);
+  async onRemoveLayer(dataLayer: DataLayer) {
+    await this.layerManagerService.removeLayer(dataLayer);
+  }
+
+  async onRemoveAll() {
+    await this.layerManagerService.removeAll(true);
   }
 
   onLayerClick(layer: DataLayer) {

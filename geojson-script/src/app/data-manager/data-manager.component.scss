@@ -94,6 +94,8 @@
     .layer-manager {
         padding: 2px;
         background-color: $toolbar-color;
+        display: flex;
+        flex-direction: column;
 
         .drop-zone-container {
 
