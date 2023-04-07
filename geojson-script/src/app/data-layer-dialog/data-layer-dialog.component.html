@@ -3,7 +3,7 @@
     <div class="dialog-content">
 
         <div class="form-row">
-            <mat-form-field appearance="fill">
+            <mat-form-field appearance="fill" *ngIf="!original">
                 <mat-label>Data Source</mat-label>
                 <mat-select [(ngModel)]="selectedDataLayerSource">
                     <mat-option *ngFor="let dataLayerSource of dataLayerSources"
@@ -18,7 +18,7 @@
                 </mat-select>
             </mat-form-field>
 
-            <mat-form-field class="example-full-width">
+            <mat-form-field>
                 <mat-label i18n>Layer name</mat-label>
                 <input matInput (change)="onLayerNameChange(layerName)" [(ngModel)]="layerName">
             </mat-form-field>            
@@ -45,7 +45,10 @@
                 <ng-template #selector>
                     <div *ngIf="selectedDataLayer else dataLayerSelector"
                         class="selection">
-                        <button mat-icon-button (click)="onRemove()">
+                        <span *ngIf="original" i18n>
+                            Copying layer from: &nbsp;
+                        </span>
+                        <button  *ngIf="!original" mat-icon-button (click)="onRemove()">
                             <mat-icon>remove_circle</mat-icon>
                         </button>
                         <span [title]="selectedDataLayer.path">
@@ -54,6 +57,7 @@
                     </div>
                     <ng-template #dataLayerSelector>
                         <ngx-file-drop
+                            *ngIf="!original"
                             dropZoneLabel="Drop files here"
                             dropZoneClassName="drop-zone"
                             (onFileDrop)="dropped($event)">

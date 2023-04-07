@@ -104,6 +104,20 @@ export class DataManagerComponent implements OnInit, OnDestroy {
     this.changeDetectorRef.detectChanges();
   }
 
+  onCopyLayer(layer: DataLayer) {
+    const dialogRef = this.dialog.open(DataLayerDialogComponent, {
+      data: {
+        original: layer
+      }
+    });
+    dialogRef.afterClosed().subscribe((dataLayer: DataLayer) => {
+      if (dataLayer) {
+        this.addLayer(dataLayer);
+      }
+    });
+
+  }
+
   dropped(files: NgxFileDropEntry[]) {
     if (files.length >= 1) {
       // Use first file

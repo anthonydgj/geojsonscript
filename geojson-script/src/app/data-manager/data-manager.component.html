@@ -45,6 +45,11 @@
                                     <mat-icon>download</mat-icon>
                                     <span>Download</span>
                                 </button>
+                                <button mat-menu-item title="Copy Layer"
+                                    (click)="onCopyLayer(layer)">
+                                    <mat-icon>content_copy</mat-icon>
+                                    <span>Create Copy</span>
+                                </button>
                                 <button mat-menu-item title="Remove Layer"
                                     (click)="onRemoveLayer(layer)">
                                     <mat-icon>delete</mat-icon>

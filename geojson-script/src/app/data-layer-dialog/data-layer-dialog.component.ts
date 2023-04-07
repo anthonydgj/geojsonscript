@@ -1,8 +1,9 @@
-import { ChangeDetectorRef, Component } from '@angular/core';
+import { ChangeDetectorRef, Component, Inject } from '@angular/core';
+import { MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { NgxFileDropEntry } from 'ngx-file-drop';
+
 import { DataLayer } from '../data-layer';
 import { LayerType } from '../db';
-
 import { LayerManagerService } from '../layer-manager.service';
 
 export enum DataLayerSource {
@@ -17,6 +18,10 @@ enum FileSelectionError {
   SELECT_ONE = 'SELECT_ONE',
   DIRECTORY = 'DIRECTORY',
   PARSE = 'PARSE',
+}
+
+interface DataLayerDialogData {
+  original?: DataLayer
 }
 
 @Component({
@@ -41,13 +46,24 @@ export class DataLayerDialogComponent {
   isLoading = false;
   error?: FileSelectionError;
   layerName: string;
+  original?: DataLayer;
 
   constructor(
     private layerManagerService: LayerManagerService,
-    private changeDetectorRef: ChangeDetectorRef
+    private changeDetectorRef: ChangeDetectorRef,
+    @Inject(MAT_DIALOG_DATA) public data: DataLayerDialogData
   ) {
     this.layerName = this.layerManagerService.getSuggestedLayerName();
-  }
+    this.original = this.data.original;
+    if (this.original) {
+      this.selectedDataLayer = {
+        name: this.original.name,
+        content: this.original.content,
+        zIndex: this.original.zIndex,
+        type: LayerType.INPUT
+      };
+    }
+}
 
   dropped(files: NgxFileDropEntry[]) {
     this.files = files;
