@@ -84,7 +84,7 @@ export class MapService {
     mapLayer.addTo(map);
 
     // Add back-reference to data layer
-    layer.mapLayer = mapLayer;
+    layer.mapLayer = new WeakRef(mapLayer);
 
     // Return a reference to the GeoJSON layer data
     return mapLayer;

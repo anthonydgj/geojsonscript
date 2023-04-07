@@ -117,7 +117,7 @@ export class LayerManagerService {
 
       const map = this.mapService.getMap();
       if (map) {
-        foundDataLayer.mapLayer?.removeFrom(map);
+        foundDataLayer.mapLayer?.deref()?.removeFrom(map);
         foundDataLayer.mapLayer = undefined;
       }
 
@@ -150,8 +150,11 @@ export class LayerManagerService {
       if (shouldDisplay) {
         this.mapService.loadGeoJSON(map, dataLayer);
       } else {
-        dataLayer.mapLayer?.removeFrom(map);
+        const mapLayer = dataLayer.mapLayer;
         dataLayer.mapLayer = undefined;
+        if (mapLayer) {
+          mapLayer.deref()?.remove();
+        }
       }
     }
   }

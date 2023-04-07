@@ -1,7 +1,7 @@
 import { DataLayerRecord } from "./db";
 
 export interface DataLayer extends DataLayerRecord {
-  mapLayer?: L.GeoJSON;
+  mapLayer?: WeakRef<L.GeoJSON>;
   hide?: boolean
 }
   
