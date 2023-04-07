@@ -108,7 +108,6 @@ return {
     captureUserEvents: true
   };
 
-  scratchDataLayer?: DataLayer;
   isRunning = false;
   
   private static DEFAULT_SCRIPT_FILE_NAME = 'geojsonScript';
@@ -214,22 +213,14 @@ ${linesString}
     if (!this.isRunning) {
       this.setRunState(true);
 
-      // Remove old scratch layer
-      if (this.scratchDataLayer) {
-        this.layerManagerService.removeLayer(this.scratchDataLayer);
-      }
-
       // Create scratch layer
       const value = this.getScript();
-      const promise = this.jsExecutorService.run(value).then((data: any) => {
+      const promise = this.jsExecutorService.run(value).then(async (data: any) => {
         if (data) {
-          const scratchDataLayer = this.layerManagerService.getScratchLayer(data);
-
           // Add new scratch layer
-          if (scratchDataLayer) {
-            this.layerManagerService.addLayer(scratchDataLayer);
-            this.scratchDataLayer = scratchDataLayer;
-          }
+          const scratchDataLayer = this.layerManagerService.getScratchLayer(data);
+          await this.layerManagerService.removeLayerByName(scratchDataLayer.name);
+          await this.layerManagerService.addLayer(scratchDataLayer);
         }
       }).finally(() => {
         this.setRunState(false);

@@ -7,6 +7,7 @@ import { DataLayerRecord, db, LayerType } from './db';
 import { DataLayer } from './data-layer';
 import { JsExecutorService } from './js-executor.service';
 import { MapService } from './map.service';
+import { BehaviorSubject } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -32,6 +33,9 @@ export class LayerManagerService {
   inputLayerCount = 0;
   layers: DataLayer[] = [];
   selectedLayers: DataLayer[] = [];
+
+  private _layers$ = new BehaviorSubject<DataLayer[]>([]);
+  layers$ = this._layers$.asObservable();
 
   constructor(
     private jsExecutorService: JsExecutorService,
@@ -84,24 +88,37 @@ export class LayerManagerService {
       };
       await db.dataLayers.put(dataLayerRecord, dataLayer.name);
     }
+
+    this.broadcastUpdate();
   }
 
   async removeLayer(dataLayer: DataLayer, permanent = true) {
     this.jsExecutorService.getThis()[dataLayer.name] = undefined;
 
-    const map = this.mapService.getMap();
-    if (map) {
-      dataLayer.mapLayer?.removeFrom(map);
-      dataLayer.mapLayer = undefined;
-    }
-
-    const removeIndex = this.layers.findIndex(layer => layer === dataLayer);
+    const removeIndex = this.layers
+      .findIndex(layer => layer.name === dataLayer.name);
+    let foundDataLayer: DataLayer | undefined;
     if (removeIndex >= 0) {
+      foundDataLayer = this.layers[removeIndex];
       this.layers.splice(removeIndex, 1);
-    }
 
-    if (permanent) {
-      await db.dataLayers.delete(dataLayer.name);
+      const map = this.mapService.getMap();
+      if (map) {
+        foundDataLayer.mapLayer?.removeFrom(map);
+        foundDataLayer.mapLayer = undefined;
+      }
+
+      if (permanent) {
+        await db.dataLayers.delete(foundDataLayer.name);
+      }
+    }
+    this.broadcastUpdate();
+  }
+
+  async removeLayerByName(name: string) {
+    const record = await db.dataLayers.where({name: name}).first();
+    if (record) {
+      return this.removeLayer(record);
     }
   }
 
@@ -155,5 +172,9 @@ export class LayerManagerService {
       this.removeLayer(layer, permanent);
     });
     this.layers.length = 0;
+  }
+
+  private broadcastUpdate() {
+    this._layers$.next(this.layers);
   }
 }

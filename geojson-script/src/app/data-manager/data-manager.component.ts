@@ -24,8 +24,9 @@ export class DataManagerComponent implements OnInit, OnDestroy {
   @Input() preloadLayers?: DataLayer[];
 
   LayerType = LayerType;
+  layers: DataLayer[] = [];
 
-  private mapInitSubscription?: Subscription;
+  private layersSubscription?: Subscription;
 
   constructor(
     private dialog: MatDialog,
@@ -34,27 +35,33 @@ export class DataManagerComponent implements OnInit, OnDestroy {
     public layerManagerService: LayerManagerService
   ) { }
 
-  ngOnInit(): void {
-    this.mapInitSubscription = this.mapService.mapInit$
+  async ngOnInit() {
+    this.mapService.mapInit$
       .pipe(first())
-      .subscribe(() => {
+      .subscribe(async () => {
         if (this.preloadLayers) {
           this.layerManagerService.removeAll(false);
-          this.preloadLayers.forEach(layer => {
-            this.addLayer(layer, false);
+          this.preloadLayers.forEach(async layer => {
+            await this.addLayer(layer, false);
           });
         } else {
-          db.dataLayers.each((dataLayer: DataLayer) => {
+          db.dataLayers.each(async (dataLayer: DataLayer) => {
             dataLayer.hide = true;
-            this.addLayer(dataLayer, false);
+            await this.addLayer(dataLayer, false);
           })
         }
+      });
+    
+    this.layersSubscription = this.layerManagerService.layers$
+      .subscribe(layers => {
+        this.layers = layers;
+        this.changeDetectorRef.detectChanges();
       });
   }
 
   ngOnDestroy(): void {
-    if (this.mapInitSubscription) {
-      this.mapInitSubscription.unsubscribe();
+    if (this.layersSubscription) {
+      this.layersSubscription.unsubscribe();
     }
   }
 
@@ -98,6 +105,7 @@ export class DataManagerComponent implements OnInit, OnDestroy {
     const isSelected = this.layersSelection?.selectedOptions
       .selected.map(option => option.value).includes(layer);
     this.layerManagerService.toggleLayer(layer, !!isSelected);
+    this.changeDetectorRef.detectChanges();
   }
 
   dropped(files: NgxFileDropEntry[]) {

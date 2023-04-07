@@ -10,7 +10,7 @@
             <mat-selection-list role="list" #layersSelection
                 class="layer-selection-list">
                 <mat-list-option
-                    *ngFor="let layer of layerManagerService.layers"
+                    *ngFor="let layer of layers"
                     class="list-option"
                     [selected]="!layer.hide"
                     [class.readonly]="layer.type === LayerType.SCRATCH"
