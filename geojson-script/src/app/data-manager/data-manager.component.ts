@@ -40,7 +40,7 @@ export class DataManagerComponent implements OnInit, OnDestroy {
       .pipe(first())
       .subscribe(async () => {
         if (this.preloadLayers) {
-          this.layerManagerService.removeAll(false);
+          await this.layerManagerService.removeAll(false);
           this.preloadLayers.forEach(async layer => {
             await this.addLayer(layer, false);
           });

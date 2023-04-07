@@ -167,9 +167,9 @@ export class LayerManagerService {
     return scratchLayer;
   }
 
-  removeAll(permanent = true): void {
-    this.layers.forEach(layer => {
-      this.removeLayer(layer, permanent);
+  async removeAll(permanent = true) {
+    this.layers.forEach(async layer => {
+      await this.removeLayer(layer, permanent);
     });
     this.layers.length = 0;
   }
