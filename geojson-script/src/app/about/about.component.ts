@@ -102,7 +102,7 @@ return layer1.features.filter(feature =>
       codeViewerOptions: {
         initialValue:
 `// Select features within 10,000 kilometres of a point
-const { default: distance } = await import('https://unpkg.com/@turf/distance?module');
+const distance = await loadPackage('@turf/distance');
 const point = { type: "Point", coordinates: [0, 0] };
 return layer1.features.filter(feature =>
   distance(point, feature) < 10_000);`,
@@ -164,14 +164,18 @@ console.info(\`Mean: \${mean.toFixed(2)}\`);`,
  * Show the path of a tropical storm.
  */
 
+const turf = await loadPackage('turf');
+const moment = await loadPackage('moment');
+
 // Select points from a specific event
 const eventFeatures = layer1.features
   .filter(feature => feature.properties.id === 'EONET_5143');
 
 // Sort event points by date
 eventFeatures.sort((a, b) => (
-  new Date(a.properties.date).getTime() -
-  new Date(b.properties.date).getTime()
+  moment.utc(a.properties.date).isBefore(
+    moment.utc(b.properties.date)
+  )
 ));
 
 // Colour-code the start and end events
@@ -183,15 +187,10 @@ eventFeatures[eventFeatures.length - 1].properties.style = {
 };
 
 // Build the event path line string
-const lineString = {
-	type: "LineString",
-	coordinates: eventFeatures.map(f => f.geometry.coordinates)
-};
+const lineString = turf
+  .lineString(eventFeatures.map(f => f.geometry.coordinates));
 
-return {
-	type: 'FeatureCollection',
-	features: [lineString].concat(eventFeatures)
-};`,
+return turf.featureCollection([lineString].concat(eventFeatures));`,
         monacoEditorOptions: defaultMonacoEditorOptions
       },
       dataLayers: [defaultDataLayer],

@@ -39,8 +39,10 @@ export class EditorComponent implements OnDestroy {
 // Print log messages
 console.log('Loading Turf spatial analysis library...');
 
-// Load library modules
-const turf = await import('https://unpkg.com/@turf/helpers?module')
+// Load libraries (uses Skypack: https://www.skypack.dev/)
+const turf = await loadPackage('turf');
+
+// Load libraries using the import statement
 const { default: distance } = await import('https://unpkg.com/@turf/distance?module');
 
 // Define helper functions
