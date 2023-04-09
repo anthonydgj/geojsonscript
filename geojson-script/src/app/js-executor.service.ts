@@ -11,6 +11,12 @@ export class JsExecutorService {
 
   _this: any = Object.create({});
 
+  constructor() {
+    // Add default 'this' properties
+    const _this = this.getThis();
+    _this['loadPackage'] = this.load;
+  }
+
   run(script: string): Promise<any> {
     return this.execute(script, this._this)
   }
@@ -54,4 +60,13 @@ export class JsExecutorService {
     return result;
   }
 
+  load(packageName: string, select = 'default', baseUrl = 'https://cdn.skypack.dev/'): Promise<any> {
+    const returnStatement = `return ${select ? `result['${select}']` : `result` }`;
+    const script = `
+      const result = await import(\`${baseUrl}${packageName}\`);
+      ${returnStatement};
+    `;
+    const loader = JsUtils.AsyncFunction(script);
+    return loader.call();
+  }
 }
