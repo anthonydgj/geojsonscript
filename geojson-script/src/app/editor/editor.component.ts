@@ -9,6 +9,7 @@ import { ThisObjectDialogComponent } from '../this-object-dialog/this-object-dia
 import { JsExecutorService } from '../js-executor.service';
 import { LayerManagerService } from '../layer-manager.service';
 import { UserEvent, UserEventService } from '../user-event.service';
+import { Constants } from '../constants';
 
 @Component({
   selector: 'app-editor',
@@ -40,7 +41,7 @@ export class EditorComponent implements OnDestroy {
 console.log('Loading Turf spatial analysis library...');
 
 // Load libraries (uses Skypack: https://www.skypack.dev/)
-const turf = await loadPackage('turf');
+const turf = await ${Constants.HELPER_NAME_IMPORT}('turf');
 
 // Load libraries using the import statement
 const { default: distance } = await import('https://unpkg.com/@turf/distance?module');

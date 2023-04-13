@@ -1,4 +1,5 @@
 import { Injectable } from '@angular/core';
+import { Constants } from './constants';
 
 declare var JsUtils: {
   AsyncFunction: any;
@@ -14,7 +15,7 @@ export class JsExecutorService {
   constructor() {
     // Add default 'this' properties
     const _this = this.getThis();
-    _this['loadPackage'] = this.load;
+    _this[Constants.HELPER_NAME_IMPORT] = this.load;
   }
 
   run(script: string): Promise<any> {

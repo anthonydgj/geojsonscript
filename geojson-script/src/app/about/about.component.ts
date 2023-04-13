@@ -102,7 +102,7 @@ return layer1.features.filter(feature =>
       codeViewerOptions: {
         initialValue:
 `// Select features within 10,000 kilometres of a point
-const distance = await loadPackage('@turf/distance');
+const distance = await ${Constants.HELPER_NAME_IMPORT}('@turf/distance');
 const point = { type: "Point", coordinates: [0, 0] };
 return layer1.features.filter(feature =>
   distance(point, feature) < 10_000);`,
@@ -164,8 +164,8 @@ console.info(\`Mean: \${mean.toFixed(2)}\`);`,
  * Show the path of a tropical storm.
  */
 
-const turf = await loadPackage('turf');
-const moment = await loadPackage('moment');
+const turf = await ${Constants.HELPER_NAME_IMPORT}('turf');
+const moment = await ${Constants.HELPER_NAME_IMPORT}('moment');
 
 // Select points from a specific event
 const eventFeatures = layer1.features
