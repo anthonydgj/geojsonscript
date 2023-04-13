@@ -40,15 +40,15 @@
                                 <mat-icon>more_horiz</mat-icon>
                             </button>
                             <mat-menu #layerMenu="matMenu">
+                                <button mat-menu-item title="Copy Layer"
+                                    (click)="onCopyLayer(layer)">
+                                    <mat-icon>content_copy</mat-icon>
+                                    <span>Save As...</span>
+                                </button>
                                 <button mat-menu-item title="Download Layer"
                                     (click)="onDownloadLayer(layer)">
                                     <mat-icon>download</mat-icon>
                                     <span>Download</span>
-                                </button>
-                                <button mat-menu-item title="Copy Layer"
-                                    (click)="onCopyLayer(layer)">
-                                    <mat-icon>content_copy</mat-icon>
-                                    <span>Create Copy</span>
                                 </button>
                                 <button mat-menu-item title="Remove Layer"
                                     (click)="onRemoveLayer(layer)">
