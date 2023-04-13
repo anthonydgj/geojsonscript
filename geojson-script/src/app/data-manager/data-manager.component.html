@@ -71,16 +71,20 @@
             <mat-icon>menu</mat-icon>
         </button>
         <mat-menu #layerManagerMenu="matMenu">
-            <button mat-menu-item (click)="onRemoveAll()">
+            <button mat-menu-item title="Add Layer"
+                i18n-title
+                (click)="onOpenDialog()">
+                <mat-icon>add</mat-icon>
+                <span>Add Layer</span>
+            </button>
+            <button mat-menu-item title="Remove All"
+                i18n-title
+                (click)="onRemoveAll()">
                 <mat-icon>delete</mat-icon>
                 <span>Remove All</span>
             </button>
         </mat-menu>
 
-        <button mat-icon-button title="Add Layer"
-            (click)="onOpenDialog()">
-            <mat-icon>add</mat-icon>
-        </button>
     
         <div class="drop-zone-container"
             title="Drag and drop a GeoJSON file"
