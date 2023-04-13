@@ -160,10 +160,7 @@ console.info(\`Mean: \${mean.toFixed(2)}\`);`,
       description: $localize `Compute a new feature layer`,
       codeViewerOptions: {
         initialValue:
-`/*
- * Show the path of a tropical storm.
- */
-
+`// Import libraries
 const turf = await ${Constants.HELPER_NAME_IMPORT}('turf');
 const moment = await ${Constants.HELPER_NAME_IMPORT}('moment');
 
@@ -198,7 +195,33 @@ return turf.featureCollection([lineString].concat(eventFeatures));`,
         center: L.latLng(23, -84),
         zoom: 5
       },
-      rowspan: 13,
+      rowspan: 11,
+      colspan: fullRowColspan
+    },
+    {
+      description: $localize `Fetch data from remote source`,
+      codeViewerOptions: {
+        initialValue:
+`// Import libraries
+const fetch = await importPackage('node-fetch');
+const moment = await importPackage('moment');
+const turf = await importPackage('turf');
+
+// Construct data query URL
+const startDate = moment().subtract(7, 'days').format('YYYY-MM-DD');
+const endDate = moment().format('YYYY-MM-DD');
+const url = \`https://earthquake.usgs.gov/fdsnws/event/1/query?format=geojson&starttime=\${startDate}\&endtime=\${endDate}\`;
+
+// Fetch earthquake data
+const response = await fetch(url);
+const data = await response.json();
+console.info(\`\${data.metadata.count} earthquakes in the last week.\`);
+
+return data;`,
+        monacoEditorOptions: defaultMonacoEditorOptions
+      },
+      dataLayers: [],
+      rowspan: 7,
       colspan: fullRowColspan
     }
   ];
