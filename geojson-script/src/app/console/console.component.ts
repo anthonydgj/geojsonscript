@@ -50,8 +50,7 @@ export class ConsoleComponent implements AfterContentInit, OnDestroy {
 
     this.userEventSubscription = this.userEventService.getEvents().subscribe(event => {
       if (event === UserEvent.CLEAR_CONSOLE_OUTPUT) {
-        this.consoleEvents.length = 0;
-        this.changeDetectorRef.detectChanges();
+        this.clearLogs();
       }
     });
   }
@@ -66,5 +65,14 @@ export class ConsoleComponent implements AfterContentInit, OnDestroy {
     if (this.updateSubscription) {
       this.updateSubscription.unsubscribe();
     }
+  }
+
+  onClear() {
+    this.clearLogs();
+  }
+
+  private clearLogs() {
+    this.consoleEvents.length = 0;
+    this.changeDetectorRef.detectChanges();
   }
 }
