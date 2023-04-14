@@ -18,12 +18,16 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
 .link,
 a {
     color: #3967b1;
+    opacity: 0.8;
     text-decoration: none;
     cursor: pointer;
 }
+.fragment-link {
+    color: grey;
+}
 .link:hover,
 a:hover {
-    color: #87aae2;
+    opacity: 1;
 }
 code {
     font-size: 1.1em;

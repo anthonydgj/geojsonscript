@@ -1,6 +1,6 @@
-import { Component } from '@angular/core';
+import { AfterViewInit, Component, OnInit } from '@angular/core';
 import * as L from 'leaflet';
-import { Router } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 
 import packageJson from 'package.json';
 import { DataLayer } from '../data-layer';
@@ -9,8 +9,11 @@ import { Constants } from '../constants';
 import { PreloadService } from '../preload.service';
 import { ExampleData } from '../example-data';
 import { LayerType } from '../db';
+import { ViewportScroller } from '@angular/common';
+import { first } from 'rxjs';
 
 interface CodeSnippet {
+  path: string;
   description: string;
   codeViewerOptions: CodeViewerOptions;
   dataLayers: DataLayer[];
@@ -52,7 +55,7 @@ const defaultDataLayer: DataLayer = {
   templateUrl: './about.component.html',
   styleUrls: ['./about.component.scss']
 })
-export class AboutComponent {
+export class AboutComponent implements OnInit, AfterViewInit {
 
   rowAdjustment = 1;
   isCondensedScreen = false;
@@ -62,11 +65,21 @@ export class AboutComponent {
 
   constructor(
     private preloadService: PreloadService,
-    private router: Router
+    private router: Router,
+    private activatedRoute: ActivatedRoute,
+    private scroller: ViewportScroller
   ) { }
 
   ngOnInit() {
     this.refreshLayout(window.innerWidth);
+  }
+
+  ngAfterViewInit() {
+    this.activatedRoute.fragment.pipe(first()).subscribe(fragment => {
+      if (fragment) {
+        this.scroller.scrollToAnchor(fragment);
+      }
+    });
   }
     
   onResize(event:any ) {
@@ -85,6 +98,7 @@ export class AboutComponent {
 
   snippets: CodeSnippet[] = [
     {
+      path: 'selectByAttribute',
       description: $localize `Select features by attribute value`,
       codeViewerOptions: {
         initialValue:
@@ -98,6 +112,7 @@ return layer1.features.filter(feature =>
       colspan: fullRowColspan
     },
     {
+      path: 'selectByLocation',
       description: $localize `Select features by location`,
       codeViewerOptions: {
         initialValue:
@@ -116,6 +131,7 @@ return layer1.features.filter(feature =>
       colspan: fullRowColspan
     },
     {
+      path: 'computeAttribute',
       description: $localize `Compute a new attribute field`,
       codeViewerOptions: {
         initialValue:
@@ -133,6 +149,7 @@ return layer1.features.filter(feature =>
       colspan: fullRowColspan
     },
     {
+      path: 'summarizeAttributes',
       description: $localize `Summarize attribute data`,
       codeViewerOptions: {
         initialValue:
@@ -156,6 +173,7 @@ console.info(\`Mean: \${mean.toFixed(2)}\`);`,
       colspan: fullRowColspan
     },
     {
+      path: 'computeNewFeatures',
       description: $localize `Compute a new feature layer`,
       codeViewerOptions: {
         initialValue:
@@ -210,6 +228,7 @@ return turf.featureCollection([lineString].concat(eventFeatures));`,
       colspan: fullRowColspan
     },
     {
+      path: 'fetchRemote',
       description: $localize `Fetch data from a remote source`,
       codeViewerOptions: {
         initialValue:
@@ -237,7 +256,11 @@ return data;`,
     }
   ];
 
-  runSnippet(snippet: CodeSnippet): void {
+  async runSnippet(snippet: CodeSnippet) {
+    // Preserve scroll position in router history
+    await this.router.navigate([], {
+      fragment: snippet.path
+    });
     this.preloadService.options = {
       script: snippet.codeViewerOptions.initialValue,
       layers: snippet.dataLayers,

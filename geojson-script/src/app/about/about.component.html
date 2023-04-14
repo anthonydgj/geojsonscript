@@ -71,7 +71,12 @@
             [colspan]="3"
             [rowspan]="8 + rowAdjustment">
             <div class="text">
-                <p class="section-title" i18n>Features</p>
+                <p class="section-title link fragment-link" i18n
+                    routerLink="."
+                    fragment="features"
+                    id="features">
+                    Features
+                </p>
                 <ul>
                     <li i18n>Add colour-coded GeoJSON data layers</li>
                     <li i18n>Use and transform data layer copies within the script</li>
@@ -90,7 +95,10 @@
             [colspan]="3"
             [rowspan]="4 + rowAdjustment">
             <div class="text">
-                <p class="section-title" i18n>
+                <p class="section-title link fragment-link" i18n
+                    routerLink="."
+                    fragment="exampleSnippets"
+                    id="exampleSnippets">
                     Example Use Cases
                 </p>
                 <p i18n>
@@ -109,7 +117,13 @@
                 [colspan]="1"
                 [rowspan]="snippet.rowspan">
                 <div class="code-snippet-description">
-                    <span class="description-text"> {{ snippet.description }} </span>
+                    <span class="description-text"
+                        routerLink="."
+                        [fragment]="snippet.path"
+                        [attr.id]="snippet.path"
+                        class="link fragment-link">
+                        {{ snippet.description }}
+                    </span>
                     <span class="run-link link"
                         (click)="runSnippet(snippet)">
                         <mat-icon [inline]="true">play_arrow</mat-icon>
@@ -138,7 +152,12 @@
             [colspan]="3"
             [rowspan]="5 + rowAdjustment">
             <div class="text">
-                <p class="section-title" i18n>References</p>
+                <p class="section-title link fragment-link" i18n
+                    routerLink="."
+                    fragment="references"
+                    id="references">
+                    References
+                </p>
                 <ol>
                     <li #eonetReference i18n>
                         <a href="https://eonet.gsfc.nasa.gov/" target="_blank">
@@ -161,7 +180,10 @@
             [colspan]="3"
             [rowspan]="2">
             <div class="text">
-                <p class="section-title" i18n>
+                <p class="section-title link fragment-link" i18n
+                    routerLink="."
+                    fragment="version"
+                    id="version">
                     Version
                 </p>
                 <p i18n>
