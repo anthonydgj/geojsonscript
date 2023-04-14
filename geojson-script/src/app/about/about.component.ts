@@ -102,35 +102,34 @@ return layer1.features.filter(feature =>
       codeViewerOptions: {
         initialValue:
 `// Select features within 10,000 kilometres of a point
-const distance = await ${Constants.HELPER_NAME_IMPORT}('@turf/distance');
-const point = { type: "Point", coordinates: [0, 0] };
+console.log('Loading turf library...');
+const turf = await ${Constants.HELPER_NAME_IMPORT}('turf');
+const range = 10_000;
+const point = turf.point([0,0]);
+console.log(\`Filtering events within \${range}km of \${point.geometry.coordinates}...\`);
 return layer1.features.filter(feature =>
-  distance(point, feature) < 10_000);`,
+  turf.distance(point, feature) < range);`,
         monacoEditorOptions: defaultMonacoEditorOptions
       },
       dataLayers: [defaultDataLayer],
-      rowspan: 3,
+      rowspan: 4,
       colspan: fullRowColspan
     },
     {
       description: $localize `Compute a new attribute field`,
       codeViewerOptions: {
         initialValue:
-`// Compute "time-to-close" attribute
-return layer1.features.map(feature => {
-
-  // Calculate new field
+`return layer1.features.map(feature => {
   feature.properties.timeToCloseMillis = (
     new Date(feature.properties.closed).getTime() -
     new Date(feature.properties.date).getTime()
   );
-
   return feature;
 });`,
         monacoEditorOptions: defaultMonacoEditorOptions
       },
       dataLayers: [defaultDataLayer],
-      rowspan: 5,
+      rowspan: 4,
       colspan: fullRowColspan
     },
     {
@@ -160,9 +159,13 @@ console.info(\`Mean: \${mean.toFixed(2)}\`);`,
       description: $localize `Compute a new feature layer`,
       codeViewerOptions: {
         initialValue:
-`// Import libraries
+`// Visualize event path
+
+console.log('Importing libraries...');
 const turf = await ${Constants.HELPER_NAME_IMPORT}('turf');
 const moment = await ${Constants.HELPER_NAME_IMPORT}('moment');
+
+console.log('Calculating event path...');
 
 // Select points from a specific event
 const eventFeatures = layer1.features
@@ -175,13 +178,21 @@ eventFeatures.sort((a, b) => (
   )
 ));
 
-// Colour-code the start and end events
-eventFeatures[0].properties.style = {
+// Colour-code the start/end events
+const start = eventFeatures[0];
+start.properties.style = {
   fillColor: '#53d453' // Green
 }; 
-eventFeatures[eventFeatures.length - 1].properties.style = {
+const end = eventFeatures[eventFeatures.length - 1];
+end.properties.style = {
   fillColor: '#ea6868'  // Red
 };
+
+// Calculate event duration
+const duration = moment.duration(
+  moment(start.properties.date).diff(moment(end.properties.closed))
+);
+console.info(\`\${eventFeatures[0].properties.title} lasted \${duration.humanize()}\`);
 
 // Build the event path line string
 const lineString = turf
@@ -195,28 +206,28 @@ return turf.featureCollection([lineString].concat(eventFeatures));`,
         center: L.latLng(23, -84),
         zoom: 5
       },
-      rowspan: 11,
+      rowspan: 16,
       colspan: fullRowColspan
     },
     {
-      description: $localize `Fetch data from remote source`,
+      description: $localize `Fetch data from a remote source`,
       codeViewerOptions: {
         initialValue:
-`// Import libraries
+`// Fetch and display earthquakes from the last week
+
+console.log('Importing libraries...');
 const fetch = await importPackage('node-fetch');
 const moment = await importPackage('moment');
 const turf = await importPackage('turf');
 
-// Construct data query URL
+console.log('Loading earthquake data from USGS...');
 const startDate = moment().subtract(7, 'days').format('YYYY-MM-DD');
 const endDate = moment().format('YYYY-MM-DD');
 const url = \`https://earthquake.usgs.gov/fdsnws/event/1/query?format=geojson&starttime=\${startDate}\&endtime=\${endDate}\`;
-
-// Fetch earthquake data
 const response = await fetch(url);
 const data = await response.json();
-console.info(\`\${data.metadata.count} earthquakes in the last week.\`);
 
+console.info(\`\${data.metadata.count} earthquakes in the last week.\`);
 return data;`,
         monacoEditorOptions: defaultMonacoEditorOptions
       },
