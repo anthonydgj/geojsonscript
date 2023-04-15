@@ -2348,13 +2348,6 @@
 │  ├─ email: sam@strongloop.com
 │  ├─ path: /Users/jarran/projects/geojsonscript/geojson-script/node_modules/debuglog
 │  └─ licenseFile: /Users/jarran/projects/geojsonscript/geojson-script/node_modules/debuglog/LICENSE
-├─ deepcopy@2.1.0
-│  ├─ licenses: MIT
-│  ├─ repository: https://github.com/sasaplus1/deepcopy.js
-│  ├─ publisher: sasa+1
-│  ├─ email: sasaplus1@gmail.com
-│  ├─ path: /Users/jarran/projects/geojsonscript/geojson-script/node_modules/deepcopy
-│  └─ licenseFile: /Users/jarran/projects/geojsonscript/geojson-script/node_modules/deepcopy/LICENSE
 ├─ default-gateway@6.0.3
 │  ├─ licenses: BSD-2-Clause
 │  ├─ repository: https://github.com/silverwind/default-gateway
@@ -2938,7 +2931,7 @@
 │  ├─ email: loganfsmyth@gmail.com
 │  ├─ path: /Users/jarran/projects/geojsonscript/geojson-script/node_modules/gensync
 │  └─ licenseFile: /Users/jarran/projects/geojsonscript/geojson-script/node_modules/gensync/LICENSE
-├─ geojson-script@0.1.9
+├─ geojson-script@0.1.10
 │  ├─ licenses: MIT
 │  ├─ publisher: Anthony DGJ
 │  ├─ email: anthonydgj4@gmail.com
@@ -5649,14 +5642,6 @@
 │  ├─ publisher: bdehamer@github.com
 │  ├─ path: /Users/jarran/projects/geojsonscript/geojson-script/node_modules/tuf-js
 │  └─ licenseFile: /Users/jarran/projects/geojsonscript/geojson-script/node_modules/tuf-js/LICENSE
-├─ type-detect@4.0.8
-│  ├─ licenses: MIT
-│  ├─ repository: https://github.com/chaijs/type-detect
-│  ├─ publisher: Jake Luer
-│  ├─ email: jake@alogicalparadox.com
-│  ├─ url: http://alogicalparadox.com
-│  ├─ path: /Users/jarran/projects/geojsonscript/geojson-script/node_modules/type-detect
-│  └─ licenseFile: /Users/jarran/projects/geojsonscript/geojson-script/node_modules/type-detect/LICENSE
 ├─ type-fest@0.21.3
 │  ├─ licenses: (MIT OR CC0-1.0)
 │  ├─ repository: https://github.com/sindresorhus/type-fest
