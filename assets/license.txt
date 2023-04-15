@@ -1235,6 +1235,14 @@
 │  ├─ publisher: GitHub Inc.
 │  ├─ path: /Users/jarran/projects/geojsonscript/geojson-script/node_modules/@npmcli/run-script
 │  └─ licenseFile: /Users/jarran/projects/geojsonscript/geojson-script/node_modules/@npmcli/run-script/LICENSE
+├─ @piwikpro/ngx-piwik-pro@1.0.2
+│  ├─ licenses: MIT
+│  ├─ repository: https://github.com/PiwikPRO/ngx-piwik-pro
+│  ├─ publisher: Piwik PRO
+│  ├─ email: example@mail.com
+│  ├─ url: https://www.piwik.pro
+│  ├─ path: /Users/jarran/projects/geojsonscript/geojson-script/node_modules/@piwikpro/ngx-piwik-pro
+│  └─ licenseFile: /Users/jarran/projects/geojsonscript/geojson-script/node_modules/@piwikpro/ngx-piwik-pro/LICENSE
 ├─ @schematics/angular@15.2.4
 │  ├─ licenses: MIT
 │  ├─ repository: https://github.com/angular/angular-cli
@@ -1296,11 +1304,6 @@
 │  ├─ repository: https://github.com/DefinitelyTyped/DefinitelyTyped
 │  ├─ path: /Users/jarran/projects/geojsonscript/geojson-script/node_modules/@types/cors
 │  └─ licenseFile: /Users/jarran/projects/geojsonscript/geojson-script/node_modules/@types/cors/LICENSE
-├─ @types/debug@4.1.7
-│  ├─ licenses: MIT
-│  ├─ repository: https://github.com/DefinitelyTyped/DefinitelyTyped
-│  ├─ path: /Users/jarran/projects/geojsonscript/geojson-script/node_modules/@types/debug
-│  └─ licenseFile: /Users/jarran/projects/geojsonscript/geojson-script/node_modules/@types/debug/LICENSE
 ├─ @types/eslint-scope@3.7.4
 │  ├─ licenses: MIT
 │  ├─ repository: https://github.com/DefinitelyTyped/DefinitelyTyped
@@ -1331,11 +1334,6 @@
 │  ├─ repository: https://github.com/DefinitelyTyped/DefinitelyTyped
 │  ├─ path: /Users/jarran/projects/geojsonscript/geojson-script/node_modules/@types/file-saver
 │  └─ licenseFile: /Users/jarran/projects/geojsonscript/geojson-script/node_modules/@types/file-saver/LICENSE
-├─ @types/fs-extra@9.0.13
-│  ├─ licenses: MIT
-│  ├─ repository: https://github.com/DefinitelyTyped/DefinitelyTyped
-│  ├─ path: /Users/jarran/projects/geojsonscript/geojson-script/node_modules/@types/fs-extra
-│  └─ licenseFile: /Users/jarran/projects/geojsonscript/geojson-script/node_modules/@types/fs-extra/LICENSE
 ├─ @types/geojson@7946.0.10
 │  ├─ licenses: MIT
 │  ├─ repository: https://github.com/DefinitelyTyped/DefinitelyTyped
@@ -1361,30 +1359,11 @@
 │  ├─ repository: https://github.com/DefinitelyTyped/DefinitelyTyped
 │  ├─ path: /Users/jarran/projects/geojsonscript/geojson-script/node_modules/@types/leaflet
 │  └─ licenseFile: /Users/jarran/projects/geojsonscript/geojson-script/node_modules/@types/leaflet/LICENSE
-├─ @types/lockfile@1.0.2
-│  ├─ licenses: MIT
-│  ├─ repository: https://github.com/DefinitelyTyped/DefinitelyTyped
-│  ├─ path: /Users/jarran/projects/geojsonscript/geojson-script/node_modules/@types/lockfile
-│  └─ licenseFile: /Users/jarran/projects/geojsonscript/geojson-script/node_modules/@types/lockfile/LICENSE
 ├─ @types/mime@3.0.1
 │  ├─ licenses: MIT
 │  ├─ repository: https://github.com/DefinitelyTyped/DefinitelyTyped
 │  ├─ path: /Users/jarran/projects/geojsonscript/geojson-script/node_modules/@types/mime
 │  └─ licenseFile: /Users/jarran/projects/geojsonscript/geojson-script/node_modules/@types/mime/LICENSE
-├─ @types/minipass@3.3.5
-│  ├─ licenses: MIT
-│  ├─ path: /Users/jarran/projects/geojsonscript/geojson-script/node_modules/@types/minipass
-│  └─ licenseFile: /Users/jarran/projects/geojsonscript/geojson-script/node_modules/@types/minipass/LICENSE
-├─ @types/ms@0.7.31
-│  ├─ licenses: MIT
-│  ├─ repository: https://github.com/DefinitelyTyped/DefinitelyTyped
-│  ├─ path: /Users/jarran/projects/geojsonscript/geojson-script/node_modules/@types/ms
-│  └─ licenseFile: /Users/jarran/projects/geojsonscript/geojson-script/node_modules/@types/ms/LICENSE
-├─ @types/node-fetch@2.6.3
-│  ├─ licenses: MIT
-│  ├─ repository: https://github.com/DefinitelyTyped/DefinitelyTyped
-│  ├─ path: /Users/jarran/projects/geojsonscript/geojson-script/node_modules/@types/node-fetch
-│  └─ licenseFile: /Users/jarran/projects/geojsonscript/geojson-script/node_modules/@types/node-fetch/LICENSE
 ├─ @types/node@18.15.11
 │  ├─ licenses: MIT
 │  ├─ repository: https://github.com/DefinitelyTyped/DefinitelyTyped
@@ -1415,11 +1394,6 @@
 │  ├─ repository: https://github.com/DefinitelyTyped/DefinitelyTyped
 │  ├─ path: /Users/jarran/projects/geojsonscript/geojson-script/node_modules/@types/retry
 │  └─ licenseFile: /Users/jarran/projects/geojsonscript/geojson-script/node_modules/@types/retry/LICENSE
-├─ @types/semver@7.3.13
-│  ├─ licenses: MIT
-│  ├─ repository: https://github.com/DefinitelyTyped/DefinitelyTyped
-│  ├─ path: /Users/jarran/projects/geojsonscript/geojson-script/node_modules/@types/semver
-│  └─ licenseFile: /Users/jarran/projects/geojsonscript/geojson-script/node_modules/@types/semver/LICENSE
 ├─ @types/serve-index@1.9.1
 │  ├─ licenses: MIT
 │  ├─ repository: https://github.com/DefinitelyTyped/DefinitelyTyped
@@ -1435,21 +1409,11 @@
 │  ├─ repository: https://github.com/DefinitelyTyped/DefinitelyTyped
 │  ├─ path: /Users/jarran/projects/geojsonscript/geojson-script/node_modules/@types/sockjs
 │  └─ licenseFile: /Users/jarran/projects/geojsonscript/geojson-script/node_modules/@types/sockjs/LICENSE
-├─ @types/tar@4.0.5
-│  ├─ licenses: MIT
-│  ├─ repository: https://github.com/DefinitelyTyped/DefinitelyTyped
-│  ├─ path: /Users/jarran/projects/geojsonscript/geojson-script/node_modules/@types/tar
-│  └─ licenseFile: /Users/jarran/projects/geojsonscript/geojson-script/node_modules/@types/tar/LICENSE
 ├─ @types/tinycolor2@1.4.3
 │  ├─ licenses: MIT
 │  ├─ repository: https://github.com/DefinitelyTyped/DefinitelyTyped
 │  ├─ path: /Users/jarran/projects/geojsonscript/geojson-script/node_modules/@types/tinycolor2
 │  └─ licenseFile: /Users/jarran/projects/geojsonscript/geojson-script/node_modules/@types/tinycolor2/LICENSE
-├─ @types/url-join@4.0.1
-│  ├─ licenses: MIT
-│  ├─ repository: https://github.com/DefinitelyTyped/DefinitelyTyped
-│  ├─ path: /Users/jarran/projects/geojsonscript/geojson-script/node_modules/@types/url-join
-│  └─ licenseFile: /Users/jarran/projects/geojsonscript/geojson-script/node_modules/@types/url-join/LICENSE
 ├─ @types/ws@8.5.4
 │  ├─ licenses: MIT
 │  ├─ repository: https://github.com/DefinitelyTyped/DefinitelyTyped
@@ -1788,13 +1752,6 @@
 │  ├─ publisher: Caolan McMahon
 │  ├─ path: /Users/jarran/projects/geojsonscript/geojson-script/node_modules/async
 │  └─ licenseFile: /Users/jarran/projects/geojsonscript/geojson-script/node_modules/async/LICENSE
-├─ asynckit@0.4.0
-│  ├─ licenses: MIT
-│  ├─ repository: https://github.com/alexindigo/asynckit
-│  ├─ publisher: Alex Indigo
-│  ├─ email: iam@alexindigo.com
-│  ├─ path: /Users/jarran/projects/geojsonscript/geojson-script/node_modules/asynckit
-│  └─ licenseFile: /Users/jarran/projects/geojsonscript/geojson-script/node_modules/asynckit/LICENSE
 ├─ at-least-node@1.0.0
 │  ├─ licenses: ISC
 │  ├─ repository: https://github.com/RyanZim/at-least-node
@@ -2158,14 +2115,6 @@
 │  ├─ publisher: Jorge Bucaran
 │  ├─ path: /Users/jarran/projects/geojsonscript/geojson-script/node_modules/colorette
 │  └─ licenseFile: /Users/jarran/projects/geojsonscript/geojson-script/node_modules/colorette/LICENSE.md
-├─ combined-stream@1.0.8
-│  ├─ licenses: MIT
-│  ├─ repository: https://github.com/felixge/node-combined-stream
-│  ├─ publisher: Felix Geisendörfer
-│  ├─ email: felix@debuggable.com
-│  ├─ url: http://debuggable.com/
-│  ├─ path: /Users/jarran/projects/geojsonscript/geojson-script/node_modules/combined-stream
-│  └─ licenseFile: /Users/jarran/projects/geojsonscript/geojson-script/node_modules/combined-stream/License
 ├─ commander@2.20.3
 │  ├─ licenses: MIT
 │  ├─ repository: https://github.com/tj/commander.js
@@ -2427,14 +2376,6 @@
 │  ├─ url: sindresorhus.com
 │  ├─ path: /Users/jarran/projects/geojsonscript/geojson-script/node_modules/define-lazy-prop
 │  └─ licenseFile: /Users/jarran/projects/geojsonscript/geojson-script/node_modules/define-lazy-prop/license
-├─ delayed-stream@1.0.0
-│  ├─ licenses: MIT
-│  ├─ repository: https://github.com/felixge/node-delayed-stream
-│  ├─ publisher: Felix Geisendörfer
-│  ├─ email: felix@debuggable.com
-│  ├─ url: http://debuggable.com/
-│  ├─ path: /Users/jarran/projects/geojsonscript/geojson-script/node_modules/delayed-stream
-│  └─ licenseFile: /Users/jarran/projects/geojsonscript/geojson-script/node_modules/delayed-stream/License
 ├─ delegates@1.0.0
 │  ├─ licenses: MIT
 │  ├─ repository: https://github.com/visionmedia/node-delegates
@@ -2910,14 +2851,6 @@
 │  ├─ url: https://ruben.verborgh.org/
 │  ├─ path: /Users/jarran/projects/geojsonscript/geojson-script/node_modules/follow-redirects
 │  └─ licenseFile: /Users/jarran/projects/geojsonscript/geojson-script/node_modules/follow-redirects/LICENSE
-├─ form-data@3.0.1
-│  ├─ licenses: MIT
-│  ├─ repository: https://github.com/form-data/form-data
-│  ├─ publisher: Felix Geisendörfer
-│  ├─ email: felix@debuggable.com
-│  ├─ url: http://debuggable.com/
-│  ├─ path: /Users/jarran/projects/geojsonscript/geojson-script/node_modules/form-data
-│  └─ licenseFile: /Users/jarran/projects/geojsonscript/geojson-script/node_modules/form-data/License
 ├─ forwarded@0.2.0
 │  ├─ licenses: MIT
 │  ├─ repository: https://github.com/jshttp/forwarded
@@ -2939,13 +2872,6 @@
 │  ├─ url: http://tjholowaychuk.com
 │  ├─ path: /Users/jarran/projects/geojsonscript/geojson-script/node_modules/fresh
 │  └─ licenseFile: /Users/jarran/projects/geojsonscript/geojson-script/node_modules/fresh/LICENSE
-├─ fs-extra@10.1.0
-│  ├─ licenses: MIT
-│  ├─ repository: https://github.com/jprichardson/node-fs-extra
-│  ├─ publisher: JP Richardson
-│  ├─ email: jprichardson@gmail.com
-│  ├─ path: /Users/jarran/projects/geojsonscript/geojson-script/node_modules/live-plugin-manager/node_modules/fs-extra
-│  └─ licenseFile: /Users/jarran/projects/geojsonscript/geojson-script/node_modules/live-plugin-manager/node_modules/fs-extra/LICENSE
 ├─ fs-extra@8.1.0
 │  ├─ licenses: MIT
 │  ├─ repository: https://github.com/jprichardson/node-fs-extra
@@ -3012,7 +2938,7 @@
 │  ├─ email: loganfsmyth@gmail.com
 │  ├─ path: /Users/jarran/projects/geojsonscript/geojson-script/node_modules/gensync
 │  └─ licenseFile: /Users/jarran/projects/geojsonscript/geojson-script/node_modules/gensync/LICENSE
-├─ geojson-script@0.1.8
+├─ geojson-script@0.1.9
 │  ├─ licenses: MIT
 │  ├─ publisher: Anthony DGJ
 │  ├─ email: anthonydgj4@gmail.com
@@ -3819,12 +3745,6 @@
 │  ├─ email: brian@donovans.cc
 │  ├─ path: /Users/jarran/projects/geojsonscript/geojson-script/node_modules/lines-and-columns
 │  └─ licenseFile: /Users/jarran/projects/geojsonscript/geojson-script/node_modules/lines-and-columns/LICENSE
-├─ live-plugin-manager@0.17.1
-│  ├─ licenses: ISC
-│  ├─ repository: https://github.com/davideicardi/live-plugin-manager
-│  ├─ publisher: Davide Icardi
-│  ├─ path: /Users/jarran/projects/geojsonscript/geojson-script/node_modules/live-plugin-manager
-│  └─ licenseFile: /Users/jarran/projects/geojsonscript/geojson-script/node_modules/live-plugin-manager/LICENSE
 ├─ loader-runner@4.3.0
 │  ├─ licenses: MIT
 │  ├─ repository: https://github.com/webpack/loader-runner
@@ -3851,14 +3771,6 @@
 │  ├─ url: sindresorhus.com
 │  ├─ path: /Users/jarran/projects/geojsonscript/geojson-script/node_modules/locate-path
 │  └─ licenseFile: /Users/jarran/projects/geojsonscript/geojson-script/node_modules/locate-path/license
-├─ lockfile@1.0.4
-│  ├─ licenses: ISC
-│  ├─ repository: https://github.com/npm/lockfile
-│  ├─ publisher: Isaac Z. Schlueter
-│  ├─ email: i@izs.me
-│  ├─ url: http://blog.izs.me/
-│  ├─ path: /Users/jarran/projects/geojsonscript/geojson-script/node_modules/lockfile
-│  └─ licenseFile: /Users/jarran/projects/geojsonscript/geojson-script/node_modules/lockfile/LICENSE
 ├─ lodash.debounce@4.0.8
 │  ├─ licenses: MIT
 │  ├─ repository: https://github.com/lodash/lodash
@@ -4260,12 +4172,6 @@
 │  ├─ repository: https://github.com/nodejs/node-addon-api
 │  ├─ path: /Users/jarran/projects/geojsonscript/geojson-script/node_modules/node-addon-api
 │  └─ licenseFile: /Users/jarran/projects/geojsonscript/geojson-script/node_modules/node-addon-api/LICENSE.md
-├─ node-fetch@2.6.9
-│  ├─ licenses: MIT
-│  ├─ repository: https://github.com/bitinn/node-fetch
-│  ├─ publisher: David Frank
-│  ├─ path: /Users/jarran/projects/geojsonscript/geojson-script/node_modules/node-fetch
-│  └─ licenseFile: /Users/jarran/projects/geojsonscript/geojson-script/node_modules/node-fetch/LICENSE.md
 ├─ node-forge@1.3.1
 │  ├─ licenses: (BSD-3-Clause OR GPL-2.0)
 │  ├─ repository: https://github.com/digitalbazaar/forge
@@ -5702,12 +5608,6 @@
 │  ├─ email: doug@somethingdoug.com
 │  ├─ path: /Users/jarran/projects/geojsonscript/geojson-script/node_modules/toidentifier
 │  └─ licenseFile: /Users/jarran/projects/geojsonscript/geojson-script/node_modules/toidentifier/LICENSE
-├─ tr46@0.0.3
-│  ├─ licenses: MIT
-│  ├─ repository: https://github.com/Sebmaster/tr46.js
-│  ├─ publisher: Sebastian Mayr
-│  ├─ email: npm@smayr.name
-│  └─ path: /Users/jarran/projects/geojsonscript/geojson-script/node_modules/tr46
 ├─ tree-kill@1.2.2
 │  ├─ licenses: MIT
 │  ├─ repository: https://github.com/pkrumins/node-tree-kill
@@ -5878,14 +5778,6 @@
 │  ├─ email: gary.court@gmail.com
 │  ├─ path: /Users/jarran/projects/geojsonscript/geojson-script/node_modules/uri-js
 │  └─ licenseFile: /Users/jarran/projects/geojsonscript/geojson-script/node_modules/uri-js/LICENSE
-├─ url-join@4.0.1
-│  ├─ licenses: MIT
-│  ├─ repository: https://github.com/jfromaniello/url-join
-│  ├─ publisher: José F. Romaniello
-│  ├─ email: jfromaniello@gmail.com
-│  ├─ url: http://joseoncode.com
-│  ├─ path: /Users/jarran/projects/geojsonscript/geojson-script/node_modules/url-join
-│  └─ licenseFile: /Users/jarran/projects/geojsonscript/geojson-script/node_modules/url-join/LICENSE
 ├─ util-deprecate@1.0.2
 │  ├─ licenses: MIT
 │  ├─ repository: https://github.com/TooTallNate/util-deprecate
@@ -5958,14 +5850,6 @@
 │  ├─ publisher: Tim Oxley
 │  ├─ path: /Users/jarran/projects/geojsonscript/geojson-script/node_modules/wcwidth
 │  └─ licenseFile: /Users/jarran/projects/geojsonscript/geojson-script/node_modules/wcwidth/LICENSE
-├─ webidl-conversions@3.0.1
-│  ├─ licenses: BSD-2-Clause
-│  ├─ repository: https://github.com/jsdom/webidl-conversions
-│  ├─ publisher: Domenic Denicola
-│  ├─ email: d@domenic.me
-│  ├─ url: https://domenic.me/
-│  ├─ path: /Users/jarran/projects/geojsonscript/geojson-script/node_modules/webidl-conversions
-│  └─ licenseFile: /Users/jarran/projects/geojsonscript/geojson-script/node_modules/webidl-conversions/LICENSE.md
 ├─ webpack-dev-middleware@5.3.3
 │  ├─ licenses: MIT
 │  ├─ repository: https://github.com/webpack/webpack-dev-middleware
@@ -6026,13 +5910,6 @@
 │  ├─ url: http://jcoglan.com/
 │  ├─ path: /Users/jarran/projects/geojsonscript/geojson-script/node_modules/websocket-extensions
 │  └─ licenseFile: /Users/jarran/projects/geojsonscript/geojson-script/node_modules/websocket-extensions/LICENSE.md
-├─ whatwg-url@5.0.0
-│  ├─ licenses: MIT
-│  ├─ repository: https://github.com/jsdom/whatwg-url
-│  ├─ publisher: Sebastian Mayr
-│  ├─ email: github@smayr.name
-│  ├─ path: /Users/jarran/projects/geojsonscript/geojson-script/node_modules/whatwg-url
-│  └─ licenseFile: /Users/jarran/projects/geojsonscript/geojson-script/node_modules/whatwg-url/LICENSE.txt
 ├─ which@1.3.1
 │  ├─ licenses: ISC
 │  ├─ repository: https://github.com/isaacs/node-which
