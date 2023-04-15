@@ -39,9 +39,14 @@ export class JsExecutorService {
             this.consoleListenerService.postConsoleEvent(content);
           } else if (type === JsExecutorMessageType.RESULT) {
             resolve(content);
+          } else if (type === JsExecutorMessageType.ERROR) {
+            reject(content);
           } else {
             reject(`Unknown JS executor message type: ${type}`);
           }
+        };
+        worker.onerror = (error) => {
+          reject(error);
         };
         const jsExecutorEvent = {
           sourceCode: sourceCode,

@@ -35,16 +35,24 @@ async function runScript(thisObject: any, sourceCode: string) {
     }
   }
 
-  // Create the executable script from the provided source code
-  const strictSourceCode = `"use strict"; ${sourceCode}`;
-  const script = JsUtils.AsyncFunction(...identifiers, strictSourceCode);
+  try {
+    // Create the executable script from the provided source code
+    const strictSourceCode = `"use strict"; ${sourceCode}`;
+    const script = JsUtils.AsyncFunction(...identifiers, strictSourceCode);
 
-  // Execute the script and store the result
-  const result = await script.call(thisObject, ...variables);
-  postMessage({
-    type: JsExecutorMessageType.RESULT,
-    content: result
-  });
+    // Execute the script and store the result
+    const result = await script.call(thisObject, ...variables);
+    postMessage({
+      type: JsExecutorMessageType.RESULT,
+      content: result
+    });
+  } catch (err) {
+    console.error(err);
+    postMessage({
+      type: JsExecutorMessageType.ERROR,
+      content: err
+    });
+  }
 }
 
 // Package import helper function

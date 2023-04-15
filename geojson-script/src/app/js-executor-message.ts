@@ -1,6 +1,7 @@
 export enum JsExecutorMessageType {
     CONSOLE_EVENT = 'CONSOLE_EVENT',
-    RESULT = 'RESULT'
+    RESULT = 'RESULT',
+    ERROR = 'ERROR'
 }
 
 export interface JsExecutorMessage {
