@@ -117,17 +117,19 @@ return layer1.features.filter(feature =>
       codeViewerOptions: {
         initialValue:
 `// Select features within 10,000 kilometres of a point
+
 console.log('Loading turf library...');
 const turf = await ${Constants.HELPER_NAME_IMPORT}('turf');
 const range = 10_000;
 const point = turf.point([0,0]);
+
 console.log(\`Filtering events within \${range}km of \${point.geometry.coordinates}...\`);
 return layer1.features.filter(feature =>
   turf.distance(point, feature) < range);`,
         monacoEditorOptions: defaultMonacoEditorOptions
       },
       dataLayers: [defaultDataLayer],
-      rowspan: 4,
+      rowspan: 5,
       colspan: fullRowColspan
     },
     {
@@ -135,8 +137,10 @@ return layer1.features.filter(feature =>
       description: $localize `Compute a new attribute field`,
       codeViewerOptions: {
         initialValue:
-`return layer1.features.map(feature => {
-  feature.properties.timeToCloseMillis = (
+`// Compute event duration
+
+return layer1.features.map(feature => {
+  feature.properties.duration = (
     new Date(feature.properties.closed).getTime() -
     new Date(feature.properties.date).getTime()
   );
@@ -154,6 +158,7 @@ return layer1.features.filter(feature =>
       codeViewerOptions: {
         initialValue:
 `// Calculate min, max, and mean magnitude
+
 const magnitudes = layer1.features
   .filter(feature => typeof feature.properties.magnitudeValue === 'number')
   .map(feature => feature.properties.magnitudeValue);

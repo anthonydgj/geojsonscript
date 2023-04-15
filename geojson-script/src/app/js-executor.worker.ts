@@ -1,8 +1,8 @@
 /// <reference lib="webworker" />
 
-import { Constants } from "./constants";
 import { DataUtils } from "./data-utils";
 import { JsExecutorMessageType } from "./js-executor-message";
+import { getDefaultThisObjects } from "./this-object";
 
 self.importScripts('assets/utils.js');
 
@@ -17,7 +17,10 @@ addEventListener('message', ({ data }) => {
 async function runScript(thisObject: any, sourceCode: string) {
 
   // Add default 'this' properties
-  thisObject[Constants.HELPER_NAME_IMPORT] = importHelper;
+  thisObject = {
+    ...getDefaultThisObjects(),
+    ...thisObject
+  };
 
   // Store list of variable names
   var variables = [];
@@ -53,17 +56,6 @@ async function runScript(thisObject: any, sourceCode: string) {
       content: err
     });
   }
-}
-
-// Package import helper function
-function importHelper(packageName: string, select = 'default', baseUrl = 'https://cdn.skypack.dev/'): Promise<any> {
-  const returnStatement = `return ${select ? `result['${select}']` : `result` }`;
-  const script = `
-    const result = await import(\`${baseUrl}${packageName}\`);
-    ${returnStatement};
-  `;
-  const importHelperFn = JsUtils.AsyncFunction(script);
-  return importHelperFn.call();
 }
 
 // Register console event listeners

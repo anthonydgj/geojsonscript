@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 
 import { ConsoleListenerService } from './console-listener.service';
 import { JsExecutorMessageType } from './js-executor-message';
+import { getDefaultThisObjects } from './this-object';
 
 @Injectable({
   providedIn: 'root'
@@ -20,6 +21,16 @@ export class JsExecutorService {
 
   getThis(): any {
     return this._this;
+  }
+
+  /**
+   * @returns "this" object with default properties included
+   */
+  getResolvedThis(): any {
+    return {
+      ...getDefaultThisObjects(),
+      ...this._this
+    };
   }
 
   /**

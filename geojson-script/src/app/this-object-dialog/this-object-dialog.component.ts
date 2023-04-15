@@ -14,7 +14,7 @@ export class ThisObjectDialogComponent {
   options: CodeViewerOptions;
 
   constructor(jsExecutorService: JsExecutorService) {
-    const thisObject = jsExecutorService.getThis();
+    const thisObject = jsExecutorService.getResolvedThis();
     const thisObjectConstructors: { [name: string]: string } = {};
     for (const prop of Object.keys(thisObject)) {
       if (thisObject.hasOwnProperty(prop)) {
