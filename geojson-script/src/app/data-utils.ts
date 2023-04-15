@@ -5,7 +5,7 @@ export namespace DataUtils {
     const SIMPLE_OBJECT_CONSTRUCTOR_NAMES = ['Object', 'Array'];
 
     export const getConstructorName = (value: any): string | undefined => {
-        return value.constructor && value.constructor.name;
+        return value && value.constructor && value.constructor.name;
     }
 
     export const simpleObjectReplacerFn = () => {
