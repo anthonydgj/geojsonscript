@@ -235,7 +235,6 @@ return turf.featureCollection([lineString].concat(eventFeatures));`,
 `// Fetch and display earthquakes from the last week
 
 console.log('Importing libraries...');
-const fetch = await importPackage('node-fetch');
 const moment = await importPackage('moment');
 const turf = await importPackage('turf');
 
