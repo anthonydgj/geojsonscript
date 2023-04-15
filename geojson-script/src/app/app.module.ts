@@ -14,6 +14,7 @@ import { MatListModule } from '@angular/material/list';
 import { MatInputModule } from '@angular/material/input';
 import { MatGridListModule } from '@angular/material/grid-list';
 import { MatMenuModule } from '@angular/material/menu';
+import { NgxPiwikProModule } from '@piwikpro/ngx-piwik-pro';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -67,6 +68,8 @@ import { TitleComponent } from './title/title.component';
     MatInputModule,
     MatGridListModule,
     MatMenuModule,
+
+    NgxPiwikProModule.forRoot('13e31050-7514-4ad0-b055-870120d67683', 'https://geojsonscript.containers.piwik.pro'),
 
     AngularSplitModule,
     NgxFileDropModule,
