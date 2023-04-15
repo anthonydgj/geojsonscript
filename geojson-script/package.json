@@ -35,7 +35,6 @@
     "@piwikpro/ngx-piwik-pro": "^1.0.2",
     "@types/leaflet": "^1.9.1",
     "angular-split": "^14.1.0",
-    "deepcopy": "^2.1.0",
     "dexie": "^3.2.3",
     "file-saver": "^2.0.5",
     "leaflet": "^1.9.3",

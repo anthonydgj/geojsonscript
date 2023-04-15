@@ -1,7 +1,6 @@
 import { Injectable } from '@angular/core';
 import randomColor from 'randomcolor';
 import tinycolor from 'tinycolor2';
-import deepcopy from 'deepcopy';
 
 import { DataLayerRecord, db, LayerType } from './db';
 import { DataLayer } from './data-layer';
@@ -80,7 +79,7 @@ export class LayerManagerService {
       ...dataLayer.style
     }
 
-    this.jsExecutorService.getThis()[dataLayer.name] = deepcopy(dataLayer.content);
+    this.jsExecutorService.getThis()[dataLayer.name] = dataLayer.content;
 
     const map = this.mapService.getMap();
     if (map && !dataLayer.hide) {
