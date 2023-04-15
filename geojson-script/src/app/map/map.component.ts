@@ -58,7 +58,7 @@ export class MapComponent {
 
     this.map.on('dblclick', (e) => this.onMapDoubleClick(e));
 
-    this.jsExecutorService.getThis()['map'] = this.map;
+    // this.jsExecutorService.getThis()['map'] = this.map;
     this.mapService.setMap(this.map);
   }
 

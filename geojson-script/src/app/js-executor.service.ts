@@ -1,9 +1,7 @@
 import { Injectable } from '@angular/core';
-import { Constants } from './constants';
 
-declare var JsUtils: {
-  AsyncFunction: any;
-};
+import { ConsoleListenerService } from './console-listener.service';
+import { JsExecutorMessageType } from './js-executor-message';
 
 @Injectable({
   providedIn: 'root'
@@ -12,11 +10,9 @@ export class JsExecutorService {
 
   _this: any = Object.create({});
 
-  constructor() {
-    // Add default 'this' properties
-    const _this = this.getThis();
-    _this[Constants.HELPER_NAME_IMPORT] = this.load;
-  }
+  constructor(
+    private consoleListenerService: ConsoleListenerService
+  ) { }
 
   run(script: string): Promise<any> {
     return this.execute(script, this._this)
@@ -27,47 +23,36 @@ export class JsExecutorService {
   }
 
   /**
-   * Execute the provided JavaScript code.
+   * Execute the provided JavaScript code on a worker thread
    *
    * @param {*} sourceCode 
-   * @param  {...any} args 
+   * @param  {*} thisObject 
    */
   async execute(sourceCode: any, thisObject: any): Promise<any> {
-
-    // Store list of variable names
-    var variables = [];
-    var identifiers = [];
-
-    // Iterate through each variable
-    for (let identifier in thisObject) {
-      if (thisObject.hasOwnProperty(identifier)) {
-
-        // Add identifier to list of variables
-        identifiers.push(identifier);
-
-        // Add variable to argument list
-        variables.push(thisObject[identifier])
+    const promise = new Promise((resolve, reject) => {
+      if (typeof Worker !== 'undefined') {
+        const worker = new Worker(new URL('./js-executor.worker', import.meta.url));
+        worker.onmessage = ({ data }) => {
+          const type = data.type;
+          const content = data.content;
+          if (type === JsExecutorMessageType.CONSOLE_EVENT) {
+            this.consoleListenerService.postConsoleEvent(content);
+          } else if (type === JsExecutorMessageType.RESULT) {
+            resolve(content);
+          } else {
+            reject(`Unknown JS executor message type: ${type}`);
+          }
+        };
+        const jsExecutorEvent = {
+          sourceCode: sourceCode,
+          thisObject: thisObject
+        };
+        worker.postMessage(jsExecutorEvent);
+      } else {
+        reject('Web workers are not supported in this environment.')
       }
-    }
-
-    // Create the executable script from the provided source code
-    const strictSourceCode = `"use strict"; ${sourceCode}`
-    const script = new JsUtils.AsyncFunction(...identifiers, strictSourceCode);
-
-    // Execute the script and store the result
-    const result = script.call(thisObject, ...variables);
-
-    // Return the execution result
-    return result;
+    });
+    return promise;
   }
 
-  load(packageName: string, select = 'default', baseUrl = 'https://cdn.skypack.dev/'): Promise<any> {
-    const returnStatement = `return ${select ? `result['${select}']` : `result` }`;
-    const script = `
-      const result = await import(\`${baseUrl}${packageName}\`);
-      ${returnStatement};
-    `;
-    const loader = JsUtils.AsyncFunction(script);
-    return loader.call();
-  }
 }

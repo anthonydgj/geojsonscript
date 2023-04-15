@@ -46,7 +46,8 @@
             ],
             "scripts": [
               "utils.js"
-            ]
+            ],
+            "webWorkerTsConfig": "tsconfig.worker.json"
           },
           "configurations": {
             "production": {
@@ -123,7 +124,8 @@
             ],
             "scripts": [
               "utils.js"
-            ]
+            ],
+            "webWorkerTsConfig": "tsconfig.worker.json"
           }
         },
         "deploy": {

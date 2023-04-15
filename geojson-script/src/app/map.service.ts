@@ -1,7 +1,7 @@
 import { ComponentFactoryResolver, Injectable, Injector } from '@angular/core';
 
 import * as L from 'leaflet';
-import { BehaviorSubject, share, shareReplay } from 'rxjs';
+import { BehaviorSubject, shareReplay } from 'rxjs';
 import { DataLayer } from './data-layer';
 import { PopupContentComponent } from './popup-content/popup-content.component';
 
