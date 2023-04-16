@@ -104,7 +104,7 @@ export class LayerManagerService {
   }
 
   async removeLayer(dataLayer: DataLayer, permanent = true) {
-    this.jsExecutorService.getThis()[dataLayer.name] = undefined;
+    delete this.jsExecutorService.getThis()[dataLayer.name];
 
     const removeIndex = this.layers
       .findIndex(layer => layer.name === dataLayer.name);
