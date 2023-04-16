@@ -108,7 +108,7 @@ return layer1.features.filter(feature =>
         monacoEditorOptions: defaultMonacoEditorOptions
       },
       dataLayers: [defaultDataLayer],
-      rowspan: 3,
+      rowspan: 2,
       colspan: fullRowColspan
     },
     {
@@ -215,7 +215,7 @@ end.properties.style = {
 const duration = moment.duration(
   moment(start.properties.date).diff(moment(end.properties.closed))
 );
-console.info(\`\${eventFeatures[0].properties.title} lasted \${duration.humanize()}\`);
+console.info(\`\${eventFeatures[0].properties.title} lasted \${duration.humanize()}.\`);
 
 // Build the event path line string
 const lineString = turf
@@ -234,28 +234,61 @@ return turf.featureCollection([lineString].concat(eventFeatures));`,
     },
     {
       path: 'fetchRemote',
-      description: $localize `Fetch data from a remote source`,
+      description: $localize `Fetch data from a remote source and run cluster analysis`,
       codeViewerOptions: {
         initialValue:
-`// Fetch and display earthquakes from the last week
+`// Fetch and display earthquake clusters from the last week
 
 console.log('Importing libraries...');
 const moment = await importPackage('moment');
-const turf = await importPackage('turf');
+const clustersDbscan = await importPackage('@turf/clusters-dbscan');
+const randomColor = await importPackage('randomcolor');
 
 console.log('Loading earthquake data from USGS...');
-const startDate = moment().subtract(7, 'days').format('YYYY-MM-DD');
+const numDays = 7;
+const startDate = moment().subtract(numDays, 'days').format('YYYY-MM-DD');
 const endDate = moment().format('YYYY-MM-DD');
-const url = \`https://earthquake.usgs.gov/fdsnws/event/1/query?format=geojson&starttime=\${startDate}\&endtime=\${endDate}\`;
+const url = \`https://earthquake.usgs.gov/fdsnws/event/1/query?format=geojson&starttime=\${startDate}&endtime=\${endDate}\`;
 const response = await fetch(url);
-const data = await response.json();
+const earthquakes = await response.json();
+console.info(\`\${earthquakes.metadata.count} earthquakes in the \${numDays} days.\`);
 
-console.info(\`\${data.metadata.count} earthquakes in the last week.\`);
-return data;`,
+console.log('Computing clusters...');
+const maxDistanceKm = 300;
+const clusters = clustersDbscan(earthquakes, maxDistanceKm, {
+  minPoints: 5
+});
+
+console.log('Building cluster colour map...')
+const clusterSet = new Set();
+clusters.features.forEach(feature => {
+  clusterSet.add(feature.properties.cluster)
+});
+const colourMap = new Map();
+clusterSet.forEach(cluster => {
+  const colour = randomColor({
+      luminosity: 'light',
+    });
+  colourMap.set(cluster, colour);
+});
+
+console.log('Colour-coding cluster members...')
+clusters.features.forEach(feature => {
+  const dbscan = feature.properties.dbscan;
+  const clusterColour = colourMap.get(feature.properties.cluster);
+  feature.properties.style = {
+    fillColor: dbscan === 'noise' ? 'white' : clusterColour,
+    color: 'black',
+    fillOpacity: 0.6
+  };
+});
+
+console.log('Done.\\n');
+return clusters;`,
         monacoEditorOptions: defaultMonacoEditorOptions
       },
       dataLayers: [],
-      rowspan: 7,
+      rowspan: 18,
       colspan: fullRowColspan
     }
   ];
