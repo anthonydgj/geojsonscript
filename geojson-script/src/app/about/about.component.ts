@@ -256,13 +256,13 @@ console.info(\`\${earthquakes.metadata.count} earthquakes in the \${numDays} day
 
 console.log('Computing clusters...');
 const maxDistanceKm = 300;
-const clusters = clustersDbscan(earthquakes, maxDistanceKm, {
+const clusteredEarthquakes = clustersDbscan(earthquakes, maxDistanceKm, {
   minPoints: 5
 });
 
 console.log('Building cluster colour map...')
 const clusterSet = new Set();
-clusters.features.forEach(feature => {
+clusteredEarthquakes.features.forEach(feature => {
   clusterSet.add(feature.properties.cluster)
 });
 const colourMap = new Map();
@@ -274,7 +274,7 @@ clusterSet.forEach(cluster => {
 });
 
 console.log('Colour-coding cluster members...')
-clusters.features.forEach(feature => {
+clusteredEarthquakes.features.forEach(feature => {
   const dbscan = feature.properties.dbscan;
   const clusterColour = colourMap.get(feature.properties.cluster);
   feature.properties.style = {
@@ -285,7 +285,7 @@ clusters.features.forEach(feature => {
 });
 
 console.log('Done.\\n');
-return clusters;`,
+return clusteredEarthquakes;`,
 				monacoEditorOptions: defaultMonacoEditorOptions
 			},
 			dataLayers: [],
