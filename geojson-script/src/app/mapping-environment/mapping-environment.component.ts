@@ -26,9 +26,9 @@ export class MappingEnvironmentComponent implements OnInit, OnDestroy {
 
 	@HostListener('document:keydown', ['$event']) onKeydownHandler(event: KeyboardEvent) {
 		if (event.metaKey && event.key === 'Enter') {
-			this.userEventService.sendCommand(UserEvent.RUN_SCRIPT);
+			this.handleEvent(UserEvent.RUN_SCRIPT, event);
 		} else if (event.metaKey && event.key === 'l') {
-			this.userEventService.sendCommand(UserEvent.CLEAR_CONSOLE_OUTPUT);
+			this.handleEvent(UserEvent.CLEAR_CONSOLE_OUTPUT, event);
 		}
 	}
 
@@ -84,5 +84,11 @@ export class MappingEnvironmentComponent implements OnInit, OnDestroy {
 
 	ngOnDestroy(): void {
 		this.layerManagerService.removeAll(false);
+	}
+
+	private handleEvent(userEvent: UserEvent, event: KeyboardEvent) {
+		event.preventDefault();
+		event.stopPropagation();
+		this.userEventService.sendCommand(userEvent);
 	}
 }
