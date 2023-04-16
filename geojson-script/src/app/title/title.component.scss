@@ -2,26 +2,28 @@
 
 .title {
 
-    display: flex;
-    justify-content: center;
-    align-items: center;
+	display: flex;
+	justify-content: center;
+	align-items: center;
 
-    img {
-        height: 1em;
-        margin-right: 0.2em;
-    }
+	img {
+		height: 1em;
+		margin-right: 0.2em;
+	}
 
-    .title-1 {
-        color: #bcbcc0;
-    }
-    .title-2 {
-        color: lighten($main-color, 30%);
-    }
+	.title-1 {
+		color: #bcbcc0;
+	}
+
+	.title-2 {
+		color: lighten($main-color, 30%);
+	}
 }
 
 .title.high-contrast .title-1 {
-    color: #64646b;
+	color: #64646b;
 }
+
 .title.high-contrast .title-2 {
-    color: $main-color;
+	color: $main-color;
 }

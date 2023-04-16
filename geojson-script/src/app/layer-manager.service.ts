@@ -1,198 +1,199 @@
-import { Injectable } from '@angular/core';
 import randomColor from 'randomcolor';
+import { BehaviorSubject } from 'rxjs';
 import tinycolor from 'tinycolor2';
 
-import { DataLayerRecord, db, LayerType } from './db';
+import { Injectable } from '@angular/core';
+
 import { DataLayer } from './data-layer';
+import { DataLayerRecord, LayerType, db } from './db';
 import { JsExecutorService } from './js-executor.service';
 import { MapService } from './map.service';
-import { BehaviorSubject } from 'rxjs';
 
 @Injectable({
-  providedIn: 'root'
+	providedIn: 'root'
 })
 export class LayerManagerService {
 
-  static readonly DEFAULT_SCRATCH_POINT_NAME = 'newPoint';
-  static readonly DEFAULT_SCRATCH_LAYER_NAME = 'newLayer';
+	static readonly DEFAULT_SCRATCH_POINT_NAME = 'newPoint';
+	static readonly DEFAULT_SCRATCH_LAYER_NAME = 'newLayer';
 
-  private readonly DEFAULT_STROKE_COLOR_DARKEN = 30;
-  private readonly DEFAULT_FILL_OPACITY = 0.4;
-  private readonly DEFAULT_SCRATCH_STYLE = {
-    fillColor: `#f7f750`,
-    color: '#6d6d00',
-    fillOpacity: '0.95',
-  };
-  private readonly DEFAULT_SCRATCH_POINT_STYLE = {
-    fillColor: `#a174f5`,
-    color: '#4d0ec2',
-    fillOpacity: '0.95',
-  };
+	private readonly DEFAULT_STROKE_COLOR_DARKEN = 30;
+	private readonly DEFAULT_FILL_OPACITY = 0.4;
+	private readonly DEFAULT_SCRATCH_STYLE = {
+		fillColor: `#f7f750`,
+		color: '#6d6d00',
+		fillOpacity: '0.95',
+	};
+	private readonly DEFAULT_SCRATCH_POINT_STYLE = {
+		fillColor: `#a174f5`,
+		color: '#4d0ec2',
+		fillOpacity: '0.95',
+	};
 
-  inputLayerCount = 0;
-  layers: DataLayer[] = [];
-  selectedLayers: DataLayer[] = [];
+	inputLayerCount = 0;
+	layers: DataLayer[] = [];
+	selectedLayers: DataLayer[] = [];
 
-  private _layers$ = new BehaviorSubject<DataLayer[]>([]);
-  layers$ = this._layers$.asObservable();
+	private _layers$ = new BehaviorSubject<DataLayer[]>([]);
+	layers$ = this._layers$.asObservable();
 
-  constructor(
-    private jsExecutorService: JsExecutorService,
-    private mapService: MapService
-  ) { }
+	constructor(
+		private jsExecutorService: JsExecutorService,
+		private mapService: MapService
+	) { }
 
-  async getSuggestedLayerName() {
-    const layersList = await db.dataLayers.toArray();
-    const namesSet = new Set(layersList.map(layer => layer.name));
-    let suggestedName: string | undefined = undefined;
-    let suggestedNumber = namesSet.size + 1;
-    const maxAttempts = 100;
-    for (let numAttempts=1; numAttempts<=maxAttempts; numAttempts++) {
-      suggestedName = `layer${suggestedNumber}`;
-      if (!namesSet.has(suggestedName)) {
-        return suggestedName
-      }
-      suggestedNumber = suggestedNumber + 1;
-    }
-    return '';
-  }
+	async getSuggestedLayerName() {
+		const layersList = await db.dataLayers.toArray();
+		const namesSet = new Set(layersList.map(layer => layer.name));
+		let suggestedName: string | undefined = undefined;
+		let suggestedNumber = namesSet.size + 1;
+		const maxAttempts = 100;
+		for (let numAttempts = 1; numAttempts <= maxAttempts; numAttempts++) {
+			suggestedName = `layer${suggestedNumber}`;
+			if (!namesSet.has(suggestedName)) {
+				return suggestedName
+			}
+			suggestedNumber = suggestedNumber + 1;
+		}
+		return '';
+	}
 
-  getStrokeColor(fillColor: string): string {
-    return tinycolor(fillColor)
-      .darken(this.DEFAULT_STROKE_COLOR_DARKEN)
-      .toString();
-  }
+	getStrokeColor(fillColor: string): string {
+		return tinycolor(fillColor)
+			.darken(this.DEFAULT_STROKE_COLOR_DARKEN)
+			.toString();
+	}
 
-  async addLayer(dataLayer: DataLayer, permanent = true) {
-    if (dataLayer.type !== LayerType.SCRATCH) {
-      this.inputLayerCount++;
-    }
+	async addLayer(dataLayer: DataLayer, permanent = true) {
+		if (dataLayer.type !== LayerType.SCRATCH) {
+			this.inputLayerCount++;
+		}
 
-    const fillColor = randomColor({
-      luminosity: 'bright',
-    });
-    const strokeColor = this.getStrokeColor(fillColor);
-    dataLayer.style = {
-      fillColor: fillColor,
-      color: strokeColor,
-      fillOpacity: this.DEFAULT_FILL_OPACITY,
-      ...dataLayer.style
-    }
+		const fillColor = randomColor({
+			luminosity: 'bright',
+		});
+		const strokeColor = this.getStrokeColor(fillColor);
+		dataLayer.style = {
+			fillColor: fillColor,
+			color: strokeColor,
+			fillOpacity: this.DEFAULT_FILL_OPACITY,
+			...dataLayer.style
+		}
 
-    this.jsExecutorService.getThis()[dataLayer.name] = dataLayer.content;
+		this.jsExecutorService.getThis()[dataLayer.name] = dataLayer.content;
 
-    const map = this.mapService.getMap();
-    if (map && !dataLayer.hide) {
-      this.mapService.loadGeoJSON(map, dataLayer);
-    }
+		const map = this.mapService.getMap();
+		if (map && !dataLayer.hide) {
+			this.mapService.loadGeoJSON(map, dataLayer);
+		}
 
-    this.layers.push(dataLayer);
+		this.layers.push(dataLayer);
 
-    if (permanent) {
-      const dataLayerRecord: DataLayerRecord = {
-        name: dataLayer.name,
-        path: dataLayer.path,
-        content: dataLayer.content,
-        zIndex: dataLayer.zIndex,
-        style: dataLayer.style,
-        type: dataLayer.type
-      };
-      await db.dataLayers.put(dataLayerRecord, dataLayer.name);
-    }
+		if (permanent) {
+			const dataLayerRecord: DataLayerRecord = {
+				name: dataLayer.name,
+				path: dataLayer.path,
+				content: dataLayer.content,
+				zIndex: dataLayer.zIndex,
+				style: dataLayer.style,
+				type: dataLayer.type
+			};
+			await db.dataLayers.put(dataLayerRecord, dataLayer.name);
+		}
 
-    this.broadcastUpdate();
-  }
+		this.broadcastUpdate();
+	}
 
-  async removeLayer(dataLayer: DataLayer, permanent = true) {
-    delete this.jsExecutorService.getThis()[dataLayer.name];
+	async removeLayer(dataLayer: DataLayer, permanent = true) {
+		delete this.jsExecutorService.getThis()[dataLayer.name];
 
-    const removeIndex = this.layers
-      .findIndex(layer => layer.name === dataLayer.name);
+		const removeIndex = this.layers
+			.findIndex(layer => layer.name === dataLayer.name);
 
-    let foundDataLayer: DataLayer | undefined;
-    if (removeIndex >= 0) {
-      foundDataLayer = this.layers[removeIndex];
-      this.layers.splice(removeIndex, 1);
+		let foundDataLayer: DataLayer | undefined;
+		if (removeIndex >= 0) {
+			foundDataLayer = this.layers[removeIndex];
+			this.layers.splice(removeIndex, 1);
 
-      const map = this.mapService.getMap();
-      if (map) {
-        foundDataLayer.mapLayer?.deref()?.removeFrom(map);
-        foundDataLayer.mapLayer = undefined;
-      }
+			const map = this.mapService.getMap();
+			if (map) {
+				foundDataLayer.mapLayer?.deref()?.removeFrom(map);
+				foundDataLayer.mapLayer = undefined;
+			}
 
-      if (permanent) {
-        await db.dataLayers.delete(foundDataLayer.name);
-      }
-    }
-    this.broadcastUpdate();
-    return this.layers;
-  }
+			if (permanent) {
+				await db.dataLayers.delete(foundDataLayer.name);
+			}
+		}
+		this.broadcastUpdate();
+		return this.layers;
+	}
 
-  async removeLayerByName(name: string) {
-    const record = await db.dataLayers.where({name: name}).first();
-    if (record) {
-      return this.removeLayer(record);
-    }
-    return Promise.resolve();
-  }
+	async removeLayerByName(name: string) {
+		const record = await db.dataLayers.where({ name: name }).first();
+		if (record) {
+			return this.removeLayer(record);
+		}
+		return Promise.resolve();
+	}
 
-  refreshLayer(dataLayer: DataLayer): void {
-    if (!!dataLayer.mapLayer) {
-      this.removeLayer(dataLayer);
-      this.addLayer(dataLayer);
-    }
-  }
+	refreshLayer(dataLayer: DataLayer): void {
+		if (!!dataLayer.mapLayer) {
+			this.removeLayer(dataLayer);
+			this.addLayer(dataLayer);
+		}
+	}
 
-  toggleLayer(dataLayer: DataLayer, shouldDisplay: boolean): void {
-    const map = this.mapService.getMap();
-    if (map) {
-      if (shouldDisplay) {
-        this.mapService.loadGeoJSON(map, dataLayer);
-      } else {
-        const mapLayer = dataLayer.mapLayer;
-        dataLayer.mapLayer = undefined;
-        if (mapLayer) {
-          mapLayer.deref()?.remove();
-        }
-      }
-    }
-  }
+	toggleLayer(dataLayer: DataLayer, shouldDisplay: boolean): void {
+		const map = this.mapService.getMap();
+		if (map) {
+			if (shouldDisplay) {
+				this.mapService.loadGeoJSON(map, dataLayer);
+			} else {
+				const mapLayer = dataLayer.mapLayer;
+				dataLayer.mapLayer = undefined;
+				if (mapLayer) {
+					mapLayer.deref()?.remove();
+				}
+			}
+		}
+	}
 
-  getScratchLayerName(): string {
-    return LayerManagerService.DEFAULT_SCRATCH_LAYER_NAME;
-  }
+	getScratchLayerName(): string {
+		return LayerManagerService.DEFAULT_SCRATCH_LAYER_NAME;
+	}
 
-  getScratchLayer(geoJsonData: L.GeoJSON): DataLayer {
-    const scratchLayer: DataLayer = {
-      name: this.getScratchLayerName(),
-      content: geoJsonData,
-      zIndex: 2,
-      style: this.DEFAULT_SCRATCH_STYLE,
-      type: LayerType.SCRATCH
-    };
-    return scratchLayer;
-  }
+	getScratchLayer(geoJsonData: L.GeoJSON): DataLayer {
+		const scratchLayer: DataLayer = {
+			name: this.getScratchLayerName(),
+			content: geoJsonData,
+			zIndex: 2,
+			style: this.DEFAULT_SCRATCH_STYLE,
+			type: LayerType.SCRATCH
+		};
+		return scratchLayer;
+	}
 
-  getScratchPointLayer(point: GeoJSON.Point): DataLayer {
-    const scratchLayer: DataLayer = {
-      name: LayerManagerService.DEFAULT_SCRATCH_POINT_NAME,
-      content: point,
-      zIndex: 3,
-      style: this.DEFAULT_SCRATCH_POINT_STYLE,
-      type: LayerType.SCRATCH
-    };
-    return scratchLayer;
-  }
+	getScratchPointLayer(point: GeoJSON.Point): DataLayer {
+		const scratchLayer: DataLayer = {
+			name: LayerManagerService.DEFAULT_SCRATCH_POINT_NAME,
+			content: point,
+			zIndex: 3,
+			style: this.DEFAULT_SCRATCH_POINT_STYLE,
+			type: LayerType.SCRATCH
+		};
+		return scratchLayer;
+	}
 
-  async removeAll(permanent = true) {
-    let layers = this.layers;
-    while (layers.length > 0) {
-      const layer = layers[0];
-      layers = await this.removeLayer(layer, permanent);
-    }
-  }
+	async removeAll(permanent = true) {
+		let layers = this.layers;
+		while (layers.length > 0) {
+			const layer = layers[0];
+			layers = await this.removeLayer(layer, permanent);
+		}
+	}
 
-  private broadcastUpdate() {
-    this._layers$.next(this.layers);
-  }
+	private broadcastUpdate() {
+		this._layers$.next(this.layers);
+	}
 }

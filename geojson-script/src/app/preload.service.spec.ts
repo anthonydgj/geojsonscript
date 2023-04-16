@@ -1,16 +1,16 @@
 import { TestBed } from '@angular/core/testing';
 
-import { EditorPresetService } from './preload.service';
+import { PreloadService } from './preload.service';
 
-describe('EditorPresetService', () => {
-  let service: EditorPresetService;
+describe('PreloadService', () => {
+	let service: PreloadService;
 
-  beforeEach(() => {
-    TestBed.configureTestingModule({});
-    service = TestBed.inject(EditorPresetService);
-  });
+	beforeEach(() => {
+		TestBed.configureTestingModule({});
+		service = TestBed.inject(PreloadService);
+	});
 
-  it('should be created', () => {
-    expect(service).toBeTruthy();
-  });
+	it('should be created', () => {
+		expect(service).toBeTruthy();
+	});
 });

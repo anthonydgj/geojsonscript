@@ -2,67 +2,72 @@
 
 .console-container {
 
-    position: relative;
-    height: 100%;
-    display: flex;
+	position: relative;
+	height: 100%;
+	display: flex;
 
-    .console-output {
-        flex-grow: 1;
-        position: relative;
+	.console-output {
+		flex-grow: 1;
+		position: relative;
 
-        .info-message {
-            color: #aaaaaa;
-            height: 100%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            padding: 0 1em;
-        }
+		.info-message {
+			color: #aaaaaa;
+			height: 100%;
+			display: flex;
+			align-items: center;
+			justify-content: center;
+			padding: 0 1em;
+		}
 
-        .console-logs {
+		.console-logs {
 
-            position: absolute;
-            top: 0;
-            bottom: 0;
-            right: 0;
-            left: 0;
-            overflow-x: auto;
-            overflow-y: auto;
-            white-space: nowrap;
-            white-space: pre;
+			position: absolute;
+			top: 0;
+			bottom: 0;
+			right: 0;
+			left: 0;
+			overflow-x: auto;
+			overflow-y: auto;
+			white-space: nowrap;
+			white-space: pre;
 
-            .output {
-                font-size: 0.9em;
-                font-family: monospace;
-                display: table-row;
-            }
+			.output {
+				font-size: 0.9em;
+				font-family: monospace;
+				display: table-row;
+			}
 
-            .output-trace {
-                color: #aaaaaa;
-            }
-            .output-debug {
-                color: #aaaaaa;
-            }
-            .output-log {
-                color: #3a393d;
-            }
-            .output-info {
-                color: #455fd4;
-            }
-            .output-warn {
-                color: #978d0c;
-            }
-            .output-error {
-                color: #c61515;
-            }
-        }
-    }
+			.output-trace {
+				color: #aaaaaa;
+			}
+
+			.output-debug {
+				color: #aaaaaa;
+			}
+
+			.output-log {
+				color: #3a393d;
+			}
+
+			.output-info {
+				color: #455fd4;
+			}
+
+			.output-warn {
+				color: #978d0c;
+			}
+
+			.output-error {
+				color: #c61515;
+			}
+		}
+	}
 
 
-    .control-bar {
-        padding: 2px;
-        background-color: $toolbar-color;
-        display: flex;
-        flex-direction: column;
-    }
+	.control-bar {
+		padding: 2px;
+		background-color: $toolbar-color;
+		display: flex;
+		flex-direction: column;
+	}
 }

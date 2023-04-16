@@ -1,41 +1,27 @@
 <h1 mat-dialog-title>
-    <span *ngIf="data.dataLayer.style; let style"
-        class="color-picker-container">
-        <input
-            readonly
-            tabindex="-1"
-            class="color-picker-input"
-            title="Select layer color"
-            i18n-title
-            #colorPicker
-            [(colorPicker)]="style.fillColor"
-            [style.background]="style.fillColor"
-            [cpOKButton]="true"
-            [cpCancelButton]="true"
-            [cpPosition]="'bottom'"
-            [cpSaveClickOutside]="false"
-            (colorPickerSelect)="onColorChange(data.dataLayer)" />
-    </span>
-    <span i18n class="title">
-        {{ data.dataLayer.name }}
-    </span>
-    <span *ngIf="summary" class="summary">
-        ({{ summary }})
-    </span>
+	<span *ngIf="data.dataLayer.style; let style" class="color-picker-container">
+		<input readonly tabindex="-1" class="color-picker-input" title="Select layer color" i18n-title #colorPicker
+			[(colorPicker)]="style.fillColor" [style.background]="style.fillColor" [cpOKButton]="true"
+			[cpCancelButton]="true" [cpPosition]="'bottom'" [cpSaveClickOutside]="false"
+			(colorPickerSelect)="onColorChange(data.dataLayer)" />
+	</span>
+	<span i18n class="title">
+		{{ data.dataLayer.name }}
+	</span>
+	<span *ngIf="summary" class="summary">
+		({{ summary }})
+	</span>
 </h1>
 <div mat-dialog-content>
-    <div class="viewer-container">
-        <app-code-viewer
-            class="editor-container"
-            [options]="options">
-        </app-code-viewer>
-    </div>
+	<div class="viewer-container">
+		<app-code-viewer class="editor-container" [options]="options">
+		</app-code-viewer>
+	</div>
 </div>
 <div mat-dialog-actions>
-    <div class="action-buttons">
-        <button mat-button
-            mat-dialog-close>
-            Close
-        </button>
-    </div>
+	<div class="action-buttons">
+		<button mat-button mat-dialog-close>
+			Close
+		</button>
+	</div>
 </div>

@@ -1,32 +1,33 @@
+import { BehaviorSubject, Subscription, debounceTime } from 'rxjs';
+
 import { ChangeDetectorRef, Component, Input, OnDestroy, ViewChild } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
-import { BehaviorSubject, debounceTime, Subscription } from 'rxjs';
 
-import { db } from '../db';
 import { CodeViewerComponent, CodeViewerOptions } from '../code-viewer/code-viewer.component';
+import { Constants } from '../constants';
 import { DataUtils } from '../data-utils';
-import { ThisObjectDialogComponent } from '../this-object-dialog/this-object-dialog.component';
+import { db } from '../db';
 import { JsExecutorService } from '../js-executor.service';
 import { LayerManagerService } from '../layer-manager.service';
+import { ThisObjectDialogComponent } from '../this-object-dialog/this-object-dialog.component';
 import { UserEvent, UserEventService } from '../user-event.service';
-import { Constants } from '../constants';
 
 @Component({
-  selector: 'app-editor',
-  templateUrl: './editor.component.html',
-  styleUrls: ['./editor.component.scss']
+	selector: 'app-editor',
+	templateUrl: './editor.component.html',
+	styleUrls: ['./editor.component.scss']
 })
 export class EditorComponent implements OnDestroy {
-  public _editor: any;
+	public _editor: any;
 
-  private DEFAULT_SCRIPT_NAME = 'script';
+	private DEFAULT_SCRIPT_NAME = 'script';
 
-  private eventSubscription = new Subscription();
-  private editorSaveSubscription = new Subscription();
-  private editorChange$ = new BehaviorSubject<void>(undefined);
+	private eventSubscription = new Subscription();
+	private editorSaveSubscription = new Subscription();
+	private editorChange$ = new BehaviorSubject<void>(undefined);
 
-  private initialValue = `// Use ctrl+enter (or command-enter on Mac) to run the script\n`;
-  private exampleValue =  `/*
+	private initialValue = `// Use ctrl+enter (or command-enter on Mac) to run the script\n`;
+	private exampleValue = `/*
  *   Tips:
  *   =====
  *   Use ctrl+enter (or command-enter on Mac) to run the script
@@ -96,158 +97,158 @@ return {
   features: points.concat([pointOfInterest])
 };`;
 
-  @ViewChild('codeViewer', { static: true }) codeViewer?: CodeViewerComponent;
+	@ViewChild('codeViewer', { static: true }) codeViewer?: CodeViewerComponent;
 
-  @Input() preloadValue?: string;
+	@Input() preloadValue?: string;
 
-  editorOptions: CodeViewerOptions = {
-    initialValue: this.initialValue,
-    monacoEditorOptions: {
-      language: 'javascript',
-      automaticLayout: true
-    },
-    captureUserEvents: true
-  };
+	editorOptions: CodeViewerOptions = {
+		initialValue: this.initialValue,
+		monacoEditorOptions: {
+			language: 'javascript',
+			automaticLayout: true
+		},
+		captureUserEvents: true
+	};
 
-  isRunning = false;
-  
-  private static DEFAULT_SCRIPT_FILE_NAME = 'geojsonScript';
+	isRunning = false;
 
-  private scriptSaveDebounceMillis = 500;
+	private static DEFAULT_SCRIPT_FILE_NAME = 'geojsonScript';
 
-  constructor(
-    private userEventService: UserEventService,
-    private jsExecutorService: JsExecutorService,
-    private layerManagerService: LayerManagerService,
-    private dialog: MatDialog,
-    private changeDetectorRef: ChangeDetectorRef
-  ) { }
+	private scriptSaveDebounceMillis = 500;
 
-  async initializeEditor() {
+	constructor(
+		private userEventService: UserEventService,
+		private jsExecutorService: JsExecutorService,
+		private layerManagerService: LayerManagerService,
+		private dialog: MatDialog,
+		private changeDetectorRef: ChangeDetectorRef
+	) { }
 
-    // Load existing script
-    if (this.preloadValue) {
-      this.codeViewer?.setValue(this.preloadValue);
-    } else {
-      const savedScript = await db.scripts.toCollection().last();
-      if (!this.preloadValue && !!savedScript && savedScript.content !== this.exampleValue) {
-        this.codeViewer?.setValue(savedScript.content);
-      }
-    }
+	async initializeEditor() {
 
-    // Listen for run events
-    this.eventSubscription = this.userEventService.getEvents().subscribe(event => {
-      if (event === UserEvent.RUN_SCRIPT) {
-        this.run();
-      }
-    });
+		// Load existing script
+		if (this.preloadValue) {
+			this.codeViewer?.setValue(this.preloadValue);
+		} else {
+			const savedScript = await db.scripts.toCollection().last();
+			if (!this.preloadValue && !!savedScript && savedScript.content !== this.exampleValue) {
+				this.codeViewer?.setValue(savedScript.content);
+			}
+		}
 
-    // Save script changes
-    this.editorSaveSubscription = this.editorChange$.asObservable().pipe(
-      debounceTime(this.scriptSaveDebounceMillis)
-    ).subscribe(async () => {
-      const script = this.getScript();
-      if (script !== this.preloadValue) {
-        let savedScript: string | undefined;
-        if (
-          !script?.trim() ||
-          script.trim() === this.initialValue.trim() ||
-          script.trim() === this.exampleValue.trim()
-        ) {
-          savedScript = undefined;
-        } else {
-          savedScript = script;
-        }
+		// Listen for run events
+		this.eventSubscription = this.userEventService.getEvents().subscribe(event => {
+			if (event === UserEvent.RUN_SCRIPT) {
+				this.run();
+			}
+		});
 
-        // Save custom scripts
-        if (savedScript !== undefined) {
-          await db.scripts.put({
-            name: this.DEFAULT_SCRIPT_NAME,
-            content: savedScript
-          });
-        }
-      }
-    })
-  }
+		// Save script changes
+		this.editorSaveSubscription = this.editorChange$.asObservable().pipe(
+			debounceTime(this.scriptSaveDebounceMillis)
+		).subscribe(async () => {
+			const script = this.getScript();
+			if (script !== this.preloadValue) {
+				let savedScript: string | undefined;
+				if (
+					!script?.trim() ||
+					script.trim() === this.initialValue.trim() ||
+					script.trim() === this.exampleValue.trim()
+				) {
+					savedScript = undefined;
+				} else {
+					savedScript = script;
+				}
 
-  ngOnDestroy(): void {
-    if (this.eventSubscription) {
-      this.eventSubscription.unsubscribe();
-    }
-    if (this.editorSaveSubscription) {
-      this.editorSaveSubscription.unsubscribe();
-    }
-  }
+				// Save custom scripts
+				if (savedScript !== undefined) {
+					await db.scripts.put({
+						name: this.DEFAULT_SCRIPT_NAME,
+						content: savedScript
+					});
+				}
+			}
+		})
+	}
 
-  onRun(): void {
-    this.run();
-  }
+	ngOnDestroy(): void {
+		if (this.eventSubscription) {
+			this.eventSubscription.unsubscribe();
+		}
+		if (this.editorSaveSubscription) {
+			this.editorSaveSubscription.unsubscribe();
+		}
+	}
 
-  onClear(): void {
-    this.codeViewer?.setValue('');
-  }
+	onRun(): void {
+		this.run();
+	}
 
-  onShowThisObject(): void {
-    this.dialog.open(ThisObjectDialogComponent);
-  }
+	onClear(): void {
+		this.codeViewer?.setValue('');
+	}
 
-  onDownload(): void {
-    const thisObject = this.jsExecutorService.getThis();
-    const args = Object.keys(thisObject);
-    const argString = args.join(', ');
-    const value = this.getScript();
-    const lines = value.split('\n');
-    const linesString = lines.map(line => `  ${line}`).join('\n')
-    const scriptFile = `
+	onShowThisObject(): void {
+		this.dialog.open(ThisObjectDialogComponent);
+	}
+
+	onDownload(): void {
+		const thisObject = this.jsExecutorService.getThis();
+		const args = Object.keys(thisObject);
+		const argString = args.join(', ');
+		const value = this.getScript();
+		const lines = value.split('\n');
+		const linesString = lines.map(line => `  ${line}`).join('\n')
+		const scriptFile = `
 async function geojsonScript(${argString}) {
 ${linesString}
 }
 `;
-    const filename = EditorComponent.DEFAULT_SCRIPT_FILE_NAME;
-    DataUtils.saveFile(`${filename}.js`, scriptFile);
-  }
+		const filename = EditorComponent.DEFAULT_SCRIPT_FILE_NAME;
+		DataUtils.saveFile(`${filename}.js`, scriptFile);
+	}
 
-  onLoadExampleScript() {
-    this.codeViewer?.setValue(this.exampleValue);
-  }
+	onLoadExampleScript() {
+		this.codeViewer?.setValue(this.exampleValue);
+	}
 
-  async onEditorReady(editor: any) {
+	async onEditorReady(editor: any) {
 
-    await this.initializeEditor();
+		await this.initializeEditor();
 
-    editor.getModel()
-      .onDidChangeContent((_: any) => {
-        this.editorChange$.next();
-      });
-  }
+		editor.getModel()
+			.onDidChangeContent((_: any) => {
+				this.editorChange$.next();
+			});
+	}
 
-  private async run() {
-    if (!this.isRunning) {
-      this.setRunState(true);
+	private async run() {
+		if (!this.isRunning) {
+			this.setRunState(true);
 
-      // Create scratch layer
-      const value = this.getScript();
-      const promise = this.jsExecutorService.run(value).then(async (data: any) => {
-        if (data) {
-          // Add new scratch layer
-          const scratchDataLayer = this.layerManagerService.getScratchLayer(data);
-          await this.layerManagerService.removeLayerByName(scratchDataLayer.name);
-          await this.layerManagerService.addLayer(scratchDataLayer);
-        }
-      }).finally(() => {
-        this.setRunState(false);
-      });
+			// Create scratch layer
+			const value = this.getScript();
+			const promise = this.jsExecutorService.run(value).then(async (data: any) => {
+				if (data) {
+					// Add new scratch layer
+					const scratchDataLayer = this.layerManagerService.getScratchLayer(data);
+					await this.layerManagerService.removeLayerByName(scratchDataLayer.name);
+					await this.layerManagerService.addLayer(scratchDataLayer);
+				}
+			}).finally(() => {
+				this.setRunState(false);
+			});
 
-      await promise;
-    }
-  }
+			await promise;
+		}
+	}
 
-  private getScript(): string {
-    return this.codeViewer?.getMonacoEditor()?.getValue();
-  }
+	private getScript(): string {
+		return this.codeViewer?.getMonacoEditor()?.getValue();
+	}
 
-  private setRunState(isRunning: boolean): void {
-    this.isRunning = isRunning;
-    this.changeDetectorRef.detectChanges();
-  }
+	private setRunState(isRunning: boolean): void {
+		this.isRunning = isRunning;
+		this.changeDetectorRef.detectChanges();
+	}
 }

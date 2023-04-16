@@ -3,21 +3,21 @@ import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { DataManagerComponent } from './data-manager.component';
 
 describe('DataManagerComponent', () => {
-  let component: DataManagerComponent;
-  let fixture: ComponentFixture<DataManagerComponent>;
+	let component: DataManagerComponent;
+	let fixture: ComponentFixture<DataManagerComponent>;
 
-  beforeEach(async () => {
-    await TestBed.configureTestingModule({
-      declarations: [ DataManagerComponent ]
-    })
-    .compileComponents();
+	beforeEach(async () => {
+		await TestBed.configureTestingModule({
+			declarations: [DataManagerComponent]
+		})
+			.compileComponents();
 
-    fixture = TestBed.createComponent(DataManagerComponent);
-    component = fixture.componentInstance;
-    fixture.detectChanges();
-  });
+		fixture = TestBed.createComponent(DataManagerComponent);
+		component = fixture.componentInstance;
+		fixture.detectChanges();
+	});
 
-  it('should create', () => {
-    expect(component).toBeTruthy();
-  });
+	it('should create', () => {
+		expect(component).toBeTruthy();
+	});
 });

@@ -1,26 +1,24 @@
 <div class="console-container">
-    <div class="console-output">
-        <div *ngIf="!consoleEvents || consoleEvents.length === 0 else logs"
-            class="info-message" i18n>
-            Type ctrl+l (or command+l on Mac) to clear console output.
-        </div>
-        <ng-template #logs>
-            <div class="console-logs" #consoleLogs>
-                <ng-container *ngFor="let consoleEvent of consoleEvents">
-                    <span [ngClass]="['output', 'output-' + consoleEvent.type]">[{{ consoleEvent.date | amDateFormat:DATE_FORMAT }}
-                        {{ consoleEvent.type.toUpperCase().substr(0, 1) }}]
-                        {{consoleEvent.value}}
-                    </span>
-                </ng-container>
-            </div>
-        </ng-template>
-    </div>
-    <div class="control-bar">
-        <button mat-icon-button title="Clear"
-            i18n-title
-            (click)="onClear()">
-            <mat-icon>playlist_remove</mat-icon>
-        </button>
+	<div class="console-output">
+		<div *ngIf="!consoleEvents || consoleEvents.length === 0 else logs" class="info-message" i18n>
+			Type ctrl+l (or command+l on Mac) to clear console output.
+		</div>
+		<ng-template #logs>
+			<div class="console-logs" #consoleLogs>
+				<ng-container *ngFor="let consoleEvent of consoleEvents">
+					<span [ngClass]="['output', 'output-' + consoleEvent.type]">[{{ consoleEvent.date |
+						amDateFormat:DATE_FORMAT }}
+						{{ consoleEvent.type.toUpperCase().substr(0, 1) }}]
+						{{consoleEvent.value}}
+					</span>
+				</ng-container>
+			</div>
+		</ng-template>
+	</div>
+	<div class="control-bar">
+		<button mat-icon-button title="Clear" i18n-title (click)="onClear()">
+			<mat-icon>playlist_remove</mat-icon>
+		</button>
 
-    </div>
+	</div>
 </div>

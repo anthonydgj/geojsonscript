@@ -7,61 +7,61 @@ import { DataUtils } from '../data-utils';
 import { LayerManagerService } from '../layer-manager.service';
 
 export interface DataDialogData {
-  dataLayer: DataLayer;
+	dataLayer: DataLayer;
 }
 
 @Component({
-  selector: 'app-data-dialog',
-  templateUrl: './data-dialog.component.html',
-  styleUrls: ['./data-dialog.component.scss']
+	selector: 'app-data-dialog',
+	templateUrl: './data-dialog.component.html',
+	styleUrls: ['./data-dialog.component.scss']
 })
 export class DataDialogComponent {
 
-  @ViewChild('codeViewer', { static: true }) codeViewer?: CodeViewerComponent;
+	@ViewChild('codeViewer', { static: true }) codeViewer?: CodeViewerComponent;
 
-  options: CodeViewerOptions;
-  summary?: string;
+	options: CodeViewerOptions;
+	summary?: string;
 
-  private readonly DEFAULT_PRECISION_DIGITS = 6;
+	private readonly DEFAULT_PRECISION_DIGITS = 6;
 
-  constructor(
-    @Inject(MAT_DIALOG_DATA) public data: DataDialogData,
-    private layerManagerService: LayerManagerService
-  ) {
-    const content = data.dataLayer.content;
-    if (content) {
-      if (
-        content.type === 'Point' &&
-        Array.isArray(content.coordinates) &&
-        content.coordinates.length >= 2
-      ) {
-        const lat = content.coordinates[1].toFixed(this.DEFAULT_PRECISION_DIGITS)
-        const long = content.coordinates[0].toFixed(this.DEFAULT_PRECISION_DIGITS)
-        this.summary = $localize `lat,lng: ${lat},${long}`
-      }
-    }
+	constructor(
+		@Inject(MAT_DIALOG_DATA) public data: DataDialogData,
+		private layerManagerService: LayerManagerService
+	) {
+		const content = data.dataLayer.content;
+		if (content) {
+			if (
+				content.type === 'Point' &&
+				Array.isArray(content.coordinates) &&
+				content.coordinates.length >= 2
+			) {
+				const lat = content.coordinates[1].toFixed(this.DEFAULT_PRECISION_DIGITS)
+				const long = content.coordinates[0].toFixed(this.DEFAULT_PRECISION_DIGITS)
+				this.summary = $localize`lat,lng: ${lat},${long}`
+			}
+		}
 
-    const formattedData = DataUtils.getSimpleObjectString(content);
-    this.options = {
-      initialValue: formattedData,
-      monacoEditorOptions: {
-        language: 'json',
-        automaticLayout: true,
-        readOnly: true
-      }
-    }
-  }
+		const formattedData = DataUtils.getSimpleObjectString(content);
+		this.options = {
+			initialValue: formattedData,
+			monacoEditorOptions: {
+				language: 'json',
+				automaticLayout: true,
+				readOnly: true
+			}
+		}
+	}
 
-  ngAfterViewInit() {
-    this.codeViewer?.getMonacoEditor()?.layout({})
-  }
+	ngAfterViewInit() {
+		this.codeViewer?.getMonacoEditor()?.layout({})
+	}
 
-  onColorChange(dataLayer: DataLayer): void {
-    const fillColor = dataLayer.style?.fillColor;
-    if (fillColor) {
-      const strokeColor = this.layerManagerService.getStrokeColor(fillColor);
-      dataLayer.style.color = strokeColor;
-    }
-    this.layerManagerService.refreshLayer(dataLayer);
-  }
+	onColorChange(dataLayer: DataLayer): void {
+		const fillColor = dataLayer.style?.fillColor;
+		if (fillColor) {
+			const strokeColor = this.layerManagerService.getStrokeColor(fillColor);
+			dataLayer.style.color = strokeColor;
+		}
+		this.layerManagerService.refreshLayer(dataLayer);
+	}
 }

@@ -1,58 +1,60 @@
 $toolbar-text-color: #e0e0e0;
 
 .toolbar {
-    background: #303233;
-    color: $toolbar-text-color;
-    font-size: 1em;
-    height: 3em;
-    position: relative;
-    z-index: 1000;
-    box-shadow: 1px 1px 10px 0px #00000075;
+	background: #303233;
+	color: $toolbar-text-color;
+	font-size: 1em;
+	height: 3em;
+	position: relative;
+	z-index: 1000;
+	box-shadow: 1px 1px 10px 0px #00000075;
 
-    .title {
-        text-decoration: none;
-        opacity: 0.8;
-        font-size: 1.2em;
-        font-weight: 300;
+	.title {
+		text-decoration: none;
+		opacity: 0.8;
+		font-size: 1.2em;
+		font-weight: 300;
 
-        ::ng-deep img {
-            font-size: 1.5em;
-        }
-    }
-    .title:hover {
-        opacity: 1;
-    }
+		::ng-deep img {
+			font-size: 1.5em;
+		}
+	}
 
-    .spacer {
-        flex: 1 1 auto;
-    }
+	.title:hover {
+		opacity: 1;
+	}
 
-    .toolbar-links {
-        display: flex;
-        justify-content: center;
-        align-items: center;
+	.spacer {
+		flex: 1 1 auto;
+	}
 
-        .navigation-link {
-            margin: 0 1em;
-            font-size: 0.9em;
-            font-weight: 400;
-            color: transparentize($toolbar-text-color, 0.1);
-        }
+	.toolbar-links {
+		display: flex;
+		justify-content: center;
+		align-items: center;
 
-        .navigation-icon-link {
-            height: 1.5em;
-            margin-left: 1em;
-            opacity: 0.8;
-            img {
-                max-height: 100%;
-            }
-        }
+		.navigation-link {
+			margin: 0 1em;
+			font-size: 0.9em;
+			font-weight: 400;
+			color: transparentize($toolbar-text-color, 0.1);
+		}
 
-        .navigation-link:hover,
-        .title:hover,
-        .navigation-icon-link:hover {
-            color: white;
-            opacity: 1;
-        }
-    }
+		.navigation-icon-link {
+			height: 1.5em;
+			margin-left: 1em;
+			opacity: 0.8;
+
+			img {
+				max-height: 100%;
+			}
+		}
+
+		.navigation-link:hover,
+		.title:hover,
+		.navigation-icon-link:hover {
+			color: white;
+			opacity: 1;
+		}
+	}
 }

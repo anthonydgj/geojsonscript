@@ -1,99 +1,74 @@
 <div class="data-manager-container">
-    <div class="layers-list">
-        <div *ngIf="layerManagerService.layers.length === 0 else layerList"
-            class="info-message">
-            <p i18n>
-                Add data layers using the controls on the right.
-            </p>
-        </div>
-        <ng-template #layerList>
-            <mat-selection-list role="list" #layersSelection
-                class="layer-selection-list">
-                <mat-list-option
-                    *ngFor="let layer of layers"
-                    class="list-option"
-                    [selected]="!layer.hide"
-                    [class.scratch]="layer.type === LayerType.SCRATCH"
-                    (click)="onLayerClick(layer)"
-                    [value]="layer">
-                    <div class="list-item-content">
-                        <div class="marker"
-                            [style.backgroundColor]="layer.style?.fillColor">
-                        </div>
-                        <button mat-icon-button title="View Layer"
-                            class="info-button"
-                            (click)="onViewLayer($event, layer)">
-                            <mat-icon>info</mat-icon>
-                        </button>
-                        <span [attr.title]="layer.name"
-                            class="layer-name">
-                            {{ layer.name }}
-                        </span>
-                        <span [attr.title]="layer.path"
-                            class="layer-path">
-                            {{ layer.path }}
-                        </span>
-                        <div class="action-buttons">
-                            <button mat-icon-button title="Layer Menu"
-                                [matMenuTriggerFor]="layerMenu"
-                                (click)="$event.preventDefault(); $event.stopPropagation()">
-                                <mat-icon>more_horiz</mat-icon>
-                            </button>
-                            <mat-menu #layerMenu="matMenu">
-                                <button mat-menu-item title="Copy Layer"
-                                    (click)="onCopyLayer(layer)">
-                                    <mat-icon>content_copy</mat-icon>
-                                    <span>Save As...</span>
-                                </button>
-                                <button mat-menu-item title="Download Layer"
-                                    (click)="onDownloadLayer(layer)">
-                                    <mat-icon>download</mat-icon>
-                                    <span>Download</span>
-                                </button>
-                                <button mat-menu-item title="Remove Layer"
-                                    (click)="onRemoveLayer(layer)">
-                                    <mat-icon>delete</mat-icon>
-                                    <span>Remove</span>
-                                </button>
-                            </mat-menu>
-                        </div>
-                    </div>
-                </mat-list-option>
-            </mat-selection-list>
-        </ng-template>
-    </div>
-    <div class="layer-manager">
+	<div class="layers-list">
+		<div *ngIf="layerManagerService.layers.length === 0 else layerList" class="info-message">
+			<p i18n>
+				Add data layers using the controls on the right.
+			</p>
+		</div>
+		<ng-template #layerList>
+			<mat-selection-list role="list" #layersSelection class="layer-selection-list">
+				<mat-list-option *ngFor="let layer of layers" class="list-option" [selected]="!layer.hide"
+					[class.scratch]="layer.type === LayerType.SCRATCH" (click)="onLayerClick(layer)" [value]="layer">
+					<div class="list-item-content">
+						<div class="marker" [style.backgroundColor]="layer.style?.fillColor">
+						</div>
+						<button mat-icon-button title="View Layer" class="info-button"
+							(click)="onViewLayer($event, layer)">
+							<mat-icon>info</mat-icon>
+						</button>
+						<span [attr.title]="layer.name" class="layer-name">
+							{{ layer.name }}
+						</span>
+						<span [attr.title]="layer.path" class="layer-path">
+							{{ layer.path }}
+						</span>
+						<div class="action-buttons">
+							<button mat-icon-button title="Layer Menu" [matMenuTriggerFor]="layerMenu"
+								(click)="$event.preventDefault(); $event.stopPropagation()">
+								<mat-icon>more_horiz</mat-icon>
+							</button>
+							<mat-menu #layerMenu="matMenu">
+								<button mat-menu-item title="Copy Layer" (click)="onCopyLayer(layer)">
+									<mat-icon>content_copy</mat-icon>
+									<span>Save As...</span>
+								</button>
+								<button mat-menu-item title="Download Layer" (click)="onDownloadLayer(layer)">
+									<mat-icon>download</mat-icon>
+									<span>Download</span>
+								</button>
+								<button mat-menu-item title="Remove Layer" (click)="onRemoveLayer(layer)">
+									<mat-icon>delete</mat-icon>
+									<span>Remove</span>
+								</button>
+							</mat-menu>
+						</div>
+					</div>
+				</mat-list-option>
+			</mat-selection-list>
+		</ng-template>
+	</div>
+	<div class="layer-manager">
 
-        <button mat-icon-button
-            [matMenuTriggerFor]="layerManagerMenu"
-            title="Menu"
-            i18n-title>
-            <mat-icon>menu</mat-icon>
-        </button>
-        <mat-menu #layerManagerMenu="matMenu">
-            <button mat-menu-item title="Add Layer"
-                i18n-title
-                (click)="onOpenDialog()">
-                <mat-icon>add</mat-icon>
-                <span>Add Layer</span>
-            </button>
-            <button mat-menu-item title="Remove All"
-                i18n-title
-                (click)="onRemoveAll()">
-                <mat-icon>delete</mat-icon>
-                <span>Remove All</span>
-            </button>
-        </mat-menu>
+		<button mat-icon-button [matMenuTriggerFor]="layerManagerMenu" title="Menu" i18n-title>
+			<mat-icon>menu</mat-icon>
+		</button>
+		<mat-menu #layerManagerMenu="matMenu">
+			<button mat-menu-item title="Add Layer" i18n-title (click)="onOpenDialog()">
+				<mat-icon>add</mat-icon>
+				<span>Add Layer</span>
+			</button>
+			<button mat-menu-item title="Remove All" i18n-title (click)="onRemoveAll()">
+				<mat-icon>delete</mat-icon>
+				<span>Remove All</span>
+			</button>
+		</mat-menu>
 
-    
-        <div class="drop-zone-container"
-            title="Drag and drop a GeoJSON file"
-            i18n-title="Drag and drop zone hover text">
-            <ngx-file-drop
-                (onFileDrop)="dropped($event)"
-                dropZoneClassName="drop-zone"
-                contentClassName="drop-zone-content">
-            </ngx-file-drop>
-        </div>
-    </div>
+
+		<div class="drop-zone-container" title="Drag and drop a GeoJSON file"
+			i18n-title="Drag and drop zone hover text">
+			<ngx-file-drop (onFileDrop)="dropped($event)" dropZoneClassName="drop-zone"
+				contentClassName="drop-zone-content">
+			</ngx-file-drop>
+		</div>
+	</div>
 </div>

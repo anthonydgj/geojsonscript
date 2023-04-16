@@ -1,122 +1,123 @@
-import { AfterViewInit, Component, OnInit } from '@angular/core';
 import * as L from 'leaflet';
-import { ActivatedRoute, Router } from '@angular/router';
-
 import packageJson from 'package.json';
-import { DataLayer } from '../data-layer';
-import { CodeViewerOptions } from '../code-viewer/code-viewer.component';
-import { Constants } from '../constants';
-import { PreloadService } from '../preload.service';
-import { ExampleData } from '../example-data';
-import { LayerType } from '../db';
-import { ViewportScroller } from '@angular/common';
 import { first } from 'rxjs';
 
+import { ViewportScroller } from '@angular/common';
+import { AfterViewInit, Component, OnInit } from '@angular/core';
+import { ActivatedRoute, Router } from '@angular/router';
+
+import { CodeViewerOptions } from '../code-viewer/code-viewer.component';
+import { Constants } from '../constants';
+import { DataLayer } from '../data-layer';
+import { LayerType } from '../db';
+import { ExampleData } from '../example-data';
+import { PreloadService } from '../preload.service';
+
 interface CodeSnippet {
-  path: string;
-  description: string;
-  codeViewerOptions: CodeViewerOptions;
-  dataLayers: DataLayer[];
-  mapOptions?: L.MapOptions;
-  rowspan: number;
-  colspan: number;
+	path: string;
+	description: string;
+	codeViewerOptions: CodeViewerOptions;
+	dataLayers: DataLayer[];
+	mapOptions?: L.MapOptions;
+	rowspan: number;
+	colspan: number;
 }
 
 const fullRowColspan = 3;
 
 const defaultMonacoEditorOptions = {
-  language: 'javascript',
-  automaticLayout: true,
-  readOnly: true,
-  minimap: {
-    enabled: false
-  },
-  scrollbar: {
-    vertical: 'auto',
-    alwaysConsumeMouseWheel: false
-  },
-  scrollBeyondLastLine: false
+	language: 'javascript',
+	automaticLayout: true,
+	readOnly: true,
+	minimap: {
+		enabled: false
+	},
+	scrollbar: {
+		vertical: 'auto',
+		alwaysConsumeMouseWheel: false
+	},
+	scrollBeyondLastLine: false
 };
 
 const defaultDataLayer: DataLayer = {
-  name: 'layer1',
-  content: ExampleData.EONET_DATA,
-  zIndex: 1,
-  type: LayerType.INPUT,
-  style: {
-    fillColor: '#776cc0',
-    color: 'black',
-    fillOpacity: 0.6
-  }
+	name: 'layer1',
+	content: ExampleData.EONET_DATA,
+	zIndex: 1,
+	type: LayerType.INPUT,
+	style: {
+		fillColor: '#776cc0',
+		color: 'black',
+		fillOpacity: 0.6
+	}
 };
 
 @Component({
-  selector: 'app-about',
-  templateUrl: './about.component.html',
-  styleUrls: ['./about.component.scss']
+	selector: 'app-about',
+	templateUrl: './about.component.html',
+	styleUrls: ['./about.component.scss']
 })
 export class AboutComponent implements OnInit, AfterViewInit {
 
-  rowAdjustment = 1;
-  isCondensedScreen = false;
-  version = packageJson.version;
+	rowAdjustment = 1;
+	isCondensedScreen = false;
+	version = packageJson.version;
 
-  private readonly condensedScreenWidthPixels = 600;
+	private readonly condensedScreenWidthPixels = 600;
 
-  constructor(
-    private preloadService: PreloadService,
-    private router: Router,
-    private activatedRoute: ActivatedRoute,
-    private scroller: ViewportScroller
-  ) { }
+	constructor(
+		private preloadService: PreloadService,
+		private router: Router,
+		private activatedRoute: ActivatedRoute,
+		private scroller: ViewportScroller
+	) { }
 
-  ngOnInit() {
-    this.refreshLayout(window.innerWidth);
-  }
+	ngOnInit() {
+		this.refreshLayout(window.innerWidth);
+	}
 
-  ngAfterViewInit() {
-    this.activatedRoute.fragment.pipe(first()).subscribe(fragment => {
-      if (fragment) {
-        this.scroller.scrollToAnchor(fragment);
-      }
-    });
-  }
-    
-  onResize(event:any ) {
-    this.refreshLayout(event.target.innerWidth);
-  }
+	ngAfterViewInit() {
+		this.activatedRoute.fragment.pipe(first()).subscribe(fragment => {
+			if (fragment) {
+				this.scroller.scrollToAnchor(fragment);
+			}
+		});
+	}
 
-  private refreshLayout(innerWidth: number) {
-    if (innerWidth <= this.condensedScreenWidthPixels) {
-      this.rowAdjustment = 4;
-      this.isCondensedScreen = true;
-    } else {
-      this.rowAdjustment = 1;
-      this.isCondensedScreen = false;
-    }
-  }
+	onResize(event: any) {
+		this.refreshLayout(event.target.innerWidth);
+	}
 
-  snippets: CodeSnippet[] = [
-    {
-      path: 'selectByAttribute',
-      description: $localize `Select features by attribute value`,
-      codeViewerOptions: {
-        initialValue:
-`// Select features with a magnitude greater than 100
+	private refreshLayout(innerWidth: number) {
+		if (innerWidth <= this.condensedScreenWidthPixels) {
+			this.rowAdjustment = 4;
+			this.isCondensedScreen = true;
+		} else {
+			this.rowAdjustment = 1;
+			this.isCondensedScreen = false;
+		}
+	}
+
+	snippets: CodeSnippet[] = [
+		{
+			path: 'selectByAttribute',
+			description: $localize`Select features by attribute value`,
+			codeViewerOptions: {
+				initialValue:
+					`// Select features with a magnitude greater than 100
 return layer1.features.filter(feature =>
   feature.properties.magnitudeValue > 100);`,
-        monacoEditorOptions: defaultMonacoEditorOptions
-      },
-      dataLayers: [defaultDataLayer],
-      rowspan: 2,
-      colspan: fullRowColspan
-    },
-    {
-      path: 'selectByLocation',
-      description: $localize `Select features by location`,
-      codeViewerOptions: {
-        initialValue:
-`// Select features within 10,000 kilometres of a point
+				monacoEditorOptions: defaultMonacoEditorOptions
+			},
+			dataLayers: [defaultDataLayer],
+			rowspan: 2,
+			colspan: fullRowColspan
+		},
+		{
+			path: 'selectByLocation',
+			description: $localize`Select features by location`,
+			codeViewerOptions: {
+				initialValue:
+					`// Select features within 10,000 kilometres of a point
 
 console.log('Loading turf library...');
 const turf = await ${Constants.HELPER_NAME_IMPORT}('turf');
@@ -126,18 +127,18 @@ const point = turf.point([0,0]);
 console.log(\`Filtering events within \${range}km of \${point.geometry.coordinates}...\`);
 return layer1.features.filter(feature =>
   turf.distance(point, feature) < range);`,
-        monacoEditorOptions: defaultMonacoEditorOptions
-      },
-      dataLayers: [defaultDataLayer],
-      rowspan: 5,
-      colspan: fullRowColspan
-    },
-    {
-      path: 'computeAttribute',
-      description: $localize `Compute a new attribute field`,
-      codeViewerOptions: {
-        initialValue:
-`// Compute event duration
+				monacoEditorOptions: defaultMonacoEditorOptions
+			},
+			dataLayers: [defaultDataLayer],
+			rowspan: 5,
+			colspan: fullRowColspan
+		},
+		{
+			path: 'computeAttribute',
+			description: $localize`Compute a new attribute field`,
+			codeViewerOptions: {
+				initialValue:
+					`// Compute event duration
 
 return layer1.features.map(feature => {
   feature.properties.duration = (
@@ -146,18 +147,18 @@ return layer1.features.map(feature => {
   );
   return feature;
 });`,
-        monacoEditorOptions: defaultMonacoEditorOptions
-      },
-      dataLayers: [defaultDataLayer],
-      rowspan: 4,
-      colspan: fullRowColspan
-    },
-    {
-      path: 'summarizeAttributes',
-      description: $localize `Summarize attribute data`,
-      codeViewerOptions: {
-        initialValue:
-`// Calculate min, max, and mean magnitude
+				monacoEditorOptions: defaultMonacoEditorOptions
+			},
+			dataLayers: [defaultDataLayer],
+			rowspan: 4,
+			colspan: fullRowColspan
+		},
+		{
+			path: 'summarizeAttributes',
+			description: $localize`Summarize attribute data`,
+			codeViewerOptions: {
+				initialValue:
+					`// Calculate min, max, and mean magnitude
 
 const magnitudes = layer1.features
   .filter(feature => typeof feature.properties.magnitudeValue === 'number')
@@ -171,18 +172,18 @@ const mean = sum / magnitudes.length;
 console.info(\`Maximum: \${max}\`);
 console.info(\`Minimum: \${min}\`);
 console.info(\`Mean: \${mean.toFixed(2)}\`);`,
-        monacoEditorOptions: defaultMonacoEditorOptions
-      },
-      dataLayers: [defaultDataLayer],
-      rowspan: 6,
-      colspan: fullRowColspan
-    },
-    {
-      path: 'computeNewFeatures',
-      description: $localize `Compute a new feature layer`,
-      codeViewerOptions: {
-        initialValue:
-`// Visualize event path
+				monacoEditorOptions: defaultMonacoEditorOptions
+			},
+			dataLayers: [defaultDataLayer],
+			rowspan: 6,
+			colspan: fullRowColspan
+		},
+		{
+			path: 'computeNewFeatures',
+			description: $localize`Compute a new feature layer`,
+			codeViewerOptions: {
+				initialValue:
+					`// Visualize event path
 
 console.log('Importing libraries...');
 const turf = await ${Constants.HELPER_NAME_IMPORT}('turf');
@@ -222,22 +223,22 @@ const lineString = turf
   .lineString(eventFeatures.map(f => f.geometry.coordinates));
 
 return turf.featureCollection([lineString].concat(eventFeatures));`,
-        monacoEditorOptions: defaultMonacoEditorOptions
-      },
-      dataLayers: [defaultDataLayer],
-      mapOptions: {
-        center: L.latLng(23, -84),
-        zoom: 5
-      },
-      rowspan: 16,
-      colspan: fullRowColspan
-    },
-    {
-      path: 'fetchRemote',
-      description: $localize `Fetch data from a remote source and run cluster analysis`,
-      codeViewerOptions: {
-        initialValue:
-`// Fetch and display earthquake clusters from the last week
+				monacoEditorOptions: defaultMonacoEditorOptions
+			},
+			dataLayers: [defaultDataLayer],
+			mapOptions: {
+				center: L.latLng(23, -84),
+				zoom: 5
+			},
+			rowspan: 16,
+			colspan: fullRowColspan
+		},
+		{
+			path: 'fetchRemote',
+			description: $localize`Fetch data from a remote source and run cluster analysis`,
+			codeViewerOptions: {
+				initialValue:
+					`// Fetch and display earthquake clusters from the last week
 
 console.log('Importing libraries...');
 const moment = await importPackage('moment');
@@ -285,24 +286,24 @@ clusters.features.forEach(feature => {
 
 console.log('Done.\\n');
 return clusters;`,
-        monacoEditorOptions: defaultMonacoEditorOptions
-      },
-      dataLayers: [],
-      rowspan: 18,
-      colspan: fullRowColspan
-    }
-  ];
+				monacoEditorOptions: defaultMonacoEditorOptions
+			},
+			dataLayers: [],
+			rowspan: 18,
+			colspan: fullRowColspan
+		}
+	];
 
-  async runSnippet(snippet: CodeSnippet) {
-    // Preserve scroll position in router history
-    await this.router.navigate([], {
-      fragment: snippet.path
-    });
-    this.preloadService.options = {
-      script: snippet.codeViewerOptions.initialValue,
-      layers: snippet.dataLayers,
-      mapOptions: snippet.mapOptions
-    }
-    this.router.navigate([Constants.PATH_MAPPING_ENVIRONMENT]);
-  }
+	async runSnippet(snippet: CodeSnippet) {
+		// Preserve scroll position in router history
+		await this.router.navigate([], {
+			fragment: snippet.path
+		});
+		this.preloadService.options = {
+			script: snippet.codeViewerOptions.initialValue,
+			layers: snippet.dataLayers,
+			mapOptions: snippet.mapOptions
+		}
+		this.router.navigate([Constants.PATH_MAPPING_ENVIRONMENT]);
+	}
 }

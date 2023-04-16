@@ -6,16 +6,16 @@ import { Constants } from './constants';
 import { MappingEnvironmentComponent } from './mapping-environment/mapping-environment.component';
 
 const routes: Routes = [
-  { path: Constants.PATH_ABOUT, component: AboutComponent },
-  { path: Constants.PATH_MAPPING_ENVIRONMENT, component: MappingEnvironmentComponent },
-  { path: '**', redirectTo: Constants.PATH_MAPPING_ENVIRONMENT }
+	{ path: Constants.PATH_ABOUT, component: AboutComponent },
+	{ path: Constants.PATH_MAPPING_ENVIRONMENT, component: MappingEnvironmentComponent },
+	{ path: '**', redirectTo: Constants.PATH_MAPPING_ENVIRONMENT }
 ];
 
 @NgModule({
-  imports: [RouterModule.forRoot(routes, {
-    scrollPositionRestoration: 'enabled',
-    anchorScrolling: 'enabled'
-  })],
-  exports: [RouterModule]
+	imports: [RouterModule.forRoot(routes, {
+		scrollPositionRestoration: 'enabled',
+		anchorScrolling: 'enabled'
+	})],
+	exports: [RouterModule]
 })
 export class AppRoutingModule { }

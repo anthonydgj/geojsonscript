@@ -1,0 +1,9 @@
+{
+    "editor.formatOnSave": true,
+    "editor.formatOnSaveMode": "file",
+    "sort-imports.default-sort-style": "module-scoped",
+    "sort-imports.cache-package-json-config-checks": false,
+    "editor.detectIndentation": false,
+    "editor.insertSpaces": false,
+    "editor.indentSize": "tabSize"
+}

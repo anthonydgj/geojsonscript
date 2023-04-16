@@ -1,31 +1,31 @@
 .dialog-content {
 
-    .form-row {
-        display: flex;
-        justify-content: space-between;
+	.form-row {
+		display: flex;
+		justify-content: space-between;
 
-        > * {
-            margin: 0.5em;
-        }
-    }
+		>* {
+			margin: 0.5em;
+		}
+	}
 
-    .selection {
-        display: flex;
-        align-items: center;
-        justify-content: flex-start;
-    }
+	.selection {
+		display: flex;
+		align-items: center;
+		justify-content: flex-start;
+	}
 
-    ::ng-deep .drop-zone {
-        border: 1px dashed grey;
-        border-radius: 2em;
-    }
+	::ng-deep .drop-zone {
+		border: 1px dashed grey;
+		border-radius: 2em;
+	}
 
-    .drag-and-drop-block {
-        color: grey;
-        padding: 1em;
+	.drag-and-drop-block {
+		color: grey;
+		padding: 1em;
 
-        .browse-button {
-            margin: 0.5em;
-        }
-    }
+		.browse-button {
+			margin: 0.5em;
+		}
+	}
 }

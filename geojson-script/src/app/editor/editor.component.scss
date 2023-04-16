@@ -1,21 +1,21 @@
 @import 'src/assets/vars.scss';
 
 .editor-container {
-    width: 100%;
-    height: 100%;
-    overflow: hidden;
-    position: relative;
-    display: flex;
-    flex-direction: column;
-    
-    .editor-toolbar {
-        display: flex;
-        justify-content: space-between;
-        background-color: $toolbar-color;
-        flex-grow: 0;
-    }
+	width: 100%;
+	height: 100%;
+	overflow: hidden;
+	position: relative;
+	display: flex;
+	flex-direction: column;
 
-    .editor {
-        flex-grow: 1;
-    }
+	.editor-toolbar {
+		display: flex;
+		justify-content: space-between;
+		background-color: $toolbar-color;
+		flex-grow: 0;
+	}
+
+	.editor {
+		flex-grow: 1;
+	}
 }

@@ -1,65 +1,64 @@
-import { Component, Input } from '@angular/core';
 import * as L from 'leaflet';
 
-import { JsExecutorService } from '../js-executor.service';
+import { Component, Input } from '@angular/core';
+
 import { LayerManagerService } from '../layer-manager.service';
 import { MapService } from '../map.service';
 
 @Component({
-  selector: 'app-map',
-  templateUrl: './map.component.html',
-  styleUrls: ['./map.component.scss']
+	selector: 'app-map',
+	templateUrl: './map.component.html',
+	styleUrls: ['./map.component.scss']
 })
 export class MapComponent {
 
-  @Input() mapOptions?: L.MapOptions = {};
+	@Input() mapOptions?: L.MapOptions = {};
 
-  map?: L.Map;
+	map?: L.Map;
 
-  constructor(
-    private jsExecutorService: JsExecutorService,
-    private mapService: MapService,
-    private layerManagerService: LayerManagerService
-  ) { }
+	constructor(
+		private mapService: MapService,
+		private layerManagerService: LayerManagerService
+	) { }
 
-  ngAfterViewInit() {
-    this.initializeMap();
-  }
+	ngAfterViewInit() {
+		this.initializeMap();
+	}
 
-  redrawMap(): void {
-    this.map?.invalidateSize();
-  }
+	redrawMap(): void {
+		this.map?.invalidateSize();
+	}
 
-  async onMapDoubleClick(event: L.LeafletMouseEvent) {
-    const location = event.latlng;
+	async onMapDoubleClick(event: L.LeafletMouseEvent) {
+		const location = event.latlng;
 
-    const locationLayer = this.layerManagerService.getScratchPointLayer({
-      type: 'Point',
-      coordinates: [location.lng, location.lat]
-    });
-    await this.layerManagerService.removeLayerByName(locationLayer.name);
-    this.layerManagerService.addLayer(locationLayer);
-  }
+		const locationLayer = this.layerManagerService.getScratchPointLayer({
+			type: 'Point',
+			coordinates: [location.lng, location.lat]
+		});
+		await this.layerManagerService.removeLayerByName(locationLayer.name);
+		this.layerManagerService.addLayer(locationLayer);
+	}
 
-  private initializeMap(): void {
+	private initializeMap(): void {
 
-    this.map = L.map('map', {
-      doubleClickZoom: false,
-      zoom: 1,
-      center: [0, 0],
-      wheelPxPerZoomLevel: 150,
-      ...this.mapOptions
-    });
+		this.map = L.map('map', {
+			doubleClickZoom: false,
+			zoom: 1,
+			center: [0, 0],
+			wheelPxPerZoomLevel: 150,
+			...this.mapOptions
+		});
 
-    L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
-      maxZoom: 19,
-      attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>'
-    }).addTo(this.map);
+		L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
+			maxZoom: 19,
+			attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>'
+		}).addTo(this.map);
 
-    this.map.on('dblclick', (e) => this.onMapDoubleClick(e));
+		this.map.on('dblclick', (e) => this.onMapDoubleClick(e));
 
-    // this.jsExecutorService.getThis()['map'] = this.map;
-    this.mapService.setMap(this.map);
-  }
+		// this.jsExecutorService.getThis()['map'] = this.map;
+		this.mapService.setMap(this.map);
+	}
 
 }
