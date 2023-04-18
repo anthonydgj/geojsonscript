@@ -83,6 +83,7 @@ export class LayerManagerService {
 		this.jsExecutorService.getThis()[dataLayer.name] = dataLayer.content;
 
 		const map = this.mapService.getMap();
+		console.log(dataLayer)
 		if (map && !dataLayer.hide) {
 			this.mapService.loadGeoJSON(map, dataLayer);
 		}
@@ -138,10 +139,8 @@ export class LayerManagerService {
 	}
 
 	refreshLayer(dataLayer: DataLayer): void {
-		if (!!dataLayer.mapLayer) {
-			this.removeLayer(dataLayer);
-			this.addLayer(dataLayer);
-		}
+		this.removeLayer(dataLayer);
+		this.addLayer(dataLayer);
 	}
 
 	toggleLayer(dataLayer: DataLayer, shouldDisplay: boolean): void {

@@ -62,6 +62,7 @@ export class DataDialogComponent {
 			const strokeColor = this.layerManagerService.getStrokeColor(fillColor);
 			dataLayer.style.color = strokeColor;
 		}
+		dataLayer.hide = !dataLayer.mapLayer;
 		this.layerManagerService.refreshLayer(dataLayer);
 	}
 }
