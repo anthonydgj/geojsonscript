@@ -169,9 +169,9 @@ const sum = magnitudes.reduce((acc, cur) => acc + cur, 0);
 const mean = sum / magnitudes.length;
 
 // Print results
-console.info(\`Maximum: \${max}\`);
-console.info(\`Minimum: \${min}\`);
-console.info(\`Mean: \${mean.toFixed(2)}\`);`,
+console.info(\`Maximum magnitude: \${max}\`);
+console.info(\`Minimum magnitude: \${min}\`);
+console.info(\`Mean magnitude: \${mean.toFixed(2)}\`);`,
 				monacoEditorOptions: defaultMonacoEditorOptions
 			},
 			dataLayers: [defaultDataLayer],
@@ -179,66 +179,11 @@ console.info(\`Mean: \${mean.toFixed(2)}\`);`,
 			colspan: fullRowColspan
 		},
 		{
-			path: 'computeNewFeatures',
-			description: $localize`Compute a new feature layer`,
-			codeViewerOptions: {
-				initialValue:
-					`// Visualize event path
-
-console.log('Importing libraries...');
-const turf = await ${Constants.HELPER_NAME_IMPORT}('turf');
-const moment = await ${Constants.HELPER_NAME_IMPORT}('moment');
-
-console.log('Calculating event path...');
-
-// Select points from a specific event
-const eventFeatures = layer1.features
-  .filter(feature => feature.properties.id === 'EONET_5143');
-
-// Sort event points by date
-eventFeatures.sort((a, b) => (
-  moment.utc(a.properties.date).isBefore(
-    moment.utc(b.properties.date)
-  )
-));
-
-// Colour-code the start/end events
-const start = eventFeatures[0];
-start.properties.style = {
-  fillColor: '#53d453' // Green
-}; 
-const end = eventFeatures[eventFeatures.length - 1];
-end.properties.style = {
-  fillColor: '#ea6868'  // Red
-};
-
-// Calculate event duration
-const duration = moment.duration(
-  moment(start.properties.date).diff(moment(end.properties.closed))
-);
-console.info(\`\${eventFeatures[0].properties.title} lasted \${duration.humanize()}.\`);
-
-// Build the event path line string
-const lineString = turf
-  .lineString(eventFeatures.map(f => f.geometry.coordinates));
-
-return turf.featureCollection([lineString].concat(eventFeatures));`,
-				monacoEditorOptions: defaultMonacoEditorOptions
-			},
-			dataLayers: [defaultDataLayer],
-			mapOptions: {
-				center: L.latLng(23, -84),
-				zoom: 5
-			},
-			rowspan: 16,
-			colspan: fullRowColspan
-		},
-		{
 			path: 'fetchRemote',
-			description: $localize`Fetch data from a remote source and run cluster analysis`,
+			description: $localize`Fetch data from a remote source and compute a new layer`,
 			codeViewerOptions: {
 				initialValue:
-					`// Fetch and display earthquake clusters from the last week
+					`// Fetch and display earthquake clusters
 
 console.log('Importing libraries...');
 const moment = await importPackage('moment');
@@ -252,7 +197,7 @@ const endDate = moment().format('YYYY-MM-DD');
 const url = \`https://earthquake.usgs.gov/fdsnws/event/1/query?format=geojson&starttime=\${startDate}&endtime=\${endDate}\`;
 const response = await fetch(url);
 const earthquakes = await response.json();
-console.info(\`\${earthquakes.metadata.count} earthquakes in the \${numDays} days.\`);
+console.info(\`\${earthquakes.metadata.count} earthquakes in the last \${numDays} days.\`);
 
 console.log('Computing clusters...');
 const maxDistanceKm = 300;
@@ -268,7 +213,7 @@ clusteredEarthquakes.features.forEach(feature => {
 const colourMap = new Map();
 clusterSet.forEach(cluster => {
   const colour = randomColor({
-      luminosity: 'light',
+      luminosity: 'bright',
     });
   colourMap.set(cluster, colour);
 });
@@ -280,7 +225,7 @@ clusteredEarthquakes.features.forEach(feature => {
   feature.properties.style = {
     fillColor: dbscan === 'noise' ? 'white' : clusterColour,
     color: 'black',
-    fillOpacity: 0.6
+    fillOpacity: 0.8
   };
 });
 
@@ -289,7 +234,7 @@ return clusteredEarthquakes;`,
 				monacoEditorOptions: defaultMonacoEditorOptions
 			},
 			dataLayers: [],
-			rowspan: 18,
+			rowspan: 19,
 			colspan: fullRowColspan
 		}
 	];
