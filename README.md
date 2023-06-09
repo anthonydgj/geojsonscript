@@ -6,6 +6,8 @@ of Leeds in 2020, and has subsequently been rewritten using [Angular](https://an
 Further details about the project can be found on the
 [GeoJSON Script](https://geojsonscript.io/about) website.
 
+![screenshot](screenshot.jpg "Screenshot")
+
 ## Development
 
 Build instructions can be found in the [Angular project README](./geojson-script/README.md).
