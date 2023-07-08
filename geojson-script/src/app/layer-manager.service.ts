@@ -83,7 +83,6 @@ export class LayerManagerService {
 		this.jsExecutorService.getThis()[dataLayer.name] = dataLayer.content;
 
 		const map = this.mapService.getMap();
-		console.log(dataLayer)
 		if (map && !dataLayer.hide) {
 			this.mapService.loadGeoJSON(map, dataLayer);
 		}
