@@ -6,11 +6,11 @@ import { LayerManagerService } from '../layer-manager.service';
 import { MapService } from '../map.service';
 
 @Component({
-	selector: 'app-map',
-	templateUrl: './map.component.html',
-	styleUrls: ['./map.component.scss']
+	selector: 'app-leaflet-map',
+	templateUrl: './leaflet-map.component.html',
+	styleUrls: ['./leaflet-map.component.scss']
 })
-export class MapComponent {
+export class LeafletMapComponent {
 
 	@Input() mapOptions?: L.MapOptions = {};
 

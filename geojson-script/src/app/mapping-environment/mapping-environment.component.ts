@@ -4,7 +4,7 @@ import { Component, HostListener, OnDestroy, OnInit, ViewChild } from '@angular/
 
 import { AppStateService } from '../app-state.service';
 import { LayerManagerService } from '../layer-manager.service';
-import { MapComponent } from '../map/map.component';
+import { LeafletMapComponent } from '../leaflet-map/leaflet-map.component';
 import { PreloadOptions, PreloadService } from '../preload.service';
 import { UserEvent, UserEventService } from '../user-event.service';
 
@@ -32,7 +32,7 @@ export class MappingEnvironmentComponent implements OnInit, OnDestroy {
 		}
 	}
 
-	@ViewChild('map', { static: false }) map?: MapComponent;
+	@ViewChild('map', { static: false }) map?: LeafletMapComponent;
 
 	SplitPanel = SplitPanel;
 

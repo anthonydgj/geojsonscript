@@ -28,7 +28,7 @@ import { DataDialogComponent } from './data-dialog/data-dialog.component';
 import { DataLayerDialogComponent } from './data-layer-dialog/data-layer-dialog.component';
 import { DataManagerComponent } from './data-manager/data-manager.component';
 import { EditorComponent } from './editor/editor.component';
-import { MapComponent } from './map/map.component';
+import { LeafletMapComponent } from './leaflet-map/leaflet-map.component';
 import { MappingEnvironmentComponent } from './mapping-environment/mapping-environment.component';
 import { NavigationBarComponent } from './navigation-bar/navigation-bar.component';
 import { PopupContentComponent } from './popup-content/popup-content.component';
@@ -41,7 +41,7 @@ import { TitleComponent } from './title/title.component';
 		AboutComponent,
 		MappingEnvironmentComponent,
 		NavigationBarComponent,
-		MapComponent,
+		LeafletMapComponent,
 		EditorComponent,
 		ConsoleComponent,
 		DataManagerComponent,

@@ -1,7 +1,7 @@
 <div class="split-pane">
 	<as-split direction="horizontal" (dragEnd)="onDragEnd($event, SplitPanel.MAP)">
 		<as-split-area [size]="mapSize">
-			<app-map #map [mapOptions]="preloadOptions?.mapOptions"></app-map>
+			<app-leaflet-map #map [mapOptions]="preloadOptions?.mapOptions"></app-leaflet-map>
 		</as-split-area>
 		<as-split-area [size]="100 - mapSize">
 			<as-split direction="vertical" (dragEnd)="onDragEnd($event, SplitPanel.DATA_MANAGER)">
