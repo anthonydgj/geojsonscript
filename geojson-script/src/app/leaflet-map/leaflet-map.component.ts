@@ -3,6 +3,7 @@ import * as L from 'leaflet';
 import { Component, Input } from '@angular/core';
 
 import { LayerManagerService } from '../layer-manager.service';
+import { MapComponent } from '../map-component';
 import { MapService } from '../map.service';
 
 @Component({
@@ -10,7 +11,7 @@ import { MapService } from '../map.service';
 	templateUrl: './leaflet-map.component.html',
 	styleUrls: ['./leaflet-map.component.scss']
 })
-export class LeafletMapComponent {
+export class LeafletMapComponent implements MapComponent {
 
 	@Input() mapOptions?: L.MapOptions = {};
 
