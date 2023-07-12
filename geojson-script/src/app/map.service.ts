@@ -1,106 +1,56 @@
-import * as L from 'leaflet';
-import { BehaviorSubject, shareReplay } from 'rxjs';
+import { BehaviorSubject, Subject, shareReplay } from 'rxjs';
 
-import { ComponentFactoryResolver, Injectable, Injector } from '@angular/core';
+import { Injectable } from '@angular/core';
 
 import { DataLayer } from './data-layer';
-import { PopupContentComponent } from './popup-content/popup-content.component';
+
+export enum MapCommandTyoe {
+	ADD_LAYER = 'add_layer',
+	REMOVE_LAYER = 'remove_layer',
+	TOGGLE_LAYER = 'toggle_layer'
+}
+
+export interface MapCommand {
+	command: MapCommandTyoe;
+	dataLayer: DataLayer;
+	shouldDisplay?: boolean;
+}
 
 @Injectable({
 	providedIn: 'root'
 })
 export class MapService {
 
-	private readonly DEFAULT_RADIUS = 6;
-	private readonly DEFAULT_WEIGHT = 1;
-	private readonly DEFAULT_STYLE = {
-		color: `#222222`,
-		weight: this.DEFAULT_WEIGHT
-	};
 	private _mapInit$ = new BehaviorSubject<void>(undefined);
+	mapInit$ = this._mapInit$.asObservable().pipe(shareReplay(1));
 
-	map?: L.Map;
-	mapInit$ = this._mapInit$.asObservable().pipe(
-		shareReplay(1)
-	);
+	command$ = new Subject<MapCommand>();
 
-	constructor(
-		private resolver: ComponentFactoryResolver,
-		private injector: Injector
-	) { }
-
-	getMap(): L.Map | undefined {
-		return this.map;
-	}
-
-	setMap(map: L.Map): void {
-		this.map = map;
+	initMap(): void {
 		this._mapInit$.next();
 	}
 
-	loadGeoJSON(
-		map: L.Map,
-		layer: DataLayer
-	): L.GeoJSON {
-
-		const mapLayer: L.GeoJSON = L.geoJSON(layer.content, {
-
-			// Define the mapping from GeoJSON point to map feature
-			pointToLayer: (geoJsonPoint, latlng) => {
-				return L.circleMarker(latlng, {
-					radius: this.DEFAULT_RADIUS,
-					weight: this.DEFAULT_WEIGHT,
-					...this.getGeoJsonStyle(geoJsonPoint)
-				});
-			},
-
-			// Define the style for the GeoJSON data
-			style: (geoJsonData) => {
-
-				const layerStyle = layer.style || {};
-				const style = {
-					zIndex: layer.zIndex,
-					...this.DEFAULT_STYLE,                  // Default style
-					...layerStyle,                          // Layer style
-					...this.getGeoJsonStyle(geoJsonData)    // GeoJSON attribute style
-				};
-				return style;
-			}
+	addLayer(dataLayer: DataLayer) {
+		this.command$.next({
+			command: MapCommandTyoe.ADD_LAYER,
+			dataLayer
 		});
-
-		// Bind tooltip to display layer
-		const layerPath = layer.path ? ` (${layer.path})` : '';
-		mapLayer.bindTooltip(`${layer.name}${layerPath}`);
-
-		// Bind a popup with basic information
-		mapLayer.bindPopup((leafletLayer: L.Layer) => {
-			const component = this.resolver.resolveComponentFactory(PopupContentComponent).create(this.injector);
-			component.instance.layerName = layer.name;
-			component.instance.data = (leafletLayer as any).feature;
-			component.changeDetectorRef.detectChanges();
-			return component.location.nativeElement;
-		});
-
-		// Add layer to the map
-		mapLayer.addTo(map);
-
-		// Add back-reference to data layer
-		layer.mapLayer = new WeakRef(mapLayer);
-
-		// Return a reference to the GeoJSON layer data
-		return mapLayer;
 	}
 
-	/**
-	 * Returns style properties in GeoJSON attributes, if present
-	 * @param geoJsonData 
-	 * @returns 
-	 */
-	private getGeoJsonStyle(geoJsonData: any): any {
-		if (geoJsonData.properties) {
-			return { ...geoJsonData.properties.style };
-		}
-		return {};
+	removeLayer(dataLayer: DataLayer) {
+		this.command$.next({
+			command: MapCommandTyoe.REMOVE_LAYER,
+			dataLayer
+		});
 	}
+
+	toggleLayer(dataLayer: DataLayer, shouldDisplay: boolean) {
+		this.command$.next({
+			command: MapCommandTyoe.TOGGLE_LAYER,
+			dataLayer,
+			shouldDisplay
+		});
+	}
+
 
 }

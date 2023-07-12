@@ -82,10 +82,7 @@ export class LayerManagerService {
 
 		this.jsExecutorService.getThis()[dataLayer.name] = dataLayer.content;
 
-		const map = this.mapService.getMap();
-		if (map && !dataLayer.hide) {
-			this.mapService.loadGeoJSON(map, dataLayer);
-		}
+		this.mapService.addLayer(dataLayer);
 
 		this.layers.push(dataLayer);
 
@@ -115,11 +112,7 @@ export class LayerManagerService {
 			foundDataLayer = this.layers[removeIndex];
 			this.layers.splice(removeIndex, 1);
 
-			const map = this.mapService.getMap();
-			if (map) {
-				foundDataLayer.mapLayer?.deref()?.removeFrom(map);
-				foundDataLayer.mapLayer = undefined;
-			}
+			this.mapService.removeLayer(foundDataLayer);
 
 			if (permanent) {
 				await db.dataLayers.delete(foundDataLayer.name);
@@ -143,18 +136,7 @@ export class LayerManagerService {
 	}
 
 	toggleLayer(dataLayer: DataLayer, shouldDisplay: boolean): void {
-		const map = this.mapService.getMap();
-		if (map) {
-			if (shouldDisplay) {
-				this.mapService.loadGeoJSON(map, dataLayer);
-			} else {
-				const mapLayer = dataLayer.mapLayer;
-				dataLayer.mapLayer = undefined;
-				if (mapLayer) {
-					mapLayer.deref()?.remove();
-				}
-			}
-		}
+		this.mapService.toggleLayer(dataLayer, shouldDisplay);
 	}
 
 	getScratchLayerName(): string {

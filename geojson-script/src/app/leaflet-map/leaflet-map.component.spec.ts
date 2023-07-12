@@ -2,7 +2,7 @@ import { ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { LeafletMapComponent } from './leaflet-map.component';
 
-describe('MapComponent', () => {
+describe('LeafletMapComponent', () => {
 	let component: LeafletMapComponent;
 	let fixture: ComponentFixture<LeafletMapComponent>;
 
