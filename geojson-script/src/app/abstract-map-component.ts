@@ -1,7 +1,5 @@
 import { Subscription } from "rxjs";
 
-import { OnDestroy, OnInit } from "@angular/core";
-
 import { DataLayer } from "./data-layer";
 import { MapCommandTyoe, MapService } from "./map.service";
 

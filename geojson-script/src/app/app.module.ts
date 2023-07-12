@@ -34,6 +34,7 @@ import { NavigationBarComponent } from './navigation-bar/navigation-bar.componen
 import { PopupContentComponent } from './popup-content/popup-content.component';
 import { ThisObjectDialogComponent } from './this-object-dialog/this-object-dialog.component';
 import { TitleComponent } from './title/title.component';
+import { PlotlyMapComponent } from './plotly-map/plotly-map.component';
 
 @NgModule({
 	declarations: [
@@ -50,7 +51,8 @@ import { TitleComponent } from './title/title.component';
 		CodeViewerComponent,
 		PopupContentComponent,
 		ThisObjectDialogComponent,
-		TitleComponent
+		TitleComponent,
+  PlotlyMapComponent
 	],
 	imports: [
 		BrowserModule,
