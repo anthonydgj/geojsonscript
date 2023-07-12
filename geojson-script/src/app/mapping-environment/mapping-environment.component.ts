@@ -15,7 +15,13 @@ enum SplitPanel {
 	CONSOLE = 'CONSOLE'
 }
 
+enum MapEngine {
+	LEAFLET = 'LEAFLET',
+	PLOTLY = 'PLOTLY',
+}
+
 const appStatePrefix = 'splitPanel';
+const mapEngine = 'mapEngine';
 
 @Component({
 	selector: 'app-mapping-environment',
@@ -44,6 +50,8 @@ export class MappingEnvironmentComponent implements OnInit, OnDestroy {
 	dataManagerSize: number;
 	editorSize: number;
 	preloadOptions?: PreloadOptions;
+	selectedMapEngine: MapEngine;
+	availableMapEngines: MapEngine[];
 
 	constructor(
 		private userEventService: UserEventService,
@@ -57,6 +65,11 @@ export class MappingEnvironmentComponent implements OnInit, OnDestroy {
 			this.DEFAULT_DATA_MANAGER_SIZE;
 		this.editorSize = this.appStateService.getState(SplitPanel.EDITOR, appStatePrefix) ||
 			this.DEFAULT_EDITOR_SIZE;
+		this.availableMapEngines = [
+			MapEngine.LEAFLET,
+			MapEngine.PLOTLY
+		];
+		this.selectedMapEngine = this.appStateService.getState(mapEngine, appStatePrefix) || this.availableMapEngines[0];
 	}
 
 	ngOnInit(): void {

@@ -1,7 +1,25 @@
 <div class="split-pane">
 	<as-split direction="horizontal" (dragEnd)="onDragEnd($event, SplitPanel.MAP)">
-		<as-split-area [size]="mapSize">
-			<app-leaflet-map #map [mapOptions]="preloadOptions?.mapOptions"></app-leaflet-map>
+		<as-split-area [size]="mapSize" class="fill-content">
+			<div class="map-controls">
+				<mat-form-field appearance="fill">
+					<mat-label i18n>Map Engine</mat-label>
+					<mat-select [(ngModel)]="selectedMapEngine" class="map-control">
+						<mat-option *ngFor="let availableMapEngine of availableMapEngines" [value]="availableMapEngine"
+							i18n>
+							{
+							availableMapEngine,
+							select,
+							LEAFLET { Leaflet }
+							PLOTLY { Plotly }
+							}
+						</mat-option>
+					</mat-select>
+				</mat-form-field>
+			</div>
+			<div class="map-container">
+				<app-leaflet-map #map [mapOptions]="preloadOptions?.mapOptions"></app-leaflet-map>
+			</div>
 		</as-split-area>
 		<as-split-area [size]="100 - mapSize">
 			<as-split direction="vertical" (dragEnd)="onDragEnd($event, SplitPanel.DATA_MANAGER)">
