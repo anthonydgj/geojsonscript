@@ -1,3 +1,5 @@
+import Plotly from 'plotly.js-dist-min'
+
 import { AfterViewInit, Component, OnDestroy } from '@angular/core';
 
 import { AbstractMapComponent } from '../abstract-map-component';
@@ -13,6 +15,8 @@ import { MapService } from '../map.service';
 })
 export class PlotlyMapComponent extends AbstractMapComponent implements MapComponent, AfterViewInit, OnDestroy {
 
+	private plot?: Plotly.PlotlyHTMLElement;
+
 	constructor(
 		mapService: MapService,
 		private layerManagerService: LayerManagerService
@@ -21,7 +25,7 @@ export class PlotlyMapComponent extends AbstractMapComponent implements MapCompo
 	}
 
 	ngAfterViewInit() {
-		this.onInit();
+		this.initializeMap();
 	}
 
 	ngOnDestroy(): void {
@@ -29,7 +33,7 @@ export class PlotlyMapComponent extends AbstractMapComponent implements MapCompo
 	}
 
 	redrawMap(): void {
-
+		window.dispatchEvent(new Event('resize'));
 	}
 
 	addLayer(dataLayer: DataLayer): void {
@@ -44,4 +48,54 @@ export class PlotlyMapComponent extends AbstractMapComponent implements MapCompo
 
 	}
 
+	private async initializeMap() {
+
+		const divId = 'plotly-map';
+		let observer = new MutationObserver(function (mutations) {
+			window.dispatchEvent(new Event('resize'));
+		});
+
+		let child = document.getElementById(divId);
+		if (child) {
+			observer.observe(child, { attributes: true });
+		}
+
+		var data: any = [{
+			type: 'scattergeo',
+			mode: 'markers',
+			locations: ['FRA', 'DEU', 'RUS', 'ESP'],
+			marker: {
+				size: [20, 30, 15, 10],
+				color: [10, 20, 40, 50],
+				cmin: 0,
+				cmax: 50,
+				colorscale: 'Greens',
+				colorbar: {
+					title: 'Some rate',
+					ticksuffix: '%',
+					showticksuffix: 'last'
+				},
+				line: {
+					color: 'black'
+				}
+			},
+			name: 'europe data'
+		}];
+
+		var layout = {
+			'geo': {
+				'scope': 'world',
+				'resolution': 100
+			}
+		};
+
+		const config = {
+			responsive: true
+		}
+
+		Plotly.newPlot(divId, data, layout, config);
+
+		this.onInit();
+		this.mapService.initMap();
+	}
 }
