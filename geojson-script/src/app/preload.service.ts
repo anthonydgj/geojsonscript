@@ -1,5 +1,3 @@
-import * as L from 'leaflet';
-
 import { Injectable } from '@angular/core';
 
 import { DataLayer } from './data-layer';
@@ -7,7 +5,7 @@ import { DataLayer } from './data-layer';
 export interface PreloadOptions {
 	script?: string;
 	layers: DataLayer[];
-	mapOptions?: L.MapOptions;
+	mapOptions?: any;
 }
 
 @Injectable({

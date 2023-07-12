@@ -1,4 +1,3 @@
-import * as L from 'leaflet';
 import packageJson from 'package.json';
 import { first } from 'rxjs';
 
@@ -18,7 +17,7 @@ interface CodeSnippet {
 	description: string;
 	codeViewerOptions: CodeViewerOptions;
 	dataLayers: DataLayer[];
-	mapOptions?: L.MapOptions;
+	mapOptions?: any;
 	rowspan: number;
 	colspan: number;
 }
