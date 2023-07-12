@@ -1,5 +1,5 @@
 import { NgxFileDropEntry } from 'ngx-file-drop';
-import { Subscription, first } from 'rxjs';
+import { Subscription, first, mergeMap } from 'rxjs';
 
 import { ChangeDetectorRef, Component, Input, OnDestroy, OnInit, ViewChild } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
@@ -38,20 +38,22 @@ export class DataManagerComponent implements OnInit, OnDestroy {
 
 	async ngOnInit() {
 		this.mapService.mapInit$
-			.pipe(first())
-			.subscribe(async () => {
-				if (this.preloadLayers) {
-					await this.layerManagerService.removeAll(false);
-					this.preloadLayers.forEach(async layer => {
-						await this.addLayer(layer, false);
-					});
-				} else {
-					db.dataLayers.each(async (dataLayer: DataLayer) => {
-						dataLayer.hide = true;
-						await this.addLayer(dataLayer, false);
-					})
-				}
-			});
+			.pipe(
+				mergeMap(async () => {
+					this.layerManagerService.removeAll(false);
+					if (this.preloadLayers) {
+						this.preloadLayers.forEach(async layer => {
+							await this.addLayer(layer, false);
+						});
+					} else {
+						db.dataLayers.each(async (dataLayer: DataLayer) => {
+							dataLayer.hide = true;
+							await this.addLayer(dataLayer, false);
+						})
+					}
+				})
+			)
+			.subscribe();
 
 		this.layersSubscription = this.layerManagerService.layers$
 			.subscribe(layers => {

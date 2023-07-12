@@ -1,4 +1,4 @@
-import { BehaviorSubject, Subject, shareReplay } from 'rxjs';
+import { Subject, shareReplay } from 'rxjs';
 
 import { Injectable } from '@angular/core';
 
@@ -21,7 +21,7 @@ export interface MapCommand {
 })
 export class MapService {
 
-	private _mapInit$ = new BehaviorSubject<void>(undefined);
+	private _mapInit$ = new Subject<void>();
 	mapInit$ = this._mapInit$.asObservable().pipe(shareReplay(1));
 
 	command$ = new Subject<MapCommand>();
@@ -51,6 +51,5 @@ export class MapService {
 			shouldDisplay
 		});
 	}
-
 
 }

@@ -41,6 +41,7 @@ export class MappingEnvironmentComponent implements OnInit, OnDestroy {
 	@ViewChild('map', { static: false }) map?: MapComponent;
 
 	SplitPanel = SplitPanel;
+	MapEngine = MapEngine;
 
 	private DEFAULT_MAP_SIZE = 50;
 	private DEFAULT_DATA_MANAGER_SIZE = 20;

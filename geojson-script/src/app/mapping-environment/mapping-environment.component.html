@@ -18,7 +18,11 @@
 				</mat-form-field>
 			</div>
 			<div class="map-container">
-				<app-leaflet-map #map [mapOptions]="preloadOptions?.mapOptions"></app-leaflet-map>
+				<ng-container [ngSwitch]="selectedMapEngine">
+					<app-leaflet-map *ngSwitchCase="MapEngine.LEAFLET" #map
+						[mapOptions]="preloadOptions?.mapOptions"></app-leaflet-map>
+					<app-plotly-map *ngSwitchCase="MapEngine.PLOTLY" #map></app-plotly-map>
+				</ng-container>
 			</div>
 		</as-split-area>
 		<as-split-area [size]="100 - mapSize">
