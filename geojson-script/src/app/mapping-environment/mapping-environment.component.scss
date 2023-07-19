@@ -9,11 +9,13 @@
 
 	.map-controls {
 		position: absolute;
-		right: 0;
-		top: 0;
-		z-index: 9;
-		margin: 5px;
-		padding: 5px;
+		bottom: 0;
+		left: 0;
+		display: flex;
+		justify-content: center;
+		z-index: 1000;
+		margin-left: 1em;
+		// padding: 5px;
 	}
 
 	.map-control {

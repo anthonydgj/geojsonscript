@@ -70,7 +70,7 @@ export class MappingEnvironmentComponent implements OnInit, OnDestroy {
 			MapEngine.LEAFLET,
 			MapEngine.PLOTLY
 		];
-		this.selectedMapEngine = this.appStateService.getState(mapEngine, appStatePrefix) || this.availableMapEngines[0];
+		this.selectedMapEngine = this.appStateService.getState(mapEngine, appStatePrefix) || this.availableMapEngines[1];
 	}
 
 	ngOnInit(): void {
