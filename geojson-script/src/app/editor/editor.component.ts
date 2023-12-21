@@ -1,5 +1,5 @@
 import { BehaviorSubject, Subscription, debounceTime } from 'rxjs';
-import { OutputFormat, evaluate } from 'wkt-lang';
+import { Interpreter, OutputFormat, Scope, evaluate } from 'wkt-lang';
 
 import { ChangeDetectorRef, Component, Input, OnDestroy, ViewChild } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
@@ -254,8 +254,16 @@ ${linesString}
 	}
 
 	private runWktLang(value: string): Promise<void> {
+		const scope = Interpreter.createGlobalScope();
+
+		const layers = this.layerManagerService.layers;
+		layers.forEach(layer => {
+			const data = layer.content;
+			scope.store(layer.name, layer.content);
+		});
 		return evaluate(value, {
-			outputFormat: OutputFormat.GeoJSON
+			outputFormat: OutputFormat.GeoJSON,
+			scope: scope
 		});
 	}
 
