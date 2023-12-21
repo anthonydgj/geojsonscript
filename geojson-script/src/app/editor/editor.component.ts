@@ -1,8 +1,9 @@
 import { BehaviorSubject, Subscription, debounceTime } from 'rxjs';
-import { Interpreter, OutputFormat, Scope, evaluate } from 'wkt-lang';
+import { Interpreter, OutputFormat, evaluate } from 'wkt-lang';
 
-import { ChangeDetectorRef, Component, Input, OnDestroy, ViewChild } from '@angular/core';
+import { ChangeDetectorRef, Component, Input, OnDestroy, OnInit, ViewChild } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
+import { ActivatedRoute, Params, Router } from '@angular/router';
 
 import { CodeViewerComponent, CodeViewerOptions } from '../code-viewer/code-viewer.component';
 import { ConsoleListenerService } from '../console-listener.service';
@@ -19,10 +20,11 @@ import { UserEvent, UserEventService } from '../user-event.service';
 	templateUrl: './editor.component.html',
 	styleUrls: ['./editor.component.scss']
 })
-export class EditorComponent implements OnDestroy {
+export class EditorComponent implements OnInit, OnDestroy {
 	public _editor: any;
 
 	private DEFAULT_SCRIPT_NAME = 'script';
+	private readonly PARAM_LANG = 'lang';
 
 	private eventSubscription = new Subscription();
 	private editorSaveSubscription = new Subscription();
@@ -118,6 +120,7 @@ return {
 	private static DEFAULT_SCRIPT_FILE_NAME = 'geojsonScript';
 
 	private scriptSaveDebounceMillis = 500;
+	private initLang?: EditorLanguage;
 
 	constructor(
 		private userEventService: UserEventService,
@@ -125,7 +128,9 @@ return {
 		private layerManagerService: LayerManagerService,
 		private dialog: MatDialog,
 		private changeDetectorRef: ChangeDetectorRef,
-		private consoleListenerService: ConsoleListenerService
+		private consoleListenerService: ConsoleListenerService,
+		private activatedRoute: ActivatedRoute,
+		private router: Router
 	) { }
 
 	async initializeEditor() {
@@ -137,8 +142,18 @@ return {
 			const savedScript = await db.scripts.toCollection().last();
 			if (!this.preloadValue && !!savedScript && savedScript.content !== this.exampleValue) {
 				this.codeViewer?.setValue(savedScript.content);
-				this.selectedLanguage = savedScript.language;
+				this.selectedLanguage = this.initLang || savedScript.language;
 				this.updateLanguage();
+
+				// Remove temporary lang query param
+				const params: Params = {};
+				params[this.PARAM_LANG] = undefined;
+				const urlTree = this.router.createUrlTree([], {
+					queryParams: params,
+					queryParamsHandling: "merge",
+					preserveFragment: true
+				});
+				this.router.navigateByUrl(urlTree);
 			}
 		}
 
@@ -180,6 +195,11 @@ return {
 				});
 			}
 		}
+	}
+
+	ngOnInit(): void {
+		const params = this.activatedRoute.snapshot.queryParams;
+		this.initLang = params[this.PARAM_LANG];
 	}
 
 	ngOnDestroy(): void {
