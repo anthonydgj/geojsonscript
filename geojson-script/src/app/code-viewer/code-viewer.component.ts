@@ -90,6 +90,10 @@ export class CodeViewerComponent {
 		}]);
 	}
 
+	getMonacoEditorApi() {
+		return monaco.editor;
+	}
+
 	getMonacoEditor() {
 		return this._editor;
 	}

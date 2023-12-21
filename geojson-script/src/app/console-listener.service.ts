@@ -15,6 +15,10 @@ export class ConsoleListenerService {
 
 	private consoleEvents$ = new Subject<ConsoleEvent>();
 
+	constructor() {
+		this.installProxy();
+	}
+
 	postConsoleEvent(event: ConsoleEvent) {
 		this.consoleEvents$.next(event);
 	}
@@ -23,4 +27,15 @@ export class ConsoleListenerService {
 		return this.consoleEvents$.asObservable();
 	}
 
+	installProxy() {
+		const originalErr = console.error;
+		console.error = (...data: any[]) => {
+			this.postConsoleEvent({
+				date: new Date(),
+				type: 'error',
+				value: Array.isArray(data) ? data.join(' ') : data
+			});
+			originalErr(...data);
+		};
+	}
 }

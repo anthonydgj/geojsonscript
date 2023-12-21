@@ -1,9 +1,11 @@
 import { BehaviorSubject, Subscription, debounceTime } from 'rxjs';
+import { OutputFormat, evaluate } from 'wkt-lang';
 
 import { ChangeDetectorRef, Component, Input, OnDestroy, ViewChild } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 
 import { CodeViewerComponent, CodeViewerOptions } from '../code-viewer/code-viewer.component';
+import { ConsoleListenerService } from '../console-listener.service';
 import { Constants } from '../constants';
 import { DataUtils } from '../data-utils';
 import { db } from '../db';
@@ -26,6 +28,8 @@ export class EditorComponent implements OnDestroy {
 	public _editor: any;
 
 	private DEFAULT_SCRIPT_NAME = 'script';
+	private LANGUAGE_JAVASCRIPT = 'javascript';
+	private LANGUAGE_WKTLANG = 'none';
 
 	private eventSubscription = new Subscription();
 	private editorSaveSubscription = new Subscription();
@@ -128,7 +132,8 @@ return {
 		private jsExecutorService: JsExecutorService,
 		private layerManagerService: LayerManagerService,
 		private dialog: MatDialog,
-		private changeDetectorRef: ChangeDetectorRef
+		private changeDetectorRef: ChangeDetectorRef,
+		private consoleListenerService: ConsoleListenerService
 	) { }
 
 	async initializeEditor() {
@@ -219,6 +224,19 @@ ${linesString}
 		this.codeViewer?.setValue(this.exampleValue);
 	}
 
+	onLanguageChange() {
+		const monacoEditor = this.codeViewer?.getMonacoEditorApi();
+		const editor = this.codeViewer?.getMonacoEditor();
+		if (monacoEditor && editor) {
+			const selectedLanguage = this.selectedLanguage;
+			let language = this.LANGUAGE_JAVASCRIPT;
+			if (selectedLanguage === Language.WktLang) {
+				language = this.LANGUAGE_WKTLANG;
+			}
+			monacoEditor.setModelLanguage(editor.getModel(), language);
+		}
+	}
+
 	async onEditorReady(editor: any) {
 
 		await this.initializeEditor();
@@ -229,24 +247,48 @@ ${linesString}
 			});
 	}
 
+	private runJavaScript(value: string): Promise<void> {
+		return this.jsExecutorService.run(value);
+	}
+
+	private runWktLang(value: string): Promise<void> {
+		return evaluate(value, {
+			outputFormat: OutputFormat.GeoJSON
+		});
+	}
+
 	private async run() {
 		if (!this.isRunning) {
 			this.setRunState(true);
 
-			// Create scratch layer
-			const value = this.getScript();
-			const promise = this.jsExecutorService.run(value).then(async (data: any) => {
+			try {
+				const value = this.getScript();
+				let data: any;
+				switch (this.selectedLanguage) {
+					case Language.JavaScript:
+						data = await this.runJavaScript(value);
+						break;
+					case Language.WktLang:
+						data = this.runWktLang(value);
+						break;
+				}
+
 				if (data) {
 					// Add new scratch layer
 					const scratchDataLayer = this.layerManagerService.getScratchLayer(data);
 					await this.layerManagerService.removeLayerByName(scratchDataLayer.name);
 					await this.layerManagerService.addLayer(scratchDataLayer);
 				}
-			}).finally(() => {
+			} catch (err) {
+				this.consoleListenerService.postConsoleEvent({
+					date: new Date(),
+					type: 'error',
+					value: err
+				})
+			} finally {
 				this.setRunState(false);
-			});
+			}
 
-			await promise;
 		}
 	}
 
