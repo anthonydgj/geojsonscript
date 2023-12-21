@@ -13,9 +13,30 @@
 		justify-content: space-between;
 		background-color: $toolbar-color;
 		flex-grow: 0;
+
+		>div {
+			display: flex;
+			align-items: center;
+			flex-wrap: wrap;
+		}
 	}
 
 	.editor {
 		flex-grow: 1;
+	}
+
+	::ng-deep .language-select {
+		font-size: 0.8em;
+		width: 10em;
+
+		.mat-mdc-form-field-infix {
+			padding: 0 0 0 0;
+			height: 1em;
+			min-height: 2em;
+		}
+
+		.mat-mdc-form-field-subscript-wrapper {
+			height: 0px;
+		}
 	}
 }

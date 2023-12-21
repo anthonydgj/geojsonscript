@@ -12,6 +12,11 @@ import { LayerManagerService } from '../layer-manager.service';
 import { ThisObjectDialogComponent } from '../this-object-dialog/this-object-dialog.component';
 import { UserEvent, UserEventService } from '../user-event.service';
 
+enum Language {
+	JavaScript = 'JavaScript',
+	WktLang = 'WktLang',
+}
+
 @Component({
 	selector: 'app-editor',
 	templateUrl: './editor.component.html',
@@ -111,6 +116,8 @@ return {
 	};
 
 	isRunning = false;
+	selectedLanguage: Language = Language.JavaScript
+	availableLanguages: Language[] = Object.keys(Language).map(l => l as Language);
 
 	private static DEFAULT_SCRIPT_FILE_NAME = 'geojsonScript';
 

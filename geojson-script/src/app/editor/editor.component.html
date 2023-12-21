@@ -9,6 +9,19 @@
 			</button>
 		</div>
 		<div>
+			<mat-form-field class="language-select">
+				<select matNativeControl [(ngModel)]="selectedLanguage">
+					<option *ngFor="let language of availableLanguages" [value]="language" i18n>
+						{
+						language,
+						select,
+						JavaScript { JavaScript }
+						WktLang { wkt-lang }
+						}
+					</option>
+				</select>
+			</mat-form-field>
+
 			<button mat-icon-button title="Load Example Script" i18n-title (click)="onLoadExampleScript()">
 				<mat-icon>help_outline</mat-icon>
 			</button>
