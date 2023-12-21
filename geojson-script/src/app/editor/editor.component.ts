@@ -8,16 +8,11 @@ import { CodeViewerComponent, CodeViewerOptions } from '../code-viewer/code-view
 import { ConsoleListenerService } from '../console-listener.service';
 import { Constants } from '../constants';
 import { DataUtils } from '../data-utils';
-import { db } from '../db';
+import { EditorLanguage, db } from '../db';
 import { JsExecutorService } from '../js-executor.service';
 import { LayerManagerService } from '../layer-manager.service';
 import { ThisObjectDialogComponent } from '../this-object-dialog/this-object-dialog.component';
 import { UserEvent, UserEventService } from '../user-event.service';
-
-enum Language {
-	JavaScript = 'JavaScript',
-	WktLang = 'WktLang',
-}
 
 @Component({
 	selector: 'app-editor',
@@ -28,8 +23,6 @@ export class EditorComponent implements OnDestroy {
 	public _editor: any;
 
 	private DEFAULT_SCRIPT_NAME = 'script';
-	private LANGUAGE_JAVASCRIPT = 'javascript';
-	private LANGUAGE_WKTLANG = 'none';
 
 	private eventSubscription = new Subscription();
 	private editorSaveSubscription = new Subscription();
@@ -113,15 +106,14 @@ return {
 	editorOptions: CodeViewerOptions = {
 		initialValue: this.initialValue,
 		monacoEditorOptions: {
-			language: 'javascript',
 			automaticLayout: true
 		},
 		captureUserEvents: true
 	};
 
 	isRunning = false;
-	selectedLanguage: Language = Language.JavaScript
-	availableLanguages: Language[] = Object.keys(Language).map(l => l as Language);
+	selectedLanguage: EditorLanguage = EditorLanguage.JavaScript
+	availableLanguages: EditorLanguage[] = Object.keys(EditorLanguage).map(l => l as EditorLanguage);
 
 	private static DEFAULT_SCRIPT_FILE_NAME = 'geojsonScript';
 
@@ -145,6 +137,8 @@ return {
 			const savedScript = await db.scripts.toCollection().last();
 			if (!this.preloadValue && !!savedScript && savedScript.content !== this.exampleValue) {
 				this.codeViewer?.setValue(savedScript.content);
+				this.selectedLanguage = savedScript.language;
+				this.updateLanguage();
 			}
 		}
 
@@ -159,28 +153,33 @@ return {
 		this.editorSaveSubscription = this.editorChange$.asObservable().pipe(
 			debounceTime(this.scriptSaveDebounceMillis)
 		).subscribe(async () => {
-			const script = this.getScript();
-			if (script !== this.preloadValue) {
-				let savedScript: string | undefined;
-				if (
-					!script?.trim() ||
-					script.trim() === this.initialValue.trim() ||
-					script.trim() === this.exampleValue.trim()
-				) {
-					savedScript = undefined;
-				} else {
-					savedScript = script;
-				}
+			await this.saveScript();
+		});
+	}
 
-				// Save custom scripts
-				if (savedScript !== undefined) {
-					await db.scripts.put({
-						name: this.DEFAULT_SCRIPT_NAME,
-						content: savedScript
-					});
-				}
+	private async saveScript() {
+		const script = this.getScript();
+		if (script !== this.preloadValue) {
+			let savedScript: string | undefined;
+			if (
+				!script?.trim() ||
+				script.trim() === this.initialValue.trim() ||
+				script.trim() === this.exampleValue.trim()
+			) {
+				savedScript = undefined;
+			} else {
+				savedScript = script;
 			}
-		})
+
+			// Save custom scripts
+			if (savedScript !== undefined) {
+				await db.scripts.put({
+					name: this.DEFAULT_SCRIPT_NAME,
+					content: savedScript,
+					language: this.selectedLanguage
+				});
+			}
+		}
 	}
 
 	ngOnDestroy(): void {
@@ -224,17 +223,20 @@ ${linesString}
 		this.codeViewer?.setValue(this.exampleValue);
 	}
 
-	onLanguageChange() {
+	async onLanguageChange() {
+		this.updateLanguage();
+		return this.saveScript();
+	}
+
+	private updateLanguage() {
+		const language = this.selectedLanguage?.toLocaleLowerCase();
 		const monacoEditor = this.codeViewer?.getMonacoEditorApi();
 		const editor = this.codeViewer?.getMonacoEditor();
 		if (monacoEditor && editor) {
-			const selectedLanguage = this.selectedLanguage;
-			let language = this.LANGUAGE_JAVASCRIPT;
-			if (selectedLanguage === Language.WktLang) {
-				language = this.LANGUAGE_WKTLANG;
-			}
 			monacoEditor.setModelLanguage(editor.getModel(), language);
 		}
+		this.changeDetectorRef.detectChanges();
+		this.codeViewer?.refresh();
 	}
 
 	async onEditorReady(editor: any) {
@@ -265,10 +267,10 @@ ${linesString}
 				const value = this.getScript();
 				let data: any;
 				switch (this.selectedLanguage) {
-					case Language.JavaScript:
+					case EditorLanguage.JavaScript:
 						data = await this.runJavaScript(value);
 						break;
-					case Language.WktLang:
+					case EditorLanguage.WktLang:
 						data = this.runWktLang(value);
 						break;
 				}

@@ -109,4 +109,8 @@ export class CodeViewerComponent {
 		}
 	}
 
+	refresh() {
+		this._editor.setValue(this._editor.getValue());
+	}
+
 }
