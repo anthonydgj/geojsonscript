@@ -31,11 +31,15 @@ export class MapComponent {
 
 	async onMapDoubleClick(event: L.LeafletMouseEvent) {
 		const location = event.latlng;
-
-		const locationLayer = this.layerManagerService.getScratchPointLayer({
-			type: 'Point',
-			coordinates: [location.lng, location.lat]
-		});
+		const pointFeature: GeoJSON.Feature<GeoJSON.Point> = {
+			type: 'Feature',
+			geometry: {
+				type: 'Point',
+				coordinates: [location.lng, location.lat]
+			},
+			properties: {}
+		};
+		const locationLayer = this.layerManagerService.getScratchPointLayer(pointFeature);
 		await this.layerManagerService.removeLayerByName(locationLayer.name);
 		this.layerManagerService.addLayer(locationLayer);
 	}

@@ -172,7 +172,7 @@ export class LayerManagerService {
 		return scratchLayer;
 	}
 
-	getScratchPointLayer(point: GeoJSON.Point): DataLayer {
+	getScratchPointLayer(point: GeoJSON.Feature<GeoJSON.Point>): DataLayer {
 		const scratchLayer: DataLayer = {
 			name: LayerManagerService.DEFAULT_SCRATCH_POINT_NAME,
 			content: point,
