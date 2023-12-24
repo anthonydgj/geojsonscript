@@ -87,6 +87,7 @@ export class DataManagerComponent implements OnInit, OnDestroy {
 				dataLayer: dataLayer
 			}
 		});
+		this.changeDetectorRef.detectChanges();
 	}
 
 	onDownloadLayer(dataLayer: DataLayer) {
