@@ -6888,7 +6888,7 @@
 │  ├─ email: damon.oehlman@gmail.com
 │  ├─ path: /Users/jarran/projects/geojsonscript/geojson-script/node_modules/wildcard
 │  └─ licenseFile: /Users/jarran/projects/geojsonscript/geojson-script/node_modules/wildcard/README.md
-├─ wkt-lang@0.2.0
+├─ wkt-lang@0.2.2
 │  ├─ licenses: MIT
 │  ├─ repository: https://github.com/anthonydgj/wkt-lang
 │  ├─ publisher: AnthonyDGJ
