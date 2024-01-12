@@ -3671,7 +3671,7 @@
 │  ├─ email: @DenisCarriere
 │  ├─ path: /Users/jarran/projects/geojsonscript/geojson-script/node_modules/geojson-rbush
 │  └─ licenseFile: /Users/jarran/projects/geojsonscript/geojson-script/node_modules/geojson-rbush/LICENSE
-├─ geojson-script@0.1.15
+├─ geojson-script@0.1.16
 │  ├─ licenses: MIT
 │  ├─ publisher: Anthony DGJ
 │  ├─ email: anthonydgj4@gmail.com
@@ -6888,7 +6888,7 @@
 │  ├─ email: damon.oehlman@gmail.com
 │  ├─ path: /Users/jarran/projects/geojsonscript/geojson-script/node_modules/wildcard
 │  └─ licenseFile: /Users/jarran/projects/geojsonscript/geojson-script/node_modules/wildcard/README.md
-├─ wkt-lang@0.1.2
+├─ wkt-lang@0.2.0
 │  ├─ licenses: MIT
 │  ├─ repository: https://github.com/anthonydgj/wkt-lang
 │  ├─ publisher: AnthonyDGJ
