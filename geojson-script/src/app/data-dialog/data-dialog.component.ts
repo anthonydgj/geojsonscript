@@ -53,7 +53,8 @@ export class DataDialogComponent {
 	}
 
 	ngAfterViewInit() {
-		this.codeViewer?.getMonacoEditor()?.layout({})
+		this.codeViewer?.getMonacoEditor()?.layout({});
+		this.codeViewer?.refresh();
 	}
 
 	onColorChange(dataLayer: DataLayer): void {

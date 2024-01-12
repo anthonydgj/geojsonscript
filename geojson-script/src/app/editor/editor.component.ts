@@ -255,8 +255,8 @@ ${linesString}
 		if (monacoEditor && editor) {
 			monacoEditor.setModelLanguage(editor.getModel(), language);
 		}
-		this.changeDetectorRef.detectChanges();
 		this.codeViewer?.refresh();
+		this.changeDetectorRef.detectChanges();
 	}
 
 	async onEditorReady(editor: any) {
