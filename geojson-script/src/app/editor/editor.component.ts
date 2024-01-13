@@ -319,7 +319,7 @@ ${linesString}
 		this.consoleListenerService.postConsoleEvent({
 			date: new Date(),
 			type: ConsoleEventType.log,
-			value: `WKT Output:\n${wktResult}`,
+			value: `\n${wktResult}`,
 		})
 		return result;
 	}
