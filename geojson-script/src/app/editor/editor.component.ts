@@ -224,6 +224,41 @@ return {
 	}
 
 	onDownload(): void {
+
+		let scriptFile;
+		switch (this.selectedLanguage) {
+			case EditorLanguage.JavaScript:
+				scriptFile = {
+					content: this.getJavaScriptFileContent(),
+					extension: '.js'
+				}
+				break;
+			case EditorLanguage.WktLang:
+				scriptFile = {
+					content: this.getScript(),
+					extension: '.wktl'
+				}
+				break;
+			default:
+				break;
+		}
+
+		if (scriptFile) {
+			const filename = EditorComponent.DEFAULT_SCRIPT_FILE_NAME;
+			DataUtils.saveFile(`${filename}.${scriptFile.extension}`, scriptFile.content);
+		}
+	}
+
+	onLoadExampleScript() {
+		this.codeViewer?.setValue(this.exampleValue);
+	}
+
+	async onLanguageChange() {
+		this.updateLanguage();
+		return this.saveScript();
+	}
+
+	private getJavaScriptFileContent() {
 		const thisObject = this.jsExecutorService.getThis();
 		const args = Object.keys(thisObject);
 		const argString = args.join(', ');
@@ -235,17 +270,7 @@ async function geojsonScript(${argString}) {
 ${linesString}
 }
 `;
-		const filename = EditorComponent.DEFAULT_SCRIPT_FILE_NAME;
-		DataUtils.saveFile(`${filename}.js`, scriptFile);
-	}
-
-	onLoadExampleScript() {
-		this.codeViewer?.setValue(this.exampleValue);
-	}
-
-	async onLanguageChange() {
-		this.updateLanguage();
-		return this.saveScript();
+		return scriptFile;
 	}
 
 	private updateLanguage() {
