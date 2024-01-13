@@ -2,8 +2,16 @@ import { Observable, Subject } from 'rxjs';
 
 import { Injectable } from '@angular/core';
 
+export enum ConsoleEventType {
+	log = 'log',
+	trace = 'trace',
+	debug = 'debug',
+	info = 'info',
+	warn = 'warn',
+	error = 'error',
+}
 export interface ConsoleEvent {
-	type: string;
+	type: ConsoleEventType;
 	value: any;
 	date: Date;
 }
@@ -32,7 +40,7 @@ export class ConsoleListenerService {
 		console.error = (...data: any[]) => {
 			this.postConsoleEvent({
 				date: new Date(),
-				type: 'error',
+				type: ConsoleEventType.error,
 				value: Array.isArray(data) ? data.join(' ') : data
 			});
 			originalErr(...data);

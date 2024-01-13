@@ -6,7 +6,7 @@ import { MatDialog } from '@angular/material/dialog';
 import { ActivatedRoute, Params, Router } from '@angular/router';
 
 import { CodeViewerComponent, CodeViewerOptions } from '../code-viewer/code-viewer.component';
-import { ConsoleListenerService } from '../console-listener.service';
+import { ConsoleEventType, ConsoleListenerService } from '../console-listener.service';
 import { Constants } from '../constants';
 import { DataUtils } from '../data-utils';
 import { EditorLanguage, db } from '../db';
@@ -290,7 +290,7 @@ ${linesString}
 		});
 		this.consoleListenerService.postConsoleEvent({
 			date: new Date(),
-			type: 'log',
+			type: ConsoleEventType.log,
 			value: `WKT Output:\n${wktResult}`,
 		})
 		return result;
@@ -321,7 +321,7 @@ ${linesString}
 			} catch (err) {
 				this.consoleListenerService.postConsoleEvent({
 					date: new Date(),
-					type: 'error',
+					type: ConsoleEventType.error,
 					value: err
 				})
 			} finally {
