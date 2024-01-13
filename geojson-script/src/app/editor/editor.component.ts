@@ -278,13 +278,22 @@ ${linesString}
 
 		const layers = this.layerManagerService.layers;
 		layers.forEach(layer => {
-			const data = layer.content;
 			scope.store(layer.name, layer.content);
 		});
-		return evaluate(value, {
+		const result = evaluate(value, {
 			outputFormat: OutputFormat.GeoJSON,
 			scope: scope
 		});
+		const wktResult = evaluate(value, {
+			outputFormat: OutputFormat.WKT,
+			scope: scope
+		});
+		this.consoleListenerService.postConsoleEvent({
+			date: new Date(),
+			type: 'log',
+			value: `WKT Output:\n${wktResult}`,
+		})
+		return result;
 	}
 
 	private async run() {
