@@ -199,7 +199,10 @@ return {
 
 	ngOnInit(): void {
 		const params = this.activatedRoute.snapshot.queryParams;
-		this.initLang = params[this.PARAM_LANG];
+		const initLang = params[this.PARAM_LANG];
+		if (Object.values(EditorLanguage).includes(initLang)) {
+			this.initLang = initLang;
+		}
 	}
 
 	ngOnDestroy(): void {
