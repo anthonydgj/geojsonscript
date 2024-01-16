@@ -1,6 +1,6 @@
 # GeoJSON Script
 
-**Visit [GeoJSONScript.io](https://geojsonscript.io/about) website to use the application and view details about the project.**
+**Visit [geojsonscript.io](https://geojsonscript.io/about) to use the application and view details about the project.**
 
 GeoJSON Script provides a scripting environment to view and manipulate GeoJSON data.
 This project was originally developed during the _Web-based GIS_ course at the University
