@@ -2061,6 +2061,11 @@
 │  ├─ repository: https://github.com/DefinitelyTyped/DefinitelyTyped
 │  ├─ path: /Users/jarran/projects/geojsonscript/geojson-script/node_modules/@types/tinycolor2
 │  └─ licenseFile: /Users/jarran/projects/geojsonscript/geojson-script/node_modules/@types/tinycolor2/LICENSE
+├─ @types/wellknown@0.5.8
+│  ├─ licenses: MIT
+│  ├─ repository: https://github.com/DefinitelyTyped/DefinitelyTyped
+│  ├─ path: /Users/jarran/projects/geojsonscript/geojson-script/node_modules/@types/wellknown
+│  └─ licenseFile: /Users/jarran/projects/geojsonscript/geojson-script/node_modules/@types/wellknown/LICENSE
 ├─ @types/ws@8.5.4
 │  ├─ licenses: MIT
 │  ├─ repository: https://github.com/DefinitelyTyped/DefinitelyTyped
@@ -3671,7 +3676,7 @@
 │  ├─ email: @DenisCarriere
 │  ├─ path: /Users/jarran/projects/geojsonscript/geojson-script/node_modules/geojson-rbush
 │  └─ licenseFile: /Users/jarran/projects/geojsonscript/geojson-script/node_modules/geojson-rbush/LICENSE
-├─ geojson-script@0.1.18
+├─ geojson-script@0.1.19
 │  ├─ licenses: MIT
 │  ├─ publisher: Anthony DGJ
 │  ├─ email: anthonydgj4@gmail.com
@@ -4496,7 +4501,7 @@
 │  ├─ url: https://lukeed.com
 │  ├─ path: /Users/jarran/projects/geojsonscript/geojson-script/node_modules/klona
 │  └─ licenseFile: /Users/jarran/projects/geojsonscript/geojson-script/node_modules/klona/license
-├─ leaflet@1.9.3
+├─ leaflet@1.9.4
 │  ├─ licenses: BSD-2-Clause
 │  ├─ repository: https://github.com/Leaflet/Leaflet
 │  ├─ path: /Users/jarran/projects/geojsonscript/geojson-script/node_modules/leaflet
@@ -6888,18 +6893,12 @@
 │  ├─ email: damon.oehlman@gmail.com
 │  ├─ path: /Users/jarran/projects/geojsonscript/geojson-script/node_modules/wildcard
 │  └─ licenseFile: /Users/jarran/projects/geojsonscript/geojson-script/node_modules/wildcard/README.md
-├─ wkt-lang@0.2.3
+├─ wkt-lang@0.2.4
 │  ├─ licenses: MIT
 │  ├─ repository: https://github.com/anthonydgj/wkt-lang
 │  ├─ publisher: AnthonyDGJ
 │  ├─ path: /Users/jarran/projects/geojsonscript/geojson-script/node_modules/wkt-lang
 │  └─ licenseFile: /Users/jarran/projects/geojsonscript/geojson-script/node_modules/wkt-lang/LICENSE
-├─ wkt-parser-helper@4.1.0
-│  ├─ licenses: MIT
-│  ├─ repository: https://github.com/alrico88/wkt-parser-helper
-│  ├─ publisher: Alberto Rico
-│  ├─ path: /Users/jarran/projects/geojsonscript/geojson-script/node_modules/wkt-parser-helper
-│  └─ licenseFile: /Users/jarran/projects/geojsonscript/geojson-script/node_modules/wkt-parser-helper/LICENSE
 ├─ wrap-ansi@7.0.0
 │  ├─ licenses: MIT
 │  ├─ repository: https://github.com/chalk/wrap-ansi
