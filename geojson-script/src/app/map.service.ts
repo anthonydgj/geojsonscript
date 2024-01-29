@@ -76,7 +76,7 @@ export class MapService {
 		mapLayer.bindPopup((leafletLayer: L.Layer) => {
 			const component = this.resolver.resolveComponentFactory(PopupContentComponent).create(this.injector);
 			component.instance.layerName = layer.name;
-			component.instance.data = (leafletLayer as any).feature;
+			component.instance.data = layer.content;
 			component.changeDetectorRef.detectChanges();
 			return component.location.nativeElement;
 		});
