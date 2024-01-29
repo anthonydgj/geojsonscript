@@ -47,6 +47,7 @@
 		"rxjs": "~7.8.0",
 		"tinycolor2": "^1.6.0",
 		"tslib": "^2.3.0",
+		"wellknown": "^0.5.0",
 		"wkt-lang": "^0.2.4",
 		"zone.js": "~0.12.0"
 	},
@@ -60,6 +61,7 @@
 		"@types/jasmine": "~4.3.0",
 		"@types/randomcolor": "^0.5.7",
 		"@types/tinycolor2": "^1.4.3",
+		"@types/wellknown": "^0.5.8",
 		"angular-cli-ghpages": "^1.0.5",
 		"jasmine-core": "~4.5.0",
 		"karma": "~6.4.0",

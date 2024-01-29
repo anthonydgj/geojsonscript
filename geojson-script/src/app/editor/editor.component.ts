@@ -1,4 +1,5 @@
 import { BehaviorSubject, Subscription, debounceTime } from 'rxjs';
+import { parse } from 'wellknown';
 import { Interpreter, OutputFormat, evaluate } from 'wkt-lang';
 
 import { ChangeDetectorRef, Component, Input, OnDestroy, OnInit, ViewChild } from '@angular/core';
@@ -318,17 +319,13 @@ ${linesString}
 		return json;
 	}
 
-	private runWktLang(value: string): Promise<void> {
+	private runWktLang(value: string) {
 		const scope = Interpreter.createGlobalScope();
 
 		const layers = this.layerManagerService.layers;
 		layers.forEach(layer => {
 			const geometry = this.convertToGeometry(layer.content);
 			scope.store(layer.name, geometry);
-		});
-		const result = evaluate(value, {
-			outputFormat: OutputFormat.GeoJSON,
-			scope: scope
 		});
 		const wktResult = evaluate(value, {
 			outputFormat: OutputFormat.WKT,
@@ -340,7 +337,7 @@ ${linesString}
 			value: `\n${wktResult}`,
 		})
 
-		return result;
+		return parse(wktResult);
 	}
 
 	private async run() {
