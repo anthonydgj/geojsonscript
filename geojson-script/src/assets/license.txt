@@ -6888,18 +6888,12 @@
 │  ├─ email: damon.oehlman@gmail.com
 │  ├─ path: /Users/jarran/projects/geojsonscript/geojson-script/node_modules/wildcard
 │  └─ licenseFile: /Users/jarran/projects/geojsonscript/geojson-script/node_modules/wildcard/README.md
-├─ wkt-lang@0.2.3
+├─ wkt-lang@0.2.4
 │  ├─ licenses: MIT
 │  ├─ repository: https://github.com/anthonydgj/wkt-lang
 │  ├─ publisher: AnthonyDGJ
 │  ├─ path: /Users/jarran/projects/geojsonscript/geojson-script/node_modules/wkt-lang
 │  └─ licenseFile: /Users/jarran/projects/geojsonscript/geojson-script/node_modules/wkt-lang/LICENSE
-├─ wkt-parser-helper@4.1.0
-│  ├─ licenses: MIT
-│  ├─ repository: https://github.com/alrico88/wkt-parser-helper
-│  ├─ publisher: Alberto Rico
-│  ├─ path: /Users/jarran/projects/geojsonscript/geojson-script/node_modules/wkt-parser-helper
-│  └─ licenseFile: /Users/jarran/projects/geojsonscript/geojson-script/node_modules/wkt-parser-helper/LICENSE
 ├─ wrap-ansi@7.0.0
 │  ├─ licenses: MIT
 │  ├─ repository: https://github.com/chalk/wrap-ansi
