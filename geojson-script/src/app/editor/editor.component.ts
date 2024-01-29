@@ -301,12 +301,30 @@ ${linesString}
 		return this.jsExecutorService.run(value);
 	}
 
+	private convertToGeometry(json: any): any {
+		if (json.type === 'Feature') {
+			return json.geometry;
+		} else if (json.type === 'FeatureCollection') {
+			return {
+				type: 'GeometryCollection',
+				geometries: json.features.map((f: any) => this.convertToGeometry(f))
+			}
+		} else if (Array.isArray(json)) {
+			return {
+				type: 'GeometryCollection',
+				geometries: json.map((f: any) => this.convertToGeometry(f))
+			}
+		}
+		return json;
+	}
+
 	private runWktLang(value: string): Promise<void> {
 		const scope = Interpreter.createGlobalScope();
 
 		const layers = this.layerManagerService.layers;
 		layers.forEach(layer => {
-			scope.store(layer.name, layer.content);
+			const geometry = this.convertToGeometry(layer.content);
+			scope.store(layer.name, geometry);
 		});
 		const result = evaluate(value, {
 			outputFormat: OutputFormat.GeoJSON,
@@ -321,6 +339,7 @@ ${linesString}
 			type: ConsoleEventType.log,
 			value: `\n${wktResult}`,
 		})
+
 		return result;
 	}
 
