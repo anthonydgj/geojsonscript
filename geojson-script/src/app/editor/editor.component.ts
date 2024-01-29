@@ -2,7 +2,7 @@ import { BehaviorSubject, Subscription, debounceTime } from 'rxjs';
 import { parse } from 'wellknown';
 import { Interpreter, OutputFormat, evaluate } from 'wkt-lang';
 
-import { ChangeDetectorRef, Component, Input, OnDestroy, OnInit, ViewChild } from '@angular/core';
+import { ChangeDetectorRef, Component, Input, NgZone, OnDestroy, OnInit, ViewChild } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { ActivatedRoute, Params, Router } from '@angular/router';
 
@@ -131,7 +131,8 @@ return {
 		private changeDetectorRef: ChangeDetectorRef,
 		private consoleListenerService: ConsoleListenerService,
 		private activatedRoute: ActivatedRoute,
-		private router: Router
+		private router: Router,
+		private ngZone: NgZone
 	) { }
 
 	async initializeEditor() {
@@ -161,7 +162,9 @@ return {
 		// Listen for run events
 		this.eventSubscription = this.userEventService.getEvents().subscribe(event => {
 			if (event === UserEvent.RUN_SCRIPT) {
-				this.run();
+				this.ngZone.run(() => {
+					this.run();
+				})
 			}
 		});
 
