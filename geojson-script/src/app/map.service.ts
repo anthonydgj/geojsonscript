@@ -73,10 +73,11 @@ export class MapService {
 		mapLayer.bindTooltip(`${layer.name}${layerPath}`);
 
 		// Bind a popup with basic information
-		mapLayer.bindPopup((leafletLayer: L.Layer) => {
+		mapLayer.bindPopup((leafletLayer: any) => {
+			const data = this.getDataFromLayer(leafletLayer);
 			const component = this.resolver.resolveComponentFactory(PopupContentComponent).create(this.injector);
 			component.instance.layerName = layer.name;
-			component.instance.data = layer.content;
+			component.instance.data = data || layer.content;
 			component.changeDetectorRef.detectChanges();
 			return component.location.nativeElement;
 		});
@@ -101,6 +102,27 @@ export class MapService {
 			return { ...geoJsonData.properties.style };
 		}
 		return {};
+	}
+
+	private getDataFromLayer(leafletLayer: any): object | null {
+		// Show feature data, if present
+		if (!!leafletLayer.feature) {
+			return leafletLayer.feature;
+		}
+
+		// Show geometry data if not a feature
+		if (!!leafletLayer.toGeoJSON && typeof leafletLayer.toGeoJSON === 'function') {
+			try {
+				const geoJson = leafletLayer.toGeoJSON();
+				if (!!geoJson.geometry) {
+					return geoJson.geometry;
+				}
+			} catch (err) {
+				// fall through
+			}
+		}
+
+		return null;
 	}
 
 }
