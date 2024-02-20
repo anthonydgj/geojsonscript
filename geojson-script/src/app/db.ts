@@ -3,7 +3,7 @@ import Dexie, { Table } from 'dexie';
 
 export enum EditorLanguage {
 	JavaScript = 'JavaScript',
-	WktLang = 'WktLang',
+	WAEL = 'WAEL',
 }
 
 export enum LayerType {

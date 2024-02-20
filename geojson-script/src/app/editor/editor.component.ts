@@ -1,6 +1,6 @@
 import { BehaviorSubject, Subscription, debounceTime } from 'rxjs';
+import { Interpreter, OutputFormat, Wael } from 'wael-lib';
 import { parse } from 'wellknown';
-import { Interpreter, OutputFormat, evaluate } from 'wkt-lang';
 
 import { ChangeDetectorRef, Component, Input, NgZone, OnDestroy, OnInit, ViewChild } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
@@ -240,10 +240,10 @@ return {
 					extension: '.js'
 				}
 				break;
-			case EditorLanguage.WktLang:
+			case EditorLanguage.WAEL:
 				scriptFile = {
 					content: this.getScript(),
-					extension: '.wktl'
+					extension: '.wael'
 				}
 				break;
 			default:
@@ -322,7 +322,7 @@ ${linesString}
 		return json;
 	}
 
-	private runWktLang(value: string) {
+	private runWael(value: string) {
 		const scope = Interpreter.createGlobalScope();
 
 		const layers = this.layerManagerService.layers;
@@ -330,17 +330,17 @@ ${linesString}
 			const geometry = this.convertToGeometry(layer.content);
 			scope.store(layer.name, geometry);
 		});
-		const wktResult = evaluate(value, {
+		const waelResult = Wael.evaluate(value, {
 			outputFormat: OutputFormat.WKT,
 			scope: scope
 		});
 		this.consoleListenerService.postConsoleEvent({
 			date: new Date(),
 			type: ConsoleEventType.log,
-			value: `\n${wktResult}`,
+			value: `\n${waelResult}`,
 		})
 
-		return parse(wktResult);
+		return parse(waelResult);
 	}
 
 	private async run() {
@@ -354,8 +354,8 @@ ${linesString}
 					case EditorLanguage.JavaScript:
 						data = await this.runJavaScript(value);
 						break;
-					case EditorLanguage.WktLang:
-						data = this.runWktLang(value);
+					case EditorLanguage.WAEL:
+						data = this.runWael(value);
 						break;
 				}
 
