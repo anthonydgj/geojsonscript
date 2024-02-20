@@ -47,8 +47,8 @@
 		"rxjs": "~7.8.0",
 		"tinycolor2": "^1.6.0",
 		"tslib": "^2.3.0",
+		"wael-lib": "^0.0.3",
 		"wellknown": "^0.5.0",
-		"wkt-lang": "^0.2.4",
 		"zone.js": "~0.12.0"
 	},
 	"devDependencies": {
