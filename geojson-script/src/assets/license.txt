@@ -4524,7 +4524,7 @@
 │  ├─ email: @DenisCarriere
 │  ├─ path: /Users/jarran/projects/geojsonscript/geojson-script/node_modules/wael-lib/node_modules/geojson-rbush
 │  └─ licenseFile: /Users/jarran/projects/geojsonscript/geojson-script/node_modules/wael-lib/node_modules/geojson-rbush/LICENSE
-├─ geojson-script@0.1.22
+├─ geojson-script@0.1.23
 │  ├─ licenses: MIT
 │  ├─ publisher: Anthony DGJ
 │  ├─ email: anthonydgj4@gmail.com
