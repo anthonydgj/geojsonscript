@@ -1274,643 +1274,692 @@
 │  ├─ publisher: bdehamer@github.com
 │  ├─ path: /Users/jarran/projects/geojsonscript/geojson-script/node_modules/@tufjs/models
 │  └─ licenseFile: /Users/jarran/projects/geojsonscript/geojson-script/node_modules/@tufjs/models/LICENSE
-├─ @turf/along@6.5.0
+├─ @turf/along@7.2.0
 │  ├─ licenses: MIT
 │  ├─ repository: https://github.com/Turfjs/turf
 │  ├─ publisher: Turf Authors
 │  ├─ path: /Users/jarran/projects/geojsonscript/geojson-script/node_modules/@turf/along
 │  └─ licenseFile: /Users/jarran/projects/geojsonscript/geojson-script/node_modules/@turf/along/LICENSE
-├─ @turf/angle@6.5.0
+├─ @turf/angle@7.2.0
 │  ├─ licenses: MIT
 │  ├─ repository: https://github.com/Turfjs/turf
 │  ├─ publisher: Turf Authors
 │  ├─ path: /Users/jarran/projects/geojsonscript/geojson-script/node_modules/@turf/angle
 │  └─ licenseFile: /Users/jarran/projects/geojsonscript/geojson-script/node_modules/@turf/angle/LICENSE
-├─ @turf/area@6.5.0
+├─ @turf/area@7.2.0
 │  ├─ licenses: MIT
 │  ├─ repository: https://github.com/Turfjs/turf
 │  ├─ publisher: Turf Authors
 │  ├─ path: /Users/jarran/projects/geojsonscript/geojson-script/node_modules/@turf/area
 │  └─ licenseFile: /Users/jarran/projects/geojsonscript/geojson-script/node_modules/@turf/area/LICENSE
-├─ @turf/bbox-clip@6.5.0
+├─ @turf/bbox-clip@7.2.0
 │  ├─ licenses: MIT
 │  ├─ repository: https://github.com/Turfjs/turf
 │  ├─ publisher: Turf Authors
 │  ├─ path: /Users/jarran/projects/geojsonscript/geojson-script/node_modules/@turf/bbox-clip
 │  └─ licenseFile: /Users/jarran/projects/geojsonscript/geojson-script/node_modules/@turf/bbox-clip/LICENSE
-├─ @turf/bbox-polygon@6.5.0
+├─ @turf/bbox-polygon@7.2.0
 │  ├─ licenses: MIT
 │  ├─ repository: https://github.com/Turfjs/turf
 │  ├─ publisher: Turf Authors
 │  ├─ path: /Users/jarran/projects/geojsonscript/geojson-script/node_modules/@turf/bbox-polygon
 │  └─ licenseFile: /Users/jarran/projects/geojsonscript/geojson-script/node_modules/@turf/bbox-polygon/LICENSE
-├─ @turf/bbox@6.5.0
+├─ @turf/bbox@7.2.0
 │  ├─ licenses: MIT
 │  ├─ repository: https://github.com/Turfjs/turf
 │  ├─ publisher: Turf Authors
 │  ├─ path: /Users/jarran/projects/geojsonscript/geojson-script/node_modules/@turf/bbox
 │  └─ licenseFile: /Users/jarran/projects/geojsonscript/geojson-script/node_modules/@turf/bbox/LICENSE
-├─ @turf/bearing@6.5.0
+├─ @turf/bearing@7.2.0
 │  ├─ licenses: MIT
 │  ├─ repository: https://github.com/Turfjs/turf
 │  ├─ publisher: Turf Authors
 │  ├─ path: /Users/jarran/projects/geojsonscript/geojson-script/node_modules/@turf/bearing
 │  └─ licenseFile: /Users/jarran/projects/geojsonscript/geojson-script/node_modules/@turf/bearing/LICENSE
-├─ @turf/bezier-spline@6.5.0
+├─ @turf/bezier-spline@7.2.0
 │  ├─ licenses: MIT
 │  ├─ repository: https://github.com/Turfjs/turf
 │  ├─ publisher: Turf Authors
 │  ├─ path: /Users/jarran/projects/geojsonscript/geojson-script/node_modules/@turf/bezier-spline
 │  └─ licenseFile: /Users/jarran/projects/geojsonscript/geojson-script/node_modules/@turf/bezier-spline/LICENSE
-├─ @turf/boolean-clockwise@6.5.0
+├─ @turf/boolean-clockwise@7.2.0
 │  ├─ licenses: MIT
 │  ├─ repository: https://github.com/Turfjs/turf
 │  ├─ publisher: Turf Authors
 │  ├─ path: /Users/jarran/projects/geojsonscript/geojson-script/node_modules/@turf/boolean-clockwise
 │  └─ licenseFile: /Users/jarran/projects/geojsonscript/geojson-script/node_modules/@turf/boolean-clockwise/LICENSE
-├─ @turf/boolean-contains@6.5.0
+├─ @turf/boolean-concave@7.2.0
+│  ├─ licenses: MIT
+│  ├─ repository: https://github.com/Turfjs/turf
+│  ├─ publisher: Turf Authors
+│  ├─ path: /Users/jarran/projects/geojsonscript/geojson-script/node_modules/@turf/boolean-concave
+│  └─ licenseFile: /Users/jarran/projects/geojsonscript/geojson-script/node_modules/@turf/boolean-concave/LICENSE
+├─ @turf/boolean-contains@7.2.0
 │  ├─ licenses: MIT
 │  ├─ repository: https://github.com/Turfjs/turf
 │  ├─ publisher: Turf Authors
 │  ├─ path: /Users/jarran/projects/geojsonscript/geojson-script/node_modules/@turf/boolean-contains
 │  └─ licenseFile: /Users/jarran/projects/geojsonscript/geojson-script/node_modules/@turf/boolean-contains/LICENSE
-├─ @turf/boolean-crosses@6.5.0
+├─ @turf/boolean-crosses@7.2.0
 │  ├─ licenses: MIT
 │  ├─ repository: https://github.com/Turfjs/turf
 │  ├─ publisher: Turf Authors
 │  ├─ path: /Users/jarran/projects/geojsonscript/geojson-script/node_modules/@turf/boolean-crosses
 │  └─ licenseFile: /Users/jarran/projects/geojsonscript/geojson-script/node_modules/@turf/boolean-crosses/LICENSE
-├─ @turf/boolean-disjoint@6.5.0
+├─ @turf/boolean-disjoint@7.2.0
 │  ├─ licenses: MIT
 │  ├─ repository: https://github.com/Turfjs/turf
 │  ├─ publisher: Turf Authors
 │  ├─ path: /Users/jarran/projects/geojsonscript/geojson-script/node_modules/@turf/boolean-disjoint
 │  └─ licenseFile: /Users/jarran/projects/geojsonscript/geojson-script/node_modules/@turf/boolean-disjoint/LICENSE
-├─ @turf/boolean-equal@6.5.0
+├─ @turf/boolean-equal@7.2.0
 │  ├─ licenses: MIT
 │  ├─ repository: https://github.com/Turfjs/turf
 │  ├─ publisher: Turf Authors
 │  ├─ path: /Users/jarran/projects/geojsonscript/geojson-script/node_modules/@turf/boolean-equal
 │  └─ licenseFile: /Users/jarran/projects/geojsonscript/geojson-script/node_modules/@turf/boolean-equal/LICENSE
-├─ @turf/boolean-intersects@6.5.0
+├─ @turf/boolean-intersects@7.2.0
 │  ├─ licenses: MIT
 │  ├─ repository: https://github.com/Turfjs/turf
 │  ├─ publisher: Turf Authors
 │  ├─ path: /Users/jarran/projects/geojsonscript/geojson-script/node_modules/@turf/boolean-intersects
 │  └─ licenseFile: /Users/jarran/projects/geojsonscript/geojson-script/node_modules/@turf/boolean-intersects/LICENSE
-├─ @turf/boolean-overlap@6.5.0
+├─ @turf/boolean-overlap@7.2.0
 │  ├─ licenses: MIT
 │  ├─ repository: https://github.com/Turfjs/turf
 │  ├─ publisher: Turf Authors
 │  ├─ path: /Users/jarran/projects/geojsonscript/geojson-script/node_modules/@turf/boolean-overlap
 │  └─ licenseFile: /Users/jarran/projects/geojsonscript/geojson-script/node_modules/@turf/boolean-overlap/LICENSE
-├─ @turf/boolean-parallel@6.5.0
+├─ @turf/boolean-parallel@7.2.0
 │  ├─ licenses: MIT
 │  ├─ repository: https://github.com/Turfjs/turf
 │  ├─ publisher: Turf Authors
 │  ├─ path: /Users/jarran/projects/geojsonscript/geojson-script/node_modules/@turf/boolean-parallel
 │  └─ licenseFile: /Users/jarran/projects/geojsonscript/geojson-script/node_modules/@turf/boolean-parallel/LICENSE
-├─ @turf/boolean-point-in-polygon@6.5.0
+├─ @turf/boolean-point-in-polygon@7.2.0
 │  ├─ licenses: MIT
 │  ├─ repository: https://github.com/Turfjs/turf
 │  ├─ publisher: Turf Authors
 │  ├─ path: /Users/jarran/projects/geojsonscript/geojson-script/node_modules/@turf/boolean-point-in-polygon
 │  └─ licenseFile: /Users/jarran/projects/geojsonscript/geojson-script/node_modules/@turf/boolean-point-in-polygon/LICENSE
-├─ @turf/boolean-point-on-line@6.5.0
+├─ @turf/boolean-point-on-line@7.2.0
 │  ├─ licenses: MIT
 │  ├─ repository: https://github.com/Turfjs/turf
 │  ├─ publisher: Turf Authors
 │  ├─ path: /Users/jarran/projects/geojsonscript/geojson-script/node_modules/@turf/boolean-point-on-line
 │  └─ licenseFile: /Users/jarran/projects/geojsonscript/geojson-script/node_modules/@turf/boolean-point-on-line/LICENSE
-├─ @turf/boolean-within@6.5.0
+├─ @turf/boolean-touches@7.2.0
+│  ├─ licenses: MIT
+│  ├─ repository: https://github.com/Turfjs/turf
+│  ├─ publisher: Turf Authors
+│  ├─ path: /Users/jarran/projects/geojsonscript/geojson-script/node_modules/@turf/boolean-touches
+│  └─ licenseFile: /Users/jarran/projects/geojsonscript/geojson-script/node_modules/@turf/boolean-touches/LICENSE
+├─ @turf/boolean-valid@7.2.0
+│  ├─ licenses: MIT
+│  ├─ repository: https://github.com/Turfjs/turf
+│  ├─ publisher: Turf Authors
+│  ├─ path: /Users/jarran/projects/geojsonscript/geojson-script/node_modules/@turf/boolean-valid
+│  └─ licenseFile: /Users/jarran/projects/geojsonscript/geojson-script/node_modules/@turf/boolean-valid/LICENSE
+├─ @turf/boolean-within@7.2.0
 │  ├─ licenses: MIT
 │  ├─ repository: https://github.com/Turfjs/turf
 │  ├─ publisher: Turf Authors
 │  ├─ path: /Users/jarran/projects/geojsonscript/geojson-script/node_modules/@turf/boolean-within
 │  └─ licenseFile: /Users/jarran/projects/geojsonscript/geojson-script/node_modules/@turf/boolean-within/LICENSE
-├─ @turf/buffer@6.5.0
+├─ @turf/buffer@7.2.0
 │  ├─ licenses: MIT
 │  ├─ repository: https://github.com/Turfjs/turf
 │  ├─ publisher: Turf Authors
 │  ├─ path: /Users/jarran/projects/geojsonscript/geojson-script/node_modules/@turf/buffer
 │  └─ licenseFile: /Users/jarran/projects/geojsonscript/geojson-script/node_modules/@turf/buffer/LICENSE
-├─ @turf/center-mean@6.5.0
+├─ @turf/center-mean@7.2.0
 │  ├─ licenses: MIT
 │  ├─ repository: https://github.com/Turfjs/turf
 │  ├─ publisher: Turf Authors
 │  ├─ path: /Users/jarran/projects/geojsonscript/geojson-script/node_modules/@turf/center-mean
 │  └─ licenseFile: /Users/jarran/projects/geojsonscript/geojson-script/node_modules/@turf/center-mean/LICENSE
-├─ @turf/center-median@6.5.0
+├─ @turf/center-median@7.2.0
 │  ├─ licenses: MIT
 │  ├─ repository: https://github.com/Turfjs/turf
 │  ├─ publisher: Turf Authors
 │  ├─ path: /Users/jarran/projects/geojsonscript/geojson-script/node_modules/@turf/center-median
 │  └─ licenseFile: /Users/jarran/projects/geojsonscript/geojson-script/node_modules/@turf/center-median/LICENSE
-├─ @turf/center-of-mass@6.5.0
+├─ @turf/center-of-mass@7.2.0
 │  ├─ licenses: MIT
 │  ├─ repository: https://github.com/Turfjs/turf
 │  ├─ publisher: Turf Authors
 │  ├─ path: /Users/jarran/projects/geojsonscript/geojson-script/node_modules/@turf/center-of-mass
 │  └─ licenseFile: /Users/jarran/projects/geojsonscript/geojson-script/node_modules/@turf/center-of-mass/LICENSE
-├─ @turf/center@6.5.0
+├─ @turf/center@7.2.0
 │  ├─ licenses: MIT
 │  ├─ repository: https://github.com/Turfjs/turf
 │  ├─ publisher: Turf Authors
 │  ├─ path: /Users/jarran/projects/geojsonscript/geojson-script/node_modules/@turf/center
 │  └─ licenseFile: /Users/jarran/projects/geojsonscript/geojson-script/node_modules/@turf/center/LICENSE
-├─ @turf/centroid@6.5.0
+├─ @turf/centroid@7.2.0
 │  ├─ licenses: MIT
 │  ├─ repository: https://github.com/Turfjs/turf
 │  ├─ publisher: Turf Authors
 │  ├─ path: /Users/jarran/projects/geojsonscript/geojson-script/node_modules/@turf/centroid
 │  └─ licenseFile: /Users/jarran/projects/geojsonscript/geojson-script/node_modules/@turf/centroid/LICENSE
-├─ @turf/circle@6.5.0
+├─ @turf/circle@7.2.0
 │  ├─ licenses: MIT
 │  ├─ repository: https://github.com/Turfjs/turf
 │  ├─ publisher: Turf Authors
 │  ├─ path: /Users/jarran/projects/geojsonscript/geojson-script/node_modules/@turf/circle
 │  └─ licenseFile: /Users/jarran/projects/geojsonscript/geojson-script/node_modules/@turf/circle/LICENSE
-├─ @turf/clean-coords@6.5.0
+├─ @turf/clean-coords@7.2.0
 │  ├─ licenses: MIT
 │  ├─ repository: https://github.com/Turfjs/turf
 │  ├─ publisher: Turf Authors
 │  ├─ path: /Users/jarran/projects/geojsonscript/geojson-script/node_modules/@turf/clean-coords
 │  └─ licenseFile: /Users/jarran/projects/geojsonscript/geojson-script/node_modules/@turf/clean-coords/LICENSE
-├─ @turf/clone@6.5.0
+├─ @turf/clone@7.2.0
 │  ├─ licenses: MIT
 │  ├─ repository: https://github.com/Turfjs/turf
 │  ├─ publisher: Turf Authors
 │  ├─ path: /Users/jarran/projects/geojsonscript/geojson-script/node_modules/@turf/clone
 │  └─ licenseFile: /Users/jarran/projects/geojsonscript/geojson-script/node_modules/@turf/clone/LICENSE
-├─ @turf/clusters-dbscan@6.5.0
+├─ @turf/clusters-dbscan@7.2.0
 │  ├─ licenses: MIT
 │  ├─ repository: https://github.com/Turfjs/turf
 │  ├─ publisher: Turf Authors
 │  ├─ path: /Users/jarran/projects/geojsonscript/geojson-script/node_modules/@turf/clusters-dbscan
 │  └─ licenseFile: /Users/jarran/projects/geojsonscript/geojson-script/node_modules/@turf/clusters-dbscan/LICENSE
-├─ @turf/clusters-kmeans@6.5.0
+├─ @turf/clusters-kmeans@7.2.0
 │  ├─ licenses: MIT
 │  ├─ repository: https://github.com/Turfjs/turf
 │  ├─ publisher: Turf Authors
 │  ├─ path: /Users/jarran/projects/geojsonscript/geojson-script/node_modules/@turf/clusters-kmeans
 │  └─ licenseFile: /Users/jarran/projects/geojsonscript/geojson-script/node_modules/@turf/clusters-kmeans/LICENSE
-├─ @turf/clusters@6.5.0
+├─ @turf/clusters@7.2.0
 │  ├─ licenses: MIT
 │  ├─ repository: https://github.com/Turfjs/turf
 │  ├─ publisher: Turf Authors
 │  ├─ path: /Users/jarran/projects/geojsonscript/geojson-script/node_modules/@turf/clusters
 │  └─ licenseFile: /Users/jarran/projects/geojsonscript/geojson-script/node_modules/@turf/clusters/LICENSE
-├─ @turf/collect@6.5.0
+├─ @turf/collect@7.2.0
 │  ├─ licenses: MIT
 │  ├─ repository: https://github.com/Turfjs/turf
 │  ├─ publisher: Turf Authors
 │  ├─ path: /Users/jarran/projects/geojsonscript/geojson-script/node_modules/@turf/collect
 │  └─ licenseFile: /Users/jarran/projects/geojsonscript/geojson-script/node_modules/@turf/collect/LICENSE
-├─ @turf/combine@6.5.0
+├─ @turf/combine@7.2.0
 │  ├─ licenses: MIT
 │  ├─ repository: https://github.com/Turfjs/turf
 │  ├─ publisher: Turf Authors
 │  ├─ path: /Users/jarran/projects/geojsonscript/geojson-script/node_modules/@turf/combine
 │  └─ licenseFile: /Users/jarran/projects/geojsonscript/geojson-script/node_modules/@turf/combine/LICENSE
-├─ @turf/concave@6.5.0
+├─ @turf/concave@7.2.0
 │  ├─ licenses: MIT
 │  ├─ repository: https://github.com/Turfjs/turf
 │  ├─ publisher: Turf Authors
 │  ├─ path: /Users/jarran/projects/geojsonscript/geojson-script/node_modules/@turf/concave
 │  └─ licenseFile: /Users/jarran/projects/geojsonscript/geojson-script/node_modules/@turf/concave/LICENSE
-├─ @turf/convex@6.5.0
+├─ @turf/convex@7.2.0
 │  ├─ licenses: MIT
 │  ├─ repository: https://github.com/Turfjs/turf
 │  ├─ publisher: Turf Authors
 │  ├─ path: /Users/jarran/projects/geojsonscript/geojson-script/node_modules/@turf/convex
 │  └─ licenseFile: /Users/jarran/projects/geojsonscript/geojson-script/node_modules/@turf/convex/LICENSE
-├─ @turf/destination@6.5.0
+├─ @turf/destination@7.2.0
 │  ├─ licenses: MIT
 │  ├─ repository: https://github.com/Turfjs/turf
 │  ├─ publisher: Turf Authors
 │  ├─ path: /Users/jarran/projects/geojsonscript/geojson-script/node_modules/@turf/destination
 │  └─ licenseFile: /Users/jarran/projects/geojsonscript/geojson-script/node_modules/@turf/destination/LICENSE
-├─ @turf/difference@6.5.0
+├─ @turf/difference@7.2.0
 │  ├─ licenses: MIT
 │  ├─ repository: https://github.com/Turfjs/turf
 │  ├─ publisher: Turf Authors
 │  ├─ path: /Users/jarran/projects/geojsonscript/geojson-script/node_modules/@turf/difference
 │  └─ licenseFile: /Users/jarran/projects/geojsonscript/geojson-script/node_modules/@turf/difference/LICENSE
-├─ @turf/dissolve@6.5.0
+├─ @turf/dissolve@7.2.0
 │  ├─ licenses: MIT
 │  ├─ repository: https://github.com/Turfjs/turf
 │  ├─ publisher: Turf Authors
 │  ├─ path: /Users/jarran/projects/geojsonscript/geojson-script/node_modules/@turf/dissolve
 │  └─ licenseFile: /Users/jarran/projects/geojsonscript/geojson-script/node_modules/@turf/dissolve/LICENSE
-├─ @turf/distance-weight@6.5.0
+├─ @turf/distance-weight@7.2.0
 │  ├─ licenses: MIT
 │  ├─ repository: https://github.com/Turfjs/turf
 │  ├─ publisher: Turf Authors
 │  ├─ path: /Users/jarran/projects/geojsonscript/geojson-script/node_modules/@turf/distance-weight
 │  └─ licenseFile: /Users/jarran/projects/geojsonscript/geojson-script/node_modules/@turf/distance-weight/LICENSE
-├─ @turf/distance@6.5.0
+├─ @turf/distance@7.2.0
 │  ├─ licenses: MIT
 │  ├─ repository: https://github.com/Turfjs/turf
 │  ├─ publisher: Turf Authors
 │  ├─ path: /Users/jarran/projects/geojsonscript/geojson-script/node_modules/@turf/distance
 │  └─ licenseFile: /Users/jarran/projects/geojsonscript/geojson-script/node_modules/@turf/distance/LICENSE
-├─ @turf/ellipse@6.5.0
+├─ @turf/ellipse@7.2.0
 │  ├─ licenses: MIT
 │  ├─ repository: https://github.com/Turfjs/turf
 │  ├─ publisher: Turf Authors
 │  ├─ path: /Users/jarran/projects/geojsonscript/geojson-script/node_modules/@turf/ellipse
 │  └─ licenseFile: /Users/jarran/projects/geojsonscript/geojson-script/node_modules/@turf/ellipse/LICENSE
-├─ @turf/envelope@6.5.0
+├─ @turf/envelope@7.2.0
 │  ├─ licenses: MIT
 │  ├─ repository: https://github.com/Turfjs/turf
 │  ├─ publisher: Turf Authors
 │  ├─ path: /Users/jarran/projects/geojsonscript/geojson-script/node_modules/@turf/envelope
 │  └─ licenseFile: /Users/jarran/projects/geojsonscript/geojson-script/node_modules/@turf/envelope/LICENSE
-├─ @turf/explode@6.5.0
+├─ @turf/explode@7.2.0
 │  ├─ licenses: MIT
 │  ├─ repository: https://github.com/Turfjs/turf
 │  ├─ publisher: Turf Authors
 │  ├─ path: /Users/jarran/projects/geojsonscript/geojson-script/node_modules/@turf/explode
 │  └─ licenseFile: /Users/jarran/projects/geojsonscript/geojson-script/node_modules/@turf/explode/LICENSE
-├─ @turf/flatten@6.5.0
+├─ @turf/flatten@7.2.0
 │  ├─ licenses: MIT
 │  ├─ repository: https://github.com/Turfjs/turf
 │  ├─ publisher: Turf Authors
 │  ├─ path: /Users/jarran/projects/geojsonscript/geojson-script/node_modules/@turf/flatten
 │  └─ licenseFile: /Users/jarran/projects/geojsonscript/geojson-script/node_modules/@turf/flatten/LICENSE
-├─ @turf/flip@6.5.0
+├─ @turf/flip@7.2.0
 │  ├─ licenses: MIT
 │  ├─ repository: https://github.com/Turfjs/turf
 │  ├─ publisher: Turf Authors
 │  ├─ path: /Users/jarran/projects/geojsonscript/geojson-script/node_modules/@turf/flip
 │  └─ licenseFile: /Users/jarran/projects/geojsonscript/geojson-script/node_modules/@turf/flip/LICENSE
-├─ @turf/great-circle@6.5.0
+├─ @turf/geojson-rbush@7.2.0
+│  ├─ licenses: MIT
+│  ├─ repository: https://github.com/Turfjs/turf
+│  ├─ publisher: Turf Authors
+│  ├─ path: /Users/jarran/projects/geojsonscript/geojson-script/node_modules/@turf/geojson-rbush
+│  └─ licenseFile: /Users/jarran/projects/geojsonscript/geojson-script/node_modules/@turf/geojson-rbush/LICENSE
+├─ @turf/great-circle@7.2.0
 │  ├─ licenses: MIT
 │  ├─ repository: https://github.com/Turfjs/turf
 │  ├─ publisher: Turf Authors
 │  ├─ path: /Users/jarran/projects/geojsonscript/geojson-script/node_modules/@turf/great-circle
 │  └─ licenseFile: /Users/jarran/projects/geojsonscript/geojson-script/node_modules/@turf/great-circle/LICENSE
-├─ @turf/helpers@6.5.0
+├─ @turf/helpers@7.2.0
 │  ├─ licenses: MIT
 │  ├─ repository: https://github.com/Turfjs/turf
 │  ├─ publisher: Turf Authors
 │  ├─ path: /Users/jarran/projects/geojsonscript/geojson-script/node_modules/@turf/helpers
 │  └─ licenseFile: /Users/jarran/projects/geojsonscript/geojson-script/node_modules/@turf/helpers/LICENSE
-├─ @turf/hex-grid@6.5.0
+├─ @turf/hex-grid@7.2.0
 │  ├─ licenses: MIT
 │  ├─ repository: https://github.com/Turfjs/turf
 │  ├─ publisher: Turf Authors
 │  ├─ path: /Users/jarran/projects/geojsonscript/geojson-script/node_modules/@turf/hex-grid
 │  └─ licenseFile: /Users/jarran/projects/geojsonscript/geojson-script/node_modules/@turf/hex-grid/LICENSE
-├─ @turf/interpolate@6.5.0
+├─ @turf/interpolate@7.2.0
 │  ├─ licenses: MIT
 │  ├─ repository: https://github.com/Turfjs/turf
 │  ├─ publisher: Turf Authors
 │  ├─ path: /Users/jarran/projects/geojsonscript/geojson-script/node_modules/@turf/interpolate
 │  └─ licenseFile: /Users/jarran/projects/geojsonscript/geojson-script/node_modules/@turf/interpolate/LICENSE
-├─ @turf/intersect@6.5.0
+├─ @turf/intersect@7.2.0
 │  ├─ licenses: MIT
 │  ├─ repository: https://github.com/Turfjs/turf
 │  ├─ publisher: Turf Authors
 │  ├─ path: /Users/jarran/projects/geojsonscript/geojson-script/node_modules/@turf/intersect
 │  └─ licenseFile: /Users/jarran/projects/geojsonscript/geojson-script/node_modules/@turf/intersect/LICENSE
-├─ @turf/invariant@6.5.0
+├─ @turf/invariant@7.2.0
 │  ├─ licenses: MIT
 │  ├─ repository: https://github.com/Turfjs/turf
 │  ├─ publisher: Turf Authors
 │  ├─ path: /Users/jarran/projects/geojsonscript/geojson-script/node_modules/@turf/invariant
 │  └─ licenseFile: /Users/jarran/projects/geojsonscript/geojson-script/node_modules/@turf/invariant/LICENSE
-├─ @turf/isobands@6.5.0
+├─ @turf/isobands@7.2.0
 │  ├─ licenses: MIT
 │  ├─ repository: https://github.com/Turfjs/turf
 │  ├─ publisher: Turf Authors
 │  ├─ path: /Users/jarran/projects/geojsonscript/geojson-script/node_modules/@turf/isobands
 │  └─ licenseFile: /Users/jarran/projects/geojsonscript/geojson-script/node_modules/@turf/isobands/LICENSE
-├─ @turf/isolines@6.5.0
+├─ @turf/isolines@7.2.0
 │  ├─ licenses: MIT
 │  ├─ repository: https://github.com/Turfjs/turf
 │  ├─ publisher: Turf Authors
 │  ├─ path: /Users/jarran/projects/geojsonscript/geojson-script/node_modules/@turf/isolines
 │  └─ licenseFile: /Users/jarran/projects/geojsonscript/geojson-script/node_modules/@turf/isolines/LICENSE
-├─ @turf/kinks@6.5.0
+├─ @turf/jsts@2.7.2
+│  ├─ licenses: Custom: https://github.com/bjornharrtell/jsts
+│  ├─ repository: https://github.com/turfjs/turf-jsts
+│  ├─ publisher: Björn Harrtell
+│  ├─ email: bjorn@wololo.org
+│  ├─ path: /Users/jarran/projects/geojsonscript/geojson-script/node_modules/@turf/jsts
+│  └─ licenseFile: /Users/jarran/projects/geojsonscript/geojson-script/node_modules/@turf/jsts/README.md
+├─ @turf/kinks@7.2.0
 │  ├─ licenses: MIT
 │  ├─ repository: https://github.com/Turfjs/turf
 │  ├─ publisher: Turf Authors
 │  ├─ path: /Users/jarran/projects/geojsonscript/geojson-script/node_modules/@turf/kinks
 │  └─ licenseFile: /Users/jarran/projects/geojsonscript/geojson-script/node_modules/@turf/kinks/LICENSE
-├─ @turf/length@6.5.0
+├─ @turf/length@7.2.0
 │  ├─ licenses: MIT
 │  ├─ repository: https://github.com/Turfjs/turf
 │  ├─ publisher: Turf Authors
 │  ├─ path: /Users/jarran/projects/geojsonscript/geojson-script/node_modules/@turf/length
 │  └─ licenseFile: /Users/jarran/projects/geojsonscript/geojson-script/node_modules/@turf/length/LICENSE
-├─ @turf/line-arc@6.5.0
+├─ @turf/line-arc@7.2.0
 │  ├─ licenses: MIT
 │  ├─ repository: https://github.com/Turfjs/turf
 │  ├─ publisher: Turf Authors
 │  ├─ path: /Users/jarran/projects/geojsonscript/geojson-script/node_modules/@turf/line-arc
 │  └─ licenseFile: /Users/jarran/projects/geojsonscript/geojson-script/node_modules/@turf/line-arc/LICENSE
-├─ @turf/line-chunk@6.5.0
+├─ @turf/line-chunk@7.2.0
 │  ├─ licenses: MIT
 │  ├─ repository: https://github.com/Turfjs/turf
 │  ├─ publisher: Turf Authors
 │  ├─ path: /Users/jarran/projects/geojsonscript/geojson-script/node_modules/@turf/line-chunk
 │  └─ licenseFile: /Users/jarran/projects/geojsonscript/geojson-script/node_modules/@turf/line-chunk/LICENSE
-├─ @turf/line-intersect@6.5.0
+├─ @turf/line-intersect@7.2.0
 │  ├─ licenses: MIT
 │  ├─ repository: https://github.com/Turfjs/turf
 │  ├─ publisher: Turf Authors
 │  ├─ path: /Users/jarran/projects/geojsonscript/geojson-script/node_modules/@turf/line-intersect
 │  └─ licenseFile: /Users/jarran/projects/geojsonscript/geojson-script/node_modules/@turf/line-intersect/LICENSE
-├─ @turf/line-offset@6.5.0
+├─ @turf/line-offset@7.2.0
 │  ├─ licenses: MIT
 │  ├─ repository: https://github.com/Turfjs/turf
 │  ├─ publisher: Turf Authors
 │  ├─ path: /Users/jarran/projects/geojsonscript/geojson-script/node_modules/@turf/line-offset
 │  └─ licenseFile: /Users/jarran/projects/geojsonscript/geojson-script/node_modules/@turf/line-offset/LICENSE
-├─ @turf/line-overlap@6.5.0
+├─ @turf/line-overlap@7.2.0
 │  ├─ licenses: MIT
 │  ├─ repository: https://github.com/Turfjs/turf
 │  ├─ publisher: Turf Authors
 │  ├─ path: /Users/jarran/projects/geojsonscript/geojson-script/node_modules/@turf/line-overlap
 │  └─ licenseFile: /Users/jarran/projects/geojsonscript/geojson-script/node_modules/@turf/line-overlap/LICENSE
-├─ @turf/line-segment@6.5.0
+├─ @turf/line-segment@7.2.0
 │  ├─ licenses: MIT
 │  ├─ repository: https://github.com/Turfjs/turf
 │  ├─ publisher: Turf Authors
 │  ├─ path: /Users/jarran/projects/geojsonscript/geojson-script/node_modules/@turf/line-segment
 │  └─ licenseFile: /Users/jarran/projects/geojsonscript/geojson-script/node_modules/@turf/line-segment/LICENSE
-├─ @turf/line-slice-along@6.5.0
+├─ @turf/line-slice-along@7.2.0
 │  ├─ licenses: MIT
 │  ├─ repository: https://github.com/Turfjs/turf
 │  ├─ publisher: Turf Authors
 │  ├─ path: /Users/jarran/projects/geojsonscript/geojson-script/node_modules/@turf/line-slice-along
 │  └─ licenseFile: /Users/jarran/projects/geojsonscript/geojson-script/node_modules/@turf/line-slice-along/LICENSE
-├─ @turf/line-slice@6.5.0
+├─ @turf/line-slice@7.2.0
 │  ├─ licenses: MIT
 │  ├─ repository: https://github.com/Turfjs/turf
 │  ├─ publisher: Turf Authors
 │  ├─ path: /Users/jarran/projects/geojsonscript/geojson-script/node_modules/@turf/line-slice
 │  └─ licenseFile: /Users/jarran/projects/geojsonscript/geojson-script/node_modules/@turf/line-slice/LICENSE
-├─ @turf/line-split@6.5.0
+├─ @turf/line-split@7.2.0
 │  ├─ licenses: MIT
 │  ├─ repository: https://github.com/Turfjs/turf
 │  ├─ publisher: Turf Authors
 │  ├─ path: /Users/jarran/projects/geojsonscript/geojson-script/node_modules/@turf/line-split
 │  └─ licenseFile: /Users/jarran/projects/geojsonscript/geojson-script/node_modules/@turf/line-split/LICENSE
-├─ @turf/line-to-polygon@6.5.0
+├─ @turf/line-to-polygon@7.2.0
 │  ├─ licenses: MIT
 │  ├─ repository: https://github.com/Turfjs/turf
 │  ├─ publisher: Turf Authors
 │  ├─ path: /Users/jarran/projects/geojsonscript/geojson-script/node_modules/@turf/line-to-polygon
 │  └─ licenseFile: /Users/jarran/projects/geojsonscript/geojson-script/node_modules/@turf/line-to-polygon/LICENSE
-├─ @turf/mask@6.5.0
+├─ @turf/mask@7.2.0
 │  ├─ licenses: MIT
 │  ├─ repository: https://github.com/Turfjs/turf
 │  ├─ publisher: Turf Authors
 │  ├─ path: /Users/jarran/projects/geojsonscript/geojson-script/node_modules/@turf/mask
 │  └─ licenseFile: /Users/jarran/projects/geojsonscript/geojson-script/node_modules/@turf/mask/LICENSE
-├─ @turf/meta@6.5.0
+├─ @turf/meta@7.2.0
 │  ├─ licenses: MIT
 │  ├─ repository: https://github.com/Turfjs/turf
 │  ├─ publisher: Turf Authors
 │  ├─ path: /Users/jarran/projects/geojsonscript/geojson-script/node_modules/@turf/meta
 │  └─ licenseFile: /Users/jarran/projects/geojsonscript/geojson-script/node_modules/@turf/meta/LICENSE
-├─ @turf/midpoint@6.5.0
+├─ @turf/midpoint@7.2.0
 │  ├─ licenses: MIT
 │  ├─ repository: https://github.com/Turfjs/turf
 │  ├─ publisher: Turf Authors
 │  ├─ path: /Users/jarran/projects/geojsonscript/geojson-script/node_modules/@turf/midpoint
 │  └─ licenseFile: /Users/jarran/projects/geojsonscript/geojson-script/node_modules/@turf/midpoint/LICENSE
-├─ @turf/moran-index@6.5.0
+├─ @turf/moran-index@7.2.0
 │  ├─ licenses: MIT
 │  ├─ repository: https://github.com/Turfjs/turf
 │  ├─ publisher: Turf Authors
 │  ├─ path: /Users/jarran/projects/geojsonscript/geojson-script/node_modules/@turf/moran-index
 │  └─ licenseFile: /Users/jarran/projects/geojsonscript/geojson-script/node_modules/@turf/moran-index/LICENSE
-├─ @turf/nearest-point-on-line@6.5.0
+├─ @turf/nearest-neighbor-analysis@7.2.0
+│  ├─ licenses: MIT
+│  ├─ repository: https://github.com/Turfjs/turf
+│  ├─ publisher: Turf Authors
+│  ├─ path: /Users/jarran/projects/geojsonscript/geojson-script/node_modules/@turf/nearest-neighbor-analysis
+│  └─ licenseFile: /Users/jarran/projects/geojsonscript/geojson-script/node_modules/@turf/nearest-neighbor-analysis/LICENSE
+├─ @turf/nearest-point-on-line@7.2.0
 │  ├─ licenses: MIT
 │  ├─ repository: https://github.com/Turfjs/turf
 │  ├─ publisher: Turf Authors
 │  ├─ path: /Users/jarran/projects/geojsonscript/geojson-script/node_modules/@turf/nearest-point-on-line
 │  └─ licenseFile: /Users/jarran/projects/geojsonscript/geojson-script/node_modules/@turf/nearest-point-on-line/LICENSE
-├─ @turf/nearest-point-to-line@6.5.0
+├─ @turf/nearest-point-to-line@7.2.0
 │  ├─ licenses: MIT
 │  ├─ repository: https://github.com/Turfjs/turf
 │  ├─ publisher: Turf Authors
 │  ├─ path: /Users/jarran/projects/geojsonscript/geojson-script/node_modules/@turf/nearest-point-to-line
 │  └─ licenseFile: /Users/jarran/projects/geojsonscript/geojson-script/node_modules/@turf/nearest-point-to-line/LICENSE
-├─ @turf/nearest-point@6.5.0
+├─ @turf/nearest-point@7.2.0
 │  ├─ licenses: MIT
 │  ├─ repository: https://github.com/Turfjs/turf
 │  ├─ publisher: Turf Authors
 │  ├─ path: /Users/jarran/projects/geojsonscript/geojson-script/node_modules/@turf/nearest-point
 │  └─ licenseFile: /Users/jarran/projects/geojsonscript/geojson-script/node_modules/@turf/nearest-point/LICENSE
-├─ @turf/planepoint@6.5.0
+├─ @turf/planepoint@7.2.0
 │  ├─ licenses: MIT
 │  ├─ repository: https://github.com/Turfjs/turf
 │  ├─ publisher: Turf Authors
 │  ├─ path: /Users/jarran/projects/geojsonscript/geojson-script/node_modules/@turf/planepoint
 │  └─ licenseFile: /Users/jarran/projects/geojsonscript/geojson-script/node_modules/@turf/planepoint/LICENSE
-├─ @turf/point-grid@6.5.0
+├─ @turf/point-grid@7.2.0
 │  ├─ licenses: MIT
 │  ├─ repository: https://github.com/Turfjs/turf
 │  ├─ publisher: Turf Authors
 │  ├─ path: /Users/jarran/projects/geojsonscript/geojson-script/node_modules/@turf/point-grid
 │  └─ licenseFile: /Users/jarran/projects/geojsonscript/geojson-script/node_modules/@turf/point-grid/LICENSE
-├─ @turf/point-on-feature@6.5.0
+├─ @turf/point-on-feature@7.2.0
 │  ├─ licenses: MIT
 │  ├─ repository: https://github.com/Turfjs/turf
 │  ├─ publisher: Turf Authors
 │  ├─ path: /Users/jarran/projects/geojsonscript/geojson-script/node_modules/@turf/point-on-feature
 │  └─ licenseFile: /Users/jarran/projects/geojsonscript/geojson-script/node_modules/@turf/point-on-feature/LICENSE
-├─ @turf/point-to-line-distance@6.5.0
+├─ @turf/point-to-line-distance@7.2.0
 │  ├─ licenses: MIT
 │  ├─ repository: https://github.com/Turfjs/turf
 │  ├─ publisher: Turf Authors
 │  ├─ path: /Users/jarran/projects/geojsonscript/geojson-script/node_modules/@turf/point-to-line-distance
 │  └─ licenseFile: /Users/jarran/projects/geojsonscript/geojson-script/node_modules/@turf/point-to-line-distance/LICENSE
-├─ @turf/points-within-polygon@6.5.0
+├─ @turf/point-to-polygon-distance@7.2.0
+│  ├─ licenses: MIT
+│  ├─ repository: https://github.com/Turfjs/turf
+│  ├─ publisher: Turf Authors
+│  ├─ path: /Users/jarran/projects/geojsonscript/geojson-script/node_modules/@turf/point-to-polygon-distance
+│  └─ licenseFile: /Users/jarran/projects/geojsonscript/geojson-script/node_modules/@turf/point-to-polygon-distance/LICENSE
+├─ @turf/points-within-polygon@7.2.0
 │  ├─ licenses: MIT
 │  ├─ repository: https://github.com/Turfjs/turf
 │  ├─ publisher: Turf Authors
 │  ├─ path: /Users/jarran/projects/geojsonscript/geojson-script/node_modules/@turf/points-within-polygon
 │  └─ licenseFile: /Users/jarran/projects/geojsonscript/geojson-script/node_modules/@turf/points-within-polygon/LICENSE
-├─ @turf/polygon-smooth@6.5.0
+├─ @turf/polygon-smooth@7.2.0
 │  ├─ licenses: MIT
 │  ├─ repository: https://github.com/Turfjs/turf
 │  ├─ publisher: Turf Authors
 │  ├─ path: /Users/jarran/projects/geojsonscript/geojson-script/node_modules/@turf/polygon-smooth
 │  └─ licenseFile: /Users/jarran/projects/geojsonscript/geojson-script/node_modules/@turf/polygon-smooth/LICENSE
-├─ @turf/polygon-tangents@6.5.0
+├─ @turf/polygon-tangents@7.2.0
 │  ├─ licenses: MIT
 │  ├─ repository: https://github.com/Turfjs/turf
 │  ├─ publisher: Turf Authors
 │  ├─ path: /Users/jarran/projects/geojsonscript/geojson-script/node_modules/@turf/polygon-tangents
 │  └─ licenseFile: /Users/jarran/projects/geojsonscript/geojson-script/node_modules/@turf/polygon-tangents/LICENSE
-├─ @turf/polygon-to-line@6.5.0
+├─ @turf/polygon-to-line@7.2.0
 │  ├─ licenses: MIT
 │  ├─ repository: https://github.com/Turfjs/turf
 │  ├─ publisher: Turf Authors
 │  ├─ path: /Users/jarran/projects/geojsonscript/geojson-script/node_modules/@turf/polygon-to-line
 │  └─ licenseFile: /Users/jarran/projects/geojsonscript/geojson-script/node_modules/@turf/polygon-to-line/LICENSE
-├─ @turf/polygonize@6.5.0
+├─ @turf/polygonize@7.2.0
 │  ├─ licenses: MIT
 │  ├─ repository: https://github.com/Turfjs/turf
 │  ├─ publisher: Turf Authors
 │  ├─ path: /Users/jarran/projects/geojsonscript/geojson-script/node_modules/@turf/polygonize
 │  └─ licenseFile: /Users/jarran/projects/geojsonscript/geojson-script/node_modules/@turf/polygonize/LICENSE
-├─ @turf/projection@6.5.0
+├─ @turf/projection@7.2.0
 │  ├─ licenses: MIT
 │  ├─ repository: https://github.com/Turfjs/turf
 │  ├─ publisher: Turf Authors
 │  ├─ path: /Users/jarran/projects/geojsonscript/geojson-script/node_modules/@turf/projection
 │  └─ licenseFile: /Users/jarran/projects/geojsonscript/geojson-script/node_modules/@turf/projection/LICENSE
-├─ @turf/random@6.5.0
+├─ @turf/quadrat-analysis@7.2.0
+│  ├─ licenses: MIT
+│  ├─ repository: https://github.com/Turfjs/turf
+│  ├─ publisher: Turf Authors
+│  ├─ path: /Users/jarran/projects/geojsonscript/geojson-script/node_modules/@turf/quadrat-analysis
+│  └─ licenseFile: /Users/jarran/projects/geojsonscript/geojson-script/node_modules/@turf/quadrat-analysis/LICENSE
+├─ @turf/random@7.2.0
 │  ├─ licenses: MIT
 │  ├─ repository: https://github.com/Turfjs/turf
 │  ├─ publisher: Turf Authors
 │  ├─ path: /Users/jarran/projects/geojsonscript/geojson-script/node_modules/@turf/random
 │  └─ licenseFile: /Users/jarran/projects/geojsonscript/geojson-script/node_modules/@turf/random/LICENSE
-├─ @turf/rectangle-grid@6.5.0
+├─ @turf/rectangle-grid@7.2.0
 │  ├─ licenses: MIT
 │  ├─ repository: https://github.com/Turfjs/turf
 │  ├─ publisher: Turf Authors
 │  ├─ path: /Users/jarran/projects/geojsonscript/geojson-script/node_modules/@turf/rectangle-grid
 │  └─ licenseFile: /Users/jarran/projects/geojsonscript/geojson-script/node_modules/@turf/rectangle-grid/LICENSE
-├─ @turf/rewind@6.5.0
+├─ @turf/rewind@7.2.0
 │  ├─ licenses: MIT
 │  ├─ repository: https://github.com/Turfjs/turf
 │  ├─ publisher: Turf Authors
 │  ├─ path: /Users/jarran/projects/geojsonscript/geojson-script/node_modules/@turf/rewind
 │  └─ licenseFile: /Users/jarran/projects/geojsonscript/geojson-script/node_modules/@turf/rewind/LICENSE
-├─ @turf/rhumb-bearing@6.5.0
+├─ @turf/rhumb-bearing@7.2.0
 │  ├─ licenses: MIT
 │  ├─ repository: https://github.com/Turfjs/turf
 │  ├─ publisher: Turf Authors
 │  ├─ path: /Users/jarran/projects/geojsonscript/geojson-script/node_modules/@turf/rhumb-bearing
 │  └─ licenseFile: /Users/jarran/projects/geojsonscript/geojson-script/node_modules/@turf/rhumb-bearing/LICENSE
-├─ @turf/rhumb-destination@6.5.0
+├─ @turf/rhumb-destination@7.2.0
 │  ├─ licenses: MIT
 │  ├─ repository: https://github.com/Turfjs/turf
 │  ├─ publisher: Turf Authors
 │  ├─ path: /Users/jarran/projects/geojsonscript/geojson-script/node_modules/@turf/rhumb-destination
 │  └─ licenseFile: /Users/jarran/projects/geojsonscript/geojson-script/node_modules/@turf/rhumb-destination/LICENSE
-├─ @turf/rhumb-distance@6.5.0
+├─ @turf/rhumb-distance@7.2.0
 │  ├─ licenses: MIT
 │  ├─ repository: https://github.com/Turfjs/turf
 │  ├─ publisher: Turf Authors
 │  ├─ path: /Users/jarran/projects/geojsonscript/geojson-script/node_modules/@turf/rhumb-distance
 │  └─ licenseFile: /Users/jarran/projects/geojsonscript/geojson-script/node_modules/@turf/rhumb-distance/LICENSE
-├─ @turf/sample@6.5.0
+├─ @turf/sample@7.2.0
 │  ├─ licenses: MIT
 │  ├─ repository: https://github.com/Turfjs/turf
 │  ├─ publisher: Turf Authors
 │  ├─ path: /Users/jarran/projects/geojsonscript/geojson-script/node_modules/@turf/sample
 │  └─ licenseFile: /Users/jarran/projects/geojsonscript/geojson-script/node_modules/@turf/sample/LICENSE
-├─ @turf/sector@6.5.0
+├─ @turf/sector@7.2.0
 │  ├─ licenses: MIT
 │  ├─ repository: https://github.com/Turfjs/turf
 │  ├─ publisher: Turf Authors
 │  ├─ path: /Users/jarran/projects/geojsonscript/geojson-script/node_modules/@turf/sector
 │  └─ licenseFile: /Users/jarran/projects/geojsonscript/geojson-script/node_modules/@turf/sector/LICENSE
-├─ @turf/shortest-path@6.5.0
+├─ @turf/shortest-path@7.2.0
 │  ├─ licenses: MIT
 │  ├─ repository: https://github.com/Turfjs/turf
 │  ├─ publisher: Turf Authors
 │  ├─ path: /Users/jarran/projects/geojsonscript/geojson-script/node_modules/@turf/shortest-path
 │  └─ licenseFile: /Users/jarran/projects/geojsonscript/geojson-script/node_modules/@turf/shortest-path/LICENSE
-├─ @turf/simplify@6.5.0
+├─ @turf/simplify@7.2.0
 │  ├─ licenses: MIT
 │  ├─ repository: https://github.com/Turfjs/turf
 │  ├─ publisher: Turf Authors
 │  ├─ path: /Users/jarran/projects/geojsonscript/geojson-script/node_modules/@turf/simplify
 │  └─ licenseFile: /Users/jarran/projects/geojsonscript/geojson-script/node_modules/@turf/simplify/LICENSE
-├─ @turf/square-grid@6.5.0
+├─ @turf/square-grid@7.2.0
 │  ├─ licenses: MIT
 │  ├─ repository: https://github.com/Turfjs/turf
 │  ├─ publisher: Turf Authors
 │  ├─ path: /Users/jarran/projects/geojsonscript/geojson-script/node_modules/@turf/square-grid
 │  └─ licenseFile: /Users/jarran/projects/geojsonscript/geojson-script/node_modules/@turf/square-grid/LICENSE
-├─ @turf/square@6.5.0
+├─ @turf/square@7.2.0
 │  ├─ licenses: MIT
 │  ├─ repository: https://github.com/Turfjs/turf
 │  ├─ publisher: Turf Authors
 │  ├─ path: /Users/jarran/projects/geojsonscript/geojson-script/node_modules/@turf/square
 │  └─ licenseFile: /Users/jarran/projects/geojsonscript/geojson-script/node_modules/@turf/square/LICENSE
-├─ @turf/standard-deviational-ellipse@6.5.0
+├─ @turf/standard-deviational-ellipse@7.2.0
 │  ├─ licenses: MIT
 │  ├─ repository: https://github.com/Turfjs/turf
 │  ├─ publisher: Turf Authors
 │  ├─ path: /Users/jarran/projects/geojsonscript/geojson-script/node_modules/@turf/standard-deviational-ellipse
 │  └─ licenseFile: /Users/jarran/projects/geojsonscript/geojson-script/node_modules/@turf/standard-deviational-ellipse/LICENSE
-├─ @turf/tag@6.5.0
+├─ @turf/tag@7.2.0
 │  ├─ licenses: MIT
 │  ├─ repository: https://github.com/Turfjs/turf
 │  ├─ publisher: Turf Authors
 │  ├─ path: /Users/jarran/projects/geojsonscript/geojson-script/node_modules/@turf/tag
 │  └─ licenseFile: /Users/jarran/projects/geojsonscript/geojson-script/node_modules/@turf/tag/LICENSE
-├─ @turf/tesselate@6.5.0
+├─ @turf/tesselate@7.2.0
 │  ├─ licenses: MIT
 │  ├─ repository: https://github.com/Turfjs/turf
 │  ├─ publisher: Turf Authors
 │  ├─ path: /Users/jarran/projects/geojsonscript/geojson-script/node_modules/@turf/tesselate
 │  └─ licenseFile: /Users/jarran/projects/geojsonscript/geojson-script/node_modules/@turf/tesselate/LICENSE
-├─ @turf/tin@6.5.0
+├─ @turf/tin@7.2.0
 │  ├─ licenses: MIT
 │  ├─ repository: https://github.com/Turfjs/turf
 │  ├─ publisher: Turf Authors
 │  ├─ path: /Users/jarran/projects/geojsonscript/geojson-script/node_modules/@turf/tin
 │  └─ licenseFile: /Users/jarran/projects/geojsonscript/geojson-script/node_modules/@turf/tin/LICENSE
-├─ @turf/transform-rotate@6.5.0
+├─ @turf/transform-rotate@7.2.0
 │  ├─ licenses: MIT
 │  ├─ repository: https://github.com/Turfjs/turf
 │  ├─ publisher: Turf Authors
 │  ├─ path: /Users/jarran/projects/geojsonscript/geojson-script/node_modules/@turf/transform-rotate
 │  └─ licenseFile: /Users/jarran/projects/geojsonscript/geojson-script/node_modules/@turf/transform-rotate/LICENSE
-├─ @turf/transform-scale@6.5.0
+├─ @turf/transform-scale@7.2.0
 │  ├─ licenses: MIT
 │  ├─ repository: https://github.com/Turfjs/turf
 │  ├─ publisher: Turf Authors
 │  ├─ path: /Users/jarran/projects/geojsonscript/geojson-script/node_modules/@turf/transform-scale
 │  └─ licenseFile: /Users/jarran/projects/geojsonscript/geojson-script/node_modules/@turf/transform-scale/LICENSE
-├─ @turf/transform-translate@6.5.0
+├─ @turf/transform-translate@7.2.0
 │  ├─ licenses: MIT
 │  ├─ repository: https://github.com/Turfjs/turf
 │  ├─ publisher: Turf Authors
 │  ├─ path: /Users/jarran/projects/geojsonscript/geojson-script/node_modules/@turf/transform-translate
 │  └─ licenseFile: /Users/jarran/projects/geojsonscript/geojson-script/node_modules/@turf/transform-translate/LICENSE
-├─ @turf/triangle-grid@6.5.0
+├─ @turf/triangle-grid@7.2.0
 │  ├─ licenses: MIT
 │  ├─ repository: https://github.com/Turfjs/turf
 │  ├─ publisher: Turf Authors
 │  ├─ path: /Users/jarran/projects/geojsonscript/geojson-script/node_modules/@turf/triangle-grid
 │  └─ licenseFile: /Users/jarran/projects/geojsonscript/geojson-script/node_modules/@turf/triangle-grid/LICENSE
-├─ @turf/truncate@6.5.0
+├─ @turf/truncate@7.2.0
 │  ├─ licenses: MIT
 │  ├─ repository: https://github.com/Turfjs/turf
 │  ├─ publisher: Turf Authors
 │  ├─ path: /Users/jarran/projects/geojsonscript/geojson-script/node_modules/@turf/truncate
 │  └─ licenseFile: /Users/jarran/projects/geojsonscript/geojson-script/node_modules/@turf/truncate/LICENSE
-├─ @turf/turf@6.5.0
+├─ @turf/turf@7.2.0
 │  ├─ licenses: MIT
 │  ├─ repository: https://github.com/Turfjs/turf
 │  ├─ publisher: Turf Authors
 │  ├─ path: /Users/jarran/projects/geojsonscript/geojson-script/node_modules/@turf/turf
 │  └─ licenseFile: /Users/jarran/projects/geojsonscript/geojson-script/node_modules/@turf/turf/LICENSE
-├─ @turf/union@6.5.0
+├─ @turf/union@7.2.0
 │  ├─ licenses: MIT
 │  ├─ repository: https://github.com/Turfjs/turf
 │  ├─ publisher: Turf Authors
 │  ├─ path: /Users/jarran/projects/geojsonscript/geojson-script/node_modules/@turf/union
 │  └─ licenseFile: /Users/jarran/projects/geojsonscript/geojson-script/node_modules/@turf/union/LICENSE
-├─ @turf/unkink-polygon@6.5.0
+├─ @turf/unkink-polygon@7.2.0
 │  ├─ licenses: MIT
 │  ├─ repository: https://github.com/Turfjs/turf
 │  ├─ publisher: Turf Authors
 │  ├─ path: /Users/jarran/projects/geojsonscript/geojson-script/node_modules/@turf/unkink-polygon
 │  └─ licenseFile: /Users/jarran/projects/geojsonscript/geojson-script/node_modules/@turf/unkink-polygon/LICENSE
-├─ @turf/voronoi@6.5.0
+├─ @turf/voronoi@7.2.0
 │  ├─ licenses: MIT
 │  ├─ repository: https://github.com/Turfjs/turf
 │  ├─ publisher: Turf Authors
@@ -1946,6 +1995,11 @@
 │  ├─ repository: https://github.com/DefinitelyTyped/DefinitelyTyped
 │  ├─ path: /Users/jarran/projects/geojsonscript/geojson-script/node_modules/@types/cors
 │  └─ licenseFile: /Users/jarran/projects/geojsonscript/geojson-script/node_modules/@types/cors/LICENSE
+├─ @types/d3-voronoi@1.1.12
+│  ├─ licenses: MIT
+│  ├─ repository: https://github.com/DefinitelyTyped/DefinitelyTyped
+│  ├─ path: /Users/jarran/projects/geojsonscript/geojson-script/node_modules/@types/d3-voronoi
+│  └─ licenseFile: /Users/jarran/projects/geojsonscript/geojson-script/node_modules/@types/d3-voronoi/LICENSE
 ├─ @types/eslint-scope@3.7.4
 │  ├─ licenses: MIT
 │  ├─ repository: https://github.com/DefinitelyTyped/DefinitelyTyped
@@ -1976,16 +2030,11 @@
 │  ├─ repository: https://github.com/DefinitelyTyped/DefinitelyTyped
 │  ├─ path: /Users/jarran/projects/geojsonscript/geojson-script/node_modules/@types/file-saver
 │  └─ licenseFile: /Users/jarran/projects/geojsonscript/geojson-script/node_modules/@types/file-saver/LICENSE
-├─ @types/geojson@7946.0.10
+├─ @types/geojson@7946.0.16
 │  ├─ licenses: MIT
 │  ├─ repository: https://github.com/DefinitelyTyped/DefinitelyTyped
 │  ├─ path: /Users/jarran/projects/geojsonscript/geojson-script/node_modules/@types/geojson
 │  └─ licenseFile: /Users/jarran/projects/geojsonscript/geojson-script/node_modules/@types/geojson/LICENSE
-├─ @types/geojson@7946.0.8
-│  ├─ licenses: MIT
-│  ├─ repository: https://github.com/DefinitelyTyped/DefinitelyTyped
-│  ├─ path: /Users/jarran/projects/geojsonscript/geojson-script/node_modules/geojson-rbush/node_modules/@types/geojson
-│  └─ licenseFile: /Users/jarran/projects/geojsonscript/geojson-script/node_modules/geojson-rbush/node_modules/@types/geojson/LICENSE
 ├─ @types/http-proxy@1.17.10
 │  ├─ licenses: MIT
 │  ├─ repository: https://github.com/DefinitelyTyped/DefinitelyTyped
@@ -2482,6 +2531,13 @@
 │  ├─ email: M8ch88l@gmail.com
 │  ├─ path: /Users/jarran/projects/geojsonscript/geojson-script/node_modules/big.js
 │  └─ licenseFile: /Users/jarran/projects/geojsonscript/geojson-script/node_modules/big.js/LICENCE
+├─ bignumber.js@9.3.0
+│  ├─ licenses: MIT
+│  ├─ repository: https://github.com/MikeMcl/bignumber.js
+│  ├─ publisher: Michael Mclaughlin
+│  ├─ email: M8ch88l@gmail.com
+│  ├─ path: /Users/jarran/projects/geojsonscript/geojson-script/node_modules/bignumber.js
+│  └─ licenseFile: /Users/jarran/projects/geojsonscript/geojson-script/node_modules/bignumber.js/LICENCE.md
 ├─ binary-extensions@2.2.0
 │  ├─ licenses: MIT
 │  ├─ repository: https://github.com/sindresorhus/binary-extensions
@@ -2999,6 +3055,14 @@
 │  ├─ url: http://bost.ocks.org/mike
 │  ├─ path: /Users/jarran/projects/geojsonscript/geojson-script/node_modules/d3-voronoi
 │  └─ licenseFile: /Users/jarran/projects/geojsonscript/geojson-script/node_modules/d3-voronoi/LICENSE
+├─ data-uri-to-buffer@4.0.1
+│  ├─ licenses: MIT
+│  ├─ repository: https://github.com/TooTallNate/node-data-uri-to-buffer
+│  ├─ publisher: Nathan Rajlich
+│  ├─ email: nathan@tootallnate.net
+│  ├─ url: http://n8.io/
+│  ├─ path: /Users/jarran/projects/geojsonscript/geojson-script/node_modules/data-uri-to-buffer
+│  └─ licenseFile: /Users/jarran/projects/geojsonscript/geojson-script/node_modules/data-uri-to-buffer/README.md
 ├─ date-format@4.0.14
 │  ├─ licenses: MIT
 │  ├─ repository: https://github.com/nomiddlename/date-format
@@ -3034,14 +3098,6 @@
 │  ├─ email: sam@strongloop.com
 │  ├─ path: /Users/jarran/projects/geojsonscript/geojson-script/node_modules/debuglog
 │  └─ licenseFile: /Users/jarran/projects/geojsonscript/geojson-script/node_modules/debuglog/LICENSE
-├─ deep-equal@1.1.2
-│  ├─ licenses: MIT
-│  ├─ repository: https://github.com/inspect-js/node-deep-equal
-│  ├─ publisher: James Halliday
-│  ├─ email: mail@substack.net
-│  ├─ url: http://substack.net
-│  ├─ path: /Users/jarran/projects/geojsonscript/geojson-script/node_modules/deep-equal
-│  └─ licenseFile: /Users/jarran/projects/geojsonscript/geojson-script/node_modules/deep-equal/LICENSE
 ├─ default-gateway@6.0.3
 │  ├─ licenses: BSD-2-Clause
 │  ├─ repository: https://github.com/silverwind/default-gateway
@@ -3070,24 +3126,11 @@
 │  ├─ url: sindresorhus.com
 │  ├─ path: /Users/jarran/projects/geojsonscript/geojson-script/node_modules/define-lazy-prop
 │  └─ licenseFile: /Users/jarran/projects/geojsonscript/geojson-script/node_modules/define-lazy-prop/license
-├─ define-properties@1.2.1
-│  ├─ licenses: MIT
-│  ├─ repository: https://github.com/ljharb/define-properties
-│  ├─ publisher: Jordan Harband
-│  ├─ email: ljharb@gmail.com
-│  ├─ path: /Users/jarran/projects/geojsonscript/geojson-script/node_modules/define-properties
-│  └─ licenseFile: /Users/jarran/projects/geojsonscript/geojson-script/node_modules/define-properties/LICENSE
 ├─ delegates@1.0.0
 │  ├─ licenses: MIT
 │  ├─ repository: https://github.com/visionmedia/node-delegates
 │  ├─ path: /Users/jarran/projects/geojsonscript/geojson-script/node_modules/delegates
 │  └─ licenseFile: /Users/jarran/projects/geojsonscript/geojson-script/node_modules/delegates/License
-├─ density-clustering@1.3.0
-│  ├─ licenses: MIT
-│  ├─ repository: https://github.com/LukaszKrawczyk/density-clustering
-│  ├─ publisher: Lukasz Krawczyk
-│  ├─ path: /Users/jarran/projects/geojsonscript/geojson-script/node_modules/density-clustering
-│  └─ licenseFile: /Users/jarran/projects/geojsonscript/geojson-script/node_modules/density-clustering/LICENSE
 ├─ depd@1.1.2
 │  ├─ licenses: MIT
 │  ├─ repository: https://github.com/dougwilson/nodejs-depd
@@ -3499,6 +3542,14 @@
 │  ├─ url: http://jcoglan.com/
 │  ├─ path: /Users/jarran/projects/geojsonscript/geojson-script/node_modules/faye-websocket
 │  └─ licenseFile: /Users/jarran/projects/geojsonscript/geojson-script/node_modules/faye-websocket/LICENSE.md
+├─ fetch-blob@3.2.0
+│  ├─ licenses: MIT
+│  ├─ repository: https://github.com/node-fetch/fetch-blob
+│  ├─ publisher: Jimmy Wärting
+│  ├─ email: jimmy@warting.se
+│  ├─ url: https://jimmy.warting.se
+│  ├─ path: /Users/jarran/projects/geojsonscript/geojson-script/node_modules/fetch-blob
+│  └─ licenseFile: /Users/jarran/projects/geojsonscript/geojson-script/node_modules/fetch-blob/LICENSE
 ├─ figures@3.2.0
 │  ├─ licenses: MIT
 │  ├─ repository: https://github.com/sindresorhus/figures
@@ -3578,6 +3629,12 @@
 │  ├─ url: https://ruben.verborgh.org/
 │  ├─ path: /Users/jarran/projects/geojsonscript/geojson-script/node_modules/follow-redirects
 │  └─ licenseFile: /Users/jarran/projects/geojsonscript/geojson-script/node_modules/follow-redirects/LICENSE
+├─ formdata-polyfill@4.0.10
+│  ├─ licenses: MIT
+│  ├─ repository: git+https://jimmywarting@github.com/jimmywarting/FormData
+│  ├─ publisher: Jimmy Wärting
+│  ├─ path: /Users/jarran/projects/geojsonscript/geojson-script/node_modules/formdata-polyfill
+│  └─ licenseFile: /Users/jarran/projects/geojsonscript/geojson-script/node_modules/formdata-polyfill/LICENSE
 ├─ forwarded@0.2.0
 │  ├─ licenses: MIT
 │  ├─ repository: https://github.com/jshttp/forwarded
@@ -3657,13 +3714,6 @@
 │  ├─ email: raynos2@gmail.com
 │  ├─ path: /Users/jarran/projects/geojsonscript/geojson-script/node_modules/function-bind
 │  └─ licenseFile: /Users/jarran/projects/geojsonscript/geojson-script/node_modules/function-bind/LICENSE
-├─ functions-have-names@1.2.3
-│  ├─ licenses: MIT
-│  ├─ repository: https://github.com/inspect-js/functions-have-names
-│  ├─ publisher: Jordan Harband
-│  ├─ email: ljharb@gmail.com
-│  ├─ path: /Users/jarran/projects/geojsonscript/geojson-script/node_modules/functions-have-names
-│  └─ licenseFile: /Users/jarran/projects/geojsonscript/geojson-script/node_modules/functions-have-names/LICENSE
 ├─ gauge@4.0.4
 │  ├─ licenses: ISC
 │  ├─ repository: https://github.com/npm/gauge
@@ -3677,20 +3727,20 @@
 │  ├─ email: loganfsmyth@gmail.com
 │  ├─ path: /Users/jarran/projects/geojsonscript/geojson-script/node_modules/gensync
 │  └─ licenseFile: /Users/jarran/projects/geojsonscript/geojson-script/node_modules/gensync/LICENSE
-├─ geojson-equality@0.1.6
+├─ geojson-equality-ts@1.0.2
 │  ├─ licenses: MIT
-│  ├─ repository: https://github.com/geosquare/geojson-equality
-│  ├─ publisher: Gagan Bansal
-│  ├─ email: gaganbansal123@gmail.com
-│  ├─ path: /Users/jarran/projects/geojsonscript/geojson-script/node_modules/geojson-equality
-│  └─ licenseFile: /Users/jarran/projects/geojsonscript/geojson-script/node_modules/geojson-equality/LICENSE.md
-├─ geojson-rbush@3.2.0
+│  ├─ repository: https://github.com/smallsaucepan/geojson-equality-ts
+│  ├─ publisher: James Beard
+│  ├─ email: james@smallsaucepan.com
+│  ├─ path: /Users/jarran/projects/geojsonscript/geojson-script/node_modules/geojson-equality-ts
+│  └─ licenseFile: /Users/jarran/projects/geojsonscript/geojson-script/node_modules/geojson-equality-ts/LICENSE.md
+├─ geojson-polygon-self-intersections@1.2.1
 │  ├─ licenses: MIT
-│  ├─ publisher: Denis Carriere
-│  ├─ email: @DenisCarriere
-│  ├─ path: /Users/jarran/projects/geojsonscript/geojson-script/node_modules/geojson-rbush
-│  └─ licenseFile: /Users/jarran/projects/geojsonscript/geojson-script/node_modules/geojson-rbush/LICENSE
-├─ geojson-script@0.1.23
+│  ├─ repository: https://github.com/mclaeysb/geojson-polygon-self-intersections
+│  ├─ publisher: Manuel Claeys Bouuaert
+│  ├─ path: /Users/jarran/projects/geojsonscript/geojson-script/node_modules/geojson-polygon-self-intersections
+│  └─ licenseFile: /Users/jarran/projects/geojsonscript/geojson-script/node_modules/geojson-polygon-self-intersections/LICENSE
+├─ geojson-script@0.1.24
 │  ├─ licenses: MIT
 │  ├─ publisher: Anthony DGJ
 │  ├─ email: anthonydgj4@gmail.com
@@ -3859,14 +3909,6 @@
 │  ├─ url: http://ljharb.codes
 │  ├─ path: /Users/jarran/projects/geojsonscript/geojson-script/node_modules/has-symbols
 │  └─ licenseFile: /Users/jarran/projects/geojsonscript/geojson-script/node_modules/has-symbols/LICENSE
-├─ has-tostringtag@1.0.2
-│  ├─ licenses: MIT
-│  ├─ repository: https://github.com/inspect-js/has-tostringtag
-│  ├─ publisher: Jordan Harband
-│  ├─ email: ljharb@gmail.com
-│  ├─ url: http://ljharb.codes
-│  ├─ path: /Users/jarran/projects/geojsonscript/geojson-script/node_modules/has-tostringtag
-│  └─ licenseFile: /Users/jarran/projects/geojsonscript/geojson-script/node_modules/has-tostringtag/LICENSE
 ├─ has-unicode@2.0.1
 │  ├─ licenses: ISC
 │  ├─ repository: https://github.com/iarna/has-unicode
@@ -4157,14 +4199,6 @@
 │  ├─ email: whitequark@whitequark.org
 │  ├─ path: /Users/jarran/projects/geojsonscript/geojson-script/node_modules/ipaddr.js
 │  └─ licenseFile: /Users/jarran/projects/geojsonscript/geojson-script/node_modules/ipaddr.js/LICENSE
-├─ is-arguments@1.1.1
-│  ├─ licenses: MIT
-│  ├─ repository: https://github.com/inspect-js/is-arguments
-│  ├─ publisher: Jordan Harband
-│  ├─ email: ljharb@gmail.com
-│  ├─ url: http://ljharb.codes
-│  ├─ path: /Users/jarran/projects/geojsonscript/geojson-script/node_modules/is-arguments
-│  └─ licenseFile: /Users/jarran/projects/geojsonscript/geojson-script/node_modules/is-arguments/LICENSE
 ├─ is-arrayish@0.2.1
 │  ├─ licenses: MIT
 │  ├─ repository: https://github.com/qix-/node-is-arrayish
@@ -4187,12 +4221,6 @@
 │  ├─ email: ljharb@gmail.com
 │  ├─ path: /Users/jarran/projects/geojsonscript/geojson-script/node_modules/is-core-module
 │  └─ licenseFile: /Users/jarran/projects/geojsonscript/geojson-script/node_modules/is-core-module/LICENSE
-├─ is-date-object@1.0.5
-│  ├─ licenses: MIT
-│  ├─ repository: https://github.com/inspect-js/is-date-object
-│  ├─ publisher: Jordan Harband
-│  ├─ path: /Users/jarran/projects/geojsonscript/geojson-script/node_modules/is-date-object
-│  └─ licenseFile: /Users/jarran/projects/geojsonscript/geojson-script/node_modules/is-date-object/LICENSE
 ├─ is-docker@2.2.1
 │  ├─ licenses: MIT
 │  ├─ repository: https://github.com/sindresorhus/is-docker
@@ -4261,13 +4289,6 @@
 │  ├─ url: https://github.com/jonschlinkert
 │  ├─ path: /Users/jarran/projects/geojsonscript/geojson-script/node_modules/is-plain-object
 │  └─ licenseFile: /Users/jarran/projects/geojsonscript/geojson-script/node_modules/is-plain-object/LICENSE
-├─ is-regex@1.1.4
-│  ├─ licenses: MIT
-│  ├─ repository: https://github.com/inspect-js/is-regex
-│  ├─ publisher: Jordan Harband
-│  ├─ email: ljharb@gmail.com
-│  ├─ path: /Users/jarran/projects/geojsonscript/geojson-script/node_modules/is-regex
-│  └─ licenseFile: /Users/jarran/projects/geojsonscript/geojson-script/node_modules/is-regex/LICENSE
 ├─ is-stream@2.0.1
 │  ├─ licenses: MIT
 │  ├─ repository: https://github.com/sindresorhus/is-stream
@@ -4457,6 +4478,13 @@
 │  ├─ email: tim@creationix.com
 │  ├─ path: /Users/jarran/projects/geojsonscript/geojson-script/node_modules/jsonparse
 │  └─ licenseFile: /Users/jarran/projects/geojsonscript/geojson-script/node_modules/jsonparse/LICENSE
+├─ jsts@2.7.1
+│  ├─ licenses: Custom: https://travis-ci.org/bjornharrtell/jsts.svg
+│  ├─ repository: https://github.com/bjornharrtell/jsts
+│  ├─ publisher: Björn Harrtell
+│  ├─ email: bjorn@wololo.org
+│  ├─ path: /Users/jarran/projects/geojsonscript/geojson-script/node_modules/jsts
+│  └─ licenseFile: /Users/jarran/projects/geojsonscript/geojson-script/node_modules/jsts/README.md
 ├─ karma-chrome-launcher@3.1.1
 │  ├─ licenses: MIT
 │  ├─ repository: https://github.com/karma-runner/karma-chrome-launcher
@@ -4669,6 +4697,13 @@
 │  ├─ publisher: GitHub Inc.
 │  ├─ path: /Users/jarran/projects/geojsonscript/geojson-script/node_modules/npm-registry-fetch/node_modules/make-fetch-happen
 │  └─ licenseFile: /Users/jarran/projects/geojsonscript/geojson-script/node_modules/npm-registry-fetch/node_modules/make-fetch-happen/LICENSE
+├─ marchingsquares@1.3.3
+│  ├─ licenses: AGPL-3.0
+│  ├─ repository: https://github.com/RaumZeit/MarchingSquares.js
+│  ├─ publisher: Ronny Lorenz
+│  ├─ email: ronny@tbi.univie.ac.at
+│  ├─ path: /Users/jarran/projects/geojsonscript/geojson-script/node_modules/marchingsquares
+│  └─ licenseFile: /Users/jarran/projects/geojsonscript/geojson-script/node_modules/marchingsquares/LICENSE.md
 ├─ media-typer@0.3.0
 │  ├─ licenses: MIT
 │  ├─ repository: https://github.com/jshttp/media-typer
@@ -4981,6 +5016,18 @@
 │  ├─ repository: https://github.com/nodejs/node-addon-api
 │  ├─ path: /Users/jarran/projects/geojsonscript/geojson-script/node_modules/node-addon-api
 │  └─ licenseFile: /Users/jarran/projects/geojsonscript/geojson-script/node_modules/node-addon-api/LICENSE.md
+├─ node-domexception@1.0.0
+│  ├─ licenses: MIT
+│  ├─ repository: https://github.com/jimmywarting/node-domexception
+│  ├─ publisher: Jimmy Wärting
+│  ├─ path: /Users/jarran/projects/geojsonscript/geojson-script/node_modules/node-domexception
+│  └─ licenseFile: /Users/jarran/projects/geojsonscript/geojson-script/node_modules/node-domexception/LICENSE
+├─ node-fetch@3.3.2
+│  ├─ licenses: MIT
+│  ├─ repository: https://github.com/node-fetch/node-fetch
+│  ├─ publisher: David Frank
+│  ├─ path: /Users/jarran/projects/geojsonscript/geojson-script/node_modules/node-fetch
+│  └─ licenseFile: /Users/jarran/projects/geojsonscript/geojson-script/node_modules/node-fetch/LICENSE.md
 ├─ node-forge@1.3.1
 │  ├─ licenses: (BSD-3-Clause OR GPL-2.0)
 │  ├─ repository: https://github.com/digitalbazaar/forge
@@ -5140,20 +5187,6 @@
 │  ├─ url: http://substack.net
 │  ├─ path: /Users/jarran/projects/geojsonscript/geojson-script/node_modules/object-inspect
 │  └─ licenseFile: /Users/jarran/projects/geojsonscript/geojson-script/node_modules/object-inspect/LICENSE
-├─ object-is@1.1.5
-│  ├─ licenses: MIT
-│  ├─ repository: https://github.com/es-shims/object-is
-│  ├─ publisher: Jordan Harband
-│  ├─ path: /Users/jarran/projects/geojsonscript/geojson-script/node_modules/object-is
-│  └─ licenseFile: /Users/jarran/projects/geojsonscript/geojson-script/node_modules/object-is/LICENSE
-├─ object-keys@1.1.1
-│  ├─ licenses: MIT
-│  ├─ repository: https://github.com/ljharb/object-keys
-│  ├─ publisher: Jordan Harband
-│  ├─ email: ljharb@gmail.com
-│  ├─ url: http://ljharb.codes
-│  ├─ path: /Users/jarran/projects/geojsonscript/geojson-script/node_modules/object-keys
-│  └─ licenseFile: /Users/jarran/projects/geojsonscript/geojson-script/node_modules/object-keys/LICENSE
 ├─ obuf@1.1.2
 │  ├─ licenses: MIT
 │  ├─ repository: https://github.com/indutny/offset-buffer
@@ -5474,6 +5507,12 @@
 │  ├─ url: sindresorhus.com
 │  ├─ path: /Users/jarran/projects/geojsonscript/geojson-script/node_modules/pkg-dir
 │  └─ licenseFile: /Users/jarran/projects/geojsonscript/geojson-script/node_modules/pkg-dir/license
+├─ point-in-polygon-hao@1.2.4
+│  ├─ licenses: MIT
+│  ├─ repository: https://github.com/rowanwins/point-in-polygon-hao
+│  ├─ publisher: Rowan Winsemius
+│  ├─ path: /Users/jarran/projects/geojsonscript/geojson-script/node_modules/point-in-polygon-hao
+│  └─ licenseFile: /Users/jarran/projects/geojsonscript/geojson-script/node_modules/point-in-polygon-hao/LICENSE
 ├─ point-in-polygon@1.1.0
 │  ├─ licenses: MIT
 │  ├─ repository: https://github.com/substack/point-in-polygon
@@ -5482,13 +5521,12 @@
 │  ├─ url: http://substack.net
 │  ├─ path: /Users/jarran/projects/geojsonscript/geojson-script/node_modules/point-in-polygon
 │  └─ licenseFile: /Users/jarran/projects/geojsonscript/geojson-script/node_modules/point-in-polygon/LICENSE
-├─ polygon-clipping@0.15.7
+├─ polyclip-ts@0.16.8
 │  ├─ licenses: MIT
-│  ├─ repository: https://github.com/mfogel/polygon-clipping
-│  ├─ publisher: Mike Fogel
-│  ├─ email: mike@fogel.ca
-│  ├─ path: /Users/jarran/projects/geojsonscript/geojson-script/node_modules/polygon-clipping
-│  └─ licenseFile: /Users/jarran/projects/geojsonscript/geojson-script/node_modules/polygon-clipping/LICENSE.md
+│  ├─ repository: https://github.com/luizbarboza/polyclip-ts
+│  ├─ publisher: Luiz Felipe Machado Barboza
+│  ├─ path: /Users/jarran/projects/geojsonscript/geojson-script/node_modules/polyclip-ts
+│  └─ licenseFile: /Users/jarran/projects/geojsonscript/geojson-script/node_modules/polyclip-ts/LICENSE
 ├─ postcss-loader@7.0.2
 │  ├─ licenses: MIT
 │  ├─ repository: https://github.com/webpack-contrib/postcss-loader
@@ -5623,13 +5661,13 @@
 ├─ quickselect@1.1.1
 │  ├─ licenses: ISC
 │  ├─ publisher: Vladimir Agafonkin
-│  ├─ path: /Users/jarran/projects/geojsonscript/geojson-script/node_modules/quickselect
-│  └─ licenseFile: /Users/jarran/projects/geojsonscript/geojson-script/node_modules/quickselect/LICENSE
+│  ├─ path: /Users/jarran/projects/geojsonscript/geojson-script/node_modules/geojson-polygon-self-intersections/node_modules/quickselect
+│  └─ licenseFile: /Users/jarran/projects/geojsonscript/geojson-script/node_modules/geojson-polygon-self-intersections/node_modules/quickselect/LICENSE
 ├─ quickselect@2.0.0
 │  ├─ licenses: ISC
 │  ├─ publisher: Vladimir Agafonkin
-│  ├─ path: /Users/jarran/projects/geojsonscript/geojson-script/node_modules/geojson-rbush/node_modules/quickselect
-│  └─ licenseFile: /Users/jarran/projects/geojsonscript/geojson-script/node_modules/geojson-rbush/node_modules/quickselect/LICENSE
+│  ├─ path: /Users/jarran/projects/geojsonscript/geojson-script/node_modules/quickselect
+│  └─ licenseFile: /Users/jarran/projects/geojsonscript/geojson-script/node_modules/quickselect/LICENSE
 ├─ randombytes@2.1.0
 │  ├─ licenses: MIT
 │  ├─ repository: https://github.com/crypto-browserify/randombytes
@@ -5669,14 +5707,14 @@
 │  ├─ licenses: MIT
 │  ├─ repository: https://github.com/mourner/rbush
 │  ├─ publisher: Vladimir Agafonkin
-│  ├─ path: /Users/jarran/projects/geojsonscript/geojson-script/node_modules/rbush
-│  └─ licenseFile: /Users/jarran/projects/geojsonscript/geojson-script/node_modules/rbush/LICENSE
+│  ├─ path: /Users/jarran/projects/geojsonscript/geojson-script/node_modules/geojson-polygon-self-intersections/node_modules/rbush
+│  └─ licenseFile: /Users/jarran/projects/geojsonscript/geojson-script/node_modules/geojson-polygon-self-intersections/node_modules/rbush/LICENSE
 ├─ rbush@3.0.1
 │  ├─ licenses: MIT
 │  ├─ repository: https://github.com/mourner/rbush
 │  ├─ publisher: Vladimir Agafonkin
-│  ├─ path: /Users/jarran/projects/geojsonscript/geojson-script/node_modules/geojson-rbush/node_modules/rbush
-│  └─ licenseFile: /Users/jarran/projects/geojsonscript/geojson-script/node_modules/geojson-rbush/node_modules/rbush/LICENSE
+│  ├─ path: /Users/jarran/projects/geojsonscript/geojson-script/node_modules/rbush
+│  └─ licenseFile: /Users/jarran/projects/geojsonscript/geojson-script/node_modules/rbush/LICENSE
 ├─ read-installed@4.0.3
 │  ├─ licenses: ISC
 │  ├─ repository: https://github.com/isaacs/read-installed
@@ -5780,13 +5818,6 @@
 │  ├─ url: https://ionicabizau.net
 │  ├─ path: /Users/jarran/projects/geojsonscript/geojson-script/node_modules/regex-parser
 │  └─ licenseFile: /Users/jarran/projects/geojsonscript/geojson-script/node_modules/regex-parser/LICENSE
-├─ regexp.prototype.flags@1.5.2
-│  ├─ licenses: MIT
-│  ├─ repository: https://github.com/es-shims/RegExp.prototype.flags
-│  ├─ publisher: Jordan Harband
-│  ├─ email: ljharb@gmail.com
-│  ├─ path: /Users/jarran/projects/geojsonscript/geojson-script/node_modules/regexp.prototype.flags
-│  └─ licenseFile: /Users/jarran/projects/geojsonscript/geojson-script/node_modules/regexp.prototype.flags/LICENSE
 ├─ regexpu-core@5.3.2
 │  ├─ licenses: MIT
 │  ├─ repository: https://github.com/mathiasbynens/regexpu-core
@@ -5908,8 +5939,8 @@
 │  ├─ licenses: Unlicense
 │  ├─ repository: https://github.com/mourner/robust-predicates
 │  ├─ publisher: Vladimir Agafonkin
-│  ├─ path: /Users/jarran/projects/geojsonscript/geojson-script/node_modules/polygon-clipping/node_modules/robust-predicates
-│  └─ licenseFile: /Users/jarran/projects/geojsonscript/geojson-script/node_modules/polygon-clipping/node_modules/robust-predicates/LICENSE
+│  ├─ path: /Users/jarran/projects/geojsonscript/geojson-script/node_modules/point-in-polygon-hao/node_modules/robust-predicates
+│  └─ licenseFile: /Users/jarran/projects/geojsonscript/geojson-script/node_modules/point-in-polygon-hao/node_modules/robust-predicates/LICENSE
 ├─ run-async@2.4.1
 │  ├─ licenses: MIT
 │  ├─ repository: https://github.com/SBoudrias/run-async
@@ -6078,13 +6109,6 @@
 │  ├─ email: ljharb@gmail.com
 │  ├─ path: /Users/jarran/projects/geojsonscript/geojson-script/node_modules/set-function-length
 │  └─ licenseFile: /Users/jarran/projects/geojsonscript/geojson-script/node_modules/set-function-length/LICENSE
-├─ set-function-name@2.0.2
-│  ├─ licenses: MIT
-│  ├─ repository: https://github.com/ljharb/set-function-name
-│  ├─ publisher: Jordan Harband
-│  ├─ email: ljharb@gmail.com
-│  ├─ path: /Users/jarran/projects/geojsonscript/geojson-script/node_modules/set-function-name
-│  └─ licenseFile: /Users/jarran/projects/geojsonscript/geojson-script/node_modules/set-function-name/LICENSE
 ├─ setprototypeof@1.1.0
 │  ├─ licenses: ISC
 │  ├─ repository: https://github.com/wesleytodd/setprototypeof
@@ -6298,13 +6322,12 @@
 │  ├─ email: fedor.indutny@gmail.com
 │  ├─ path: /Users/jarran/projects/geojsonscript/geojson-script/node_modules/spdy
 │  └─ licenseFile: /Users/jarran/projects/geojsonscript/geojson-script/node_modules/spdy/README.md
-├─ splaytree@3.1.2
-│  ├─ licenses: MIT
-│  ├─ repository: https://github.com/w8r/splay-tree
-│  ├─ publisher: Alexander Milevski
-│  ├─ email: info@w8r.name
-│  ├─ path: /Users/jarran/projects/geojsonscript/geojson-script/node_modules/splaytree
-│  └─ licenseFile: /Users/jarran/projects/geojsonscript/geojson-script/node_modules/splaytree/Readme.md
+├─ splaytree-ts@1.0.2
+│  ├─ licenses: BSD*
+│  ├─ repository: https://github.com/SBanksX/splaytree-ts
+│  ├─ publisher: Luiz Felipe Machado Barboza
+│  ├─ path: /Users/jarran/projects/geojsonscript/geojson-script/node_modules/splaytree-ts
+│  └─ licenseFile: /Users/jarran/projects/geojsonscript/geojson-script/node_modules/splaytree-ts/LICENSE
 ├─ sprintf-js@1.0.3
 │  ├─ licenses: BSD-3-Clause
 │  ├─ repository: https://github.com/alexei/sprintf.js
@@ -6420,6 +6443,11 @@
 │  ├─ email: ljharb@gmail.com
 │  ├─ path: /Users/jarran/projects/geojsonscript/geojson-script/node_modules/supports-preserve-symlinks-flag
 │  └─ licenseFile: /Users/jarran/projects/geojsonscript/geojson-script/node_modules/supports-preserve-symlinks-flag/LICENSE
+├─ sweepline-intersections@1.5.0
+│  ├─ licenses: MIT
+│  ├─ repository: https://github.com/rowanwins/sweepline-intersections
+│  ├─ path: /Users/jarran/projects/geojsonscript/geojson-script/node_modules/sweepline-intersections
+│  └─ licenseFile: /Users/jarran/projects/geojsonscript/geojson-script/node_modules/sweepline-intersections/LICENSE
 ├─ symbol-observable@4.0.0
 │  ├─ licenses: MIT
 │  ├─ repository: https://github.com/blesh/symbol-observable
@@ -6427,6 +6455,12 @@
 │  ├─ email: ben@benlesh.com
 │  ├─ path: /Users/jarran/projects/geojsonscript/geojson-script/node_modules/symbol-observable
 │  └─ licenseFile: /Users/jarran/projects/geojsonscript/geojson-script/node_modules/symbol-observable/license
+├─ sync-fetch@0.6.0-2
+│  ├─ licenses: MIT
+│  ├─ repository: https://github.com/larsgw/sync-fetch
+│  ├─ publisher: Lars Willighagen
+│  ├─ path: /Users/jarran/projects/geojsonscript/geojson-script/node_modules/sync-fetch
+│  └─ licenseFile: /Users/jarran/projects/geojsonscript/geojson-script/node_modules/sync-fetch/LICENSE
 ├─ tapable@2.2.1
 │  ├─ licenses: MIT
 │  ├─ repository: https://github.com/webpack/tapable
@@ -6491,6 +6525,13 @@
 │  ├─ email: mathiasbuus@gmail.com
 │  ├─ path: /Users/jarran/projects/geojsonscript/geojson-script/node_modules/thunky
 │  └─ licenseFile: /Users/jarran/projects/geojsonscript/geojson-script/node_modules/thunky/LICENSE
+├─ timeout-signal@2.0.0
+│  ├─ licenses: MIT
+│  ├─ repository: https://github.com/node-fetch/timeout-signal
+│  ├─ publisher: Richie Bendall
+│  ├─ email: richiebendall@gmail.com
+│  ├─ path: /Users/jarran/projects/geojsonscript/geojson-script/node_modules/timeout-signal
+│  └─ licenseFile: /Users/jarran/projects/geojsonscript/geojson-script/node_modules/timeout-signal/license
 ├─ tinycolor2@1.6.0
 │  ├─ licenses: MIT
 │  ├─ repository: https://github.com/bgrins/TinyColor
@@ -6591,25 +6632,18 @@
 │  ├─ publisher: Microsoft Corp.
 │  ├─ path: /Users/jarran/projects/geojsonscript/geojson-script/node_modules/tslib
 │  └─ licenseFile: /Users/jarran/projects/geojsonscript/geojson-script/node_modules/tslib/LICENSE.txt
-├─ tslib@2.6.2
+├─ tslib@2.8.1
 │  ├─ licenses: 0BSD
 │  ├─ repository: https://github.com/Microsoft/tslib
 │  ├─ publisher: Microsoft Corp.
-│  ├─ path: /Users/jarran/projects/geojsonscript/geojson-script/node_modules/wael-lib/node_modules/tslib
-│  └─ licenseFile: /Users/jarran/projects/geojsonscript/geojson-script/node_modules/wael-lib/node_modules/tslib/LICENSE.txt
+│  ├─ path: /Users/jarran/projects/geojsonscript/geojson-script/node_modules/@turf/helpers/node_modules/tslib
+│  └─ licenseFile: /Users/jarran/projects/geojsonscript/geojson-script/node_modules/@turf/helpers/node_modules/tslib/LICENSE.txt
 ├─ tuf-js@1.1.2
 │  ├─ licenses: MIT
 │  ├─ repository: https://github.com/theupdateframework/tuf-js
 │  ├─ publisher: bdehamer@github.com
 │  ├─ path: /Users/jarran/projects/geojsonscript/geojson-script/node_modules/tuf-js
 │  └─ licenseFile: /Users/jarran/projects/geojsonscript/geojson-script/node_modules/tuf-js/LICENSE
-├─ turf-jsts@1.2.3
-│  ├─ licenses: Custom: https://travis-ci.org/DenisCarriere/turf-jsts.svg
-│  ├─ repository: https://github.com/DenisCarriere/turf-jsts
-│  ├─ publisher: Björn Harrtell
-│  ├─ email: bjorn@wololo.org
-│  ├─ path: /Users/jarran/projects/geojsonscript/geojson-script/node_modules/turf-jsts
-│  └─ licenseFile: /Users/jarran/projects/geojsonscript/geojson-script/node_modules/turf-jsts/README.md
 ├─ type-fest@0.21.3
 │  ├─ licenses: (MIT OR CC0-1.0)
 │  ├─ repository: https://github.com/sindresorhus/type-fest
@@ -6792,7 +6826,7 @@
 │  ├─ publisher: hemanth.hm
 │  ├─ path: /Users/jarran/projects/geojsonscript/geojson-script/node_modules/void-elements
 │  └─ licenseFile: /Users/jarran/projects/geojsonscript/geojson-script/node_modules/void-elements/LICENSE
-├─ wael-lib@0.0.3
+├─ wael-lib@0.0.13
 │  ├─ licenses: MIT
 │  ├─ repository: https://github.com/anthonydgj/wael
 │  ├─ publisher: AnthonyDGJ
@@ -6817,6 +6851,13 @@
 │  ├─ publisher: Tim Oxley
 │  ├─ path: /Users/jarran/projects/geojsonscript/geojson-script/node_modules/wcwidth
 │  └─ licenseFile: /Users/jarran/projects/geojsonscript/geojson-script/node_modules/wcwidth/LICENSE
+├─ web-streams-polyfill@3.3.3
+│  ├─ licenses: MIT
+│  ├─ repository: https://github.com/MattiasBuelens/web-streams-polyfill
+│  ├─ publisher: Mattias Buelens
+│  ├─ email: mattias@buelens.com
+│  ├─ path: /Users/jarran/projects/geojsonscript/geojson-script/node_modules/web-streams-polyfill
+│  └─ licenseFile: /Users/jarran/projects/geojsonscript/geojson-script/node_modules/web-streams-polyfill/LICENSE
 ├─ webpack-dev-middleware@5.3.3
 │  ├─ licenses: MIT
 │  ├─ repository: https://github.com/webpack/webpack-dev-middleware
@@ -6883,6 +6924,14 @@
 │  ├─ publisher: Tom MacWright
 │  ├─ path: /Users/jarran/projects/geojsonscript/geojson-script/node_modules/wellknown
 │  └─ licenseFile: /Users/jarran/projects/geojsonscript/geojson-script/node_modules/wellknown/LICENSE
+├─ whatwg-mimetype@4.0.0
+│  ├─ licenses: MIT
+│  ├─ repository: https://github.com/jsdom/whatwg-mimetype
+│  ├─ publisher: Domenic Denicola
+│  ├─ email: d@domenic.me
+│  ├─ url: https://domenic.me/
+│  ├─ path: /Users/jarran/projects/geojsonscript/geojson-script/node_modules/whatwg-mimetype
+│  └─ licenseFile: /Users/jarran/projects/geojsonscript/geojson-script/node_modules/whatwg-mimetype/LICENSE.txt
 ├─ which@1.3.1
 │  ├─ licenses: ISC
 │  ├─ repository: https://github.com/isaacs/node-which
