@@ -3740,7 +3740,7 @@
 │  ├─ publisher: Manuel Claeys Bouuaert
 │  ├─ path: /Users/jarran/projects/geojsonscript/geojson-script/node_modules/geojson-polygon-self-intersections
 │  └─ licenseFile: /Users/jarran/projects/geojsonscript/geojson-script/node_modules/geojson-polygon-self-intersections/LICENSE
-├─ geojson-script@0.1.24
+├─ geojson-script@0.1.25
 │  ├─ licenses: MIT
 │  ├─ publisher: Anthony DGJ
 │  ├─ email: anthonydgj4@gmail.com
