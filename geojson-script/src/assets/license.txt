@@ -3740,7 +3740,7 @@
 │  ├─ publisher: Manuel Claeys Bouuaert
 │  ├─ path: /Users/jarran/projects/geojsonscript/geojson-script/node_modules/geojson-polygon-self-intersections
 │  └─ licenseFile: /Users/jarran/projects/geojsonscript/geojson-script/node_modules/geojson-polygon-self-intersections/LICENSE
-├─ geojson-script@0.1.25
+├─ geojson-script@0.1.26
 │  ├─ licenses: MIT
 │  ├─ publisher: Anthony DGJ
 │  ├─ email: anthonydgj4@gmail.com
@@ -6826,7 +6826,7 @@
 │  ├─ publisher: hemanth.hm
 │  ├─ path: /Users/jarran/projects/geojsonscript/geojson-script/node_modules/void-elements
 │  └─ licenseFile: /Users/jarran/projects/geojsonscript/geojson-script/node_modules/void-elements/LICENSE
-├─ wael-lib@0.0.13
+├─ wael-lib@0.0.14
 │  ├─ licenses: MIT
 │  ├─ repository: https://github.com/anthonydgj/wael
 │  ├─ publisher: AnthonyDGJ
