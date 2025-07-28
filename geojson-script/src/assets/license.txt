@@ -6826,7 +6826,7 @@
 │  ├─ publisher: hemanth.hm
 │  ├─ path: /Users/jarran/projects/geojsonscript/geojson-script/node_modules/void-elements
 │  └─ licenseFile: /Users/jarran/projects/geojsonscript/geojson-script/node_modules/void-elements/LICENSE
-├─ wael-lib@0.0.14
+├─ wael-lib@0.0.16
 │  ├─ licenses: MIT
 │  ├─ repository: https://github.com/anthonydgj/wael
 │  ├─ publisher: AnthonyDGJ
