@@ -5004,18 +5004,6 @@
 │  ├─ publisher: Uri Shaked
 │  ├─ path: /Users/jarran/projects/geojsonscript/geojson-script/node_modules/ngx-moment
 │  └─ licenseFile: /Users/jarran/projects/geojsonscript/geojson-script/node_modules/ngx-moment/LICENSE
-├─ nice-napi@1.0.2
-│  ├─ licenses: MIT
-│  ├─ repository: https://github.com/addaleax/nice-napi
-│  ├─ publisher: Anna Henningsen
-│  ├─ email: anna@addaleax.net
-│  ├─ path: /Users/jarran/projects/geojsonscript/geojson-script/node_modules/nice-napi
-│  └─ licenseFile: /Users/jarran/projects/geojsonscript/geojson-script/node_modules/nice-napi/LICENSE
-├─ node-addon-api@3.2.1
-│  ├─ licenses: MIT
-│  ├─ repository: https://github.com/nodejs/node-addon-api
-│  ├─ path: /Users/jarran/projects/geojsonscript/geojson-script/node_modules/node-addon-api
-│  └─ licenseFile: /Users/jarran/projects/geojsonscript/geojson-script/node_modules/node-addon-api/LICENSE.md
 ├─ node-domexception@1.0.0
 │  ├─ licenses: MIT
 │  ├─ repository: https://github.com/jimmywarting/node-domexception
@@ -5036,13 +5024,6 @@
 │  ├─ url: http://digitalbazaar.com/
 │  ├─ path: /Users/jarran/projects/geojsonscript/geojson-script/node_modules/node-forge
 │  └─ licenseFile: /Users/jarran/projects/geojsonscript/geojson-script/node_modules/node-forge/LICENSE
-├─ node-gyp-build@4.6.0
-│  ├─ licenses: MIT
-│  ├─ repository: https://github.com/prebuild/node-gyp-build
-│  ├─ publisher: Mathias Buus
-│  ├─ url: @mafintosh
-│  ├─ path: /Users/jarran/projects/geojsonscript/geojson-script/node_modules/node-gyp-build
-│  └─ licenseFile: /Users/jarran/projects/geojsonscript/geojson-script/node_modules/node-gyp-build/LICENSE
 ├─ node-gyp@9.3.1
 │  ├─ licenses: MIT
 │  ├─ repository: https://github.com/nodejs/node-gyp
@@ -6826,7 +6807,7 @@
 │  ├─ publisher: hemanth.hm
 │  ├─ path: /Users/jarran/projects/geojsonscript/geojson-script/node_modules/void-elements
 │  └─ licenseFile: /Users/jarran/projects/geojsonscript/geojson-script/node_modules/void-elements/LICENSE
-├─ wael-lib@0.0.18
+├─ wael-lib@0.0.24
 │  ├─ licenses: MIT
 │  ├─ repository: https://github.com/anthonydgj/wael
 │  ├─ publisher: AnthonyDGJ
