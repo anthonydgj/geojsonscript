@@ -333,6 +333,7 @@ ${linesString}
 		const waelResult = Wael.evaluate(value, {
 			outputFormat: OutputFormat.WKT,
 			outputNonGeoJSON: true,
+			useStdLib: true,
 			scope: scope
 		});
 		this.consoleListenerService.postConsoleEvent({
